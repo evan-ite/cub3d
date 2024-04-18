@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@students.42berlin.de>   +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 12:07:40 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:35:02 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ typedef struct s_map
 	char	**map;
 	int		max_width;
 	int		max_height;
-	// what should this look like?
 }	t_map;
 
-parsing(int argc, char **argv, t_map *map);
-start_game(t_map *map);
+int	parsing(int argc, char **argv, t_map *map);
+int	start_game(t_map *map);
 
 #endif
