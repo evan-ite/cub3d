@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 12:57:41 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:50:18 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef PARSING_H
+# define PARSING_H
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
+# include "cub3d.h"
 
-typedef struct s_map
-{
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		f[3];
-	int		c[3];
-	char	**map;
-	int		max_width;
-	int		max_height;
-}	t_map;
-
-int		parsing(int argc, char **argv, t_map *map);
-int		start_game(t_map *map);
-void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
+# define ERR_ARGC "Please provide one map argument"
 
 #endif

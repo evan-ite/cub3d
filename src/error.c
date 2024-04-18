@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   err_msg.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 12:57:41 by evan-ite         ###   ########.fr       */
+/*   Created: 2024/04/18 12:51:00 by evan-ite          #+#    #+#             */
+/*   Updated: 2024/04/18 12:56:37 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../includes/cub3d.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-typedef struct s_map
+void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 {
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		f[3];
-	int		c[3];
-	char	**map;
-	int		max_width;
-	int		max_height;
-}	t_map;
-
-int		parsing(int argc, char **argv, t_map *map);
-int		start_game(t_map *map);
-void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
-
-#endif
+	if (err_msg)
+		// putstr(err_msg);
+	if (map)
+		// free map
+	if (game)
+		// free struct
+	exit(err_code);
+}

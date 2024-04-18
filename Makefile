@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+         #
+#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/18 10:00:56 by elisevanite      ###   ########.fr        #
+#    Updated: 2024/04/18 12:38:25 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
