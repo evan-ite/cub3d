@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 15:46:31 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:58:14 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ int	extract_path(char **dest, char *str)
 	while (ft_isspace(str[i]))
 		i++;
 	path = ft_substr(str, i, len - i);
+	*dest = ft_strdup(path);
 	printf("path = %s\n", path);
+	free(path);
 	return (1);
 }
 
-int	*extract_colors(char *str)
+int	extract_colors(char *str)
 /* extracts the RGB colors from str and saves it in dest */
 {
-	printf("extract colors\n");
+	printf("extract colors %s\n", str);
 	return (1);
 }

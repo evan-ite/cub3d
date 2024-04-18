@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 15:46:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:57:37 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 
 void	init_map(t_map *map);
 int		extract_path(char **dest, char *str);
-int		*extract_colors(char *str);
+int		extract_colors(char *str);
 
 #endif

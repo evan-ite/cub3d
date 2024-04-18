@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 15:49:10 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:56:52 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static int	get_content(int fd, t_map *map)
 			extract_path(&map->we, line);
 		else if (*line == 'E')
 			extract_path(&map->ea, line);
-		else if (*line == 'F')
-			map->f[0] = extract_colors(line);
-		else if (*line == 'C')
-			map->c[0] = extract_colors(line);
+		// else if (*line == 'F')
+		// 	map->f[0] = extract_colors(line);
+		// else if (*line == 'C')
+		// 	map->c[0] = extract_colors(line);
 		free(line);
 		line = get_next_line(fd);
 	}
