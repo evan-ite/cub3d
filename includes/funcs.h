@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 16:12:28 by evan-ite         ###   ########.fr       */
+/*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
+/*   Updated: 2024/04/18 16:24:39 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
-
-# include "cub3d.h"
-# include <fcntl.h>
-
-# define ERR_ARGC "Please provide one map argument\n"
-# define ERR_FILE "Please provide a valid map file\n"
+#ifndef FUNCS_H
+# define FUNCS_H
 
 void	init_map(t_map *map);
 int		extract_path(char **dest, char *str);
 int		extract_color(char *str);
+
+// parsing
+int		parsing(int argc, char **argv, t_map *map);
+
+// visualization
+int		start_game(t_map *map);
+
+// utils
+void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
 
 #endif
