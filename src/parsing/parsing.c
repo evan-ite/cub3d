@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 15:56:52 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:19:38 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,19 @@ static int	get_content(int fd, t_map *map)
 	line = get_next_line(fd);
 	while (line)
 	{
+		printf("line: %s \n", line);
 		if (*line == 'N')
-			extract_path(&map->no, line);
+			map->no = extract_path(line);
 		else if (*line == 'S')
-			extract_path(&map->so, line);
+			map->so = extract_path(line);
 		else if (*line == 'W')
-			extract_path(&map->we, line);
+			map->we = extract_path(line);
 		else if (*line == 'E')
-			extract_path(&map->ea, line);
-		// else if (*line == 'F')
-		// 	map->f[0] = extract_colors(line);
-		// else if (*line == 'C')
-		// 	map->c[0] = extract_colors(line);
+			map->ea = extract_path(line);
+		else if (*line == 'F')
+			map->f = extract_color(line);
+		else if (*line == 'C')
+			map->c= extract_color(line);
 		free(line);
 		line = get_next_line(fd);
 	}
