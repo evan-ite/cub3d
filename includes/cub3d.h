@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 15:48:37 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:10:43 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_map
 	char	*so;
 	char	*we;
 	char	*ea;
-	int		f[3];
-	int		c[3];
+	int		f;
+	int		c; //https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
 	char	**map;
 	int		max_width;
 	int		max_height;

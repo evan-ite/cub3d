@@ -16,8 +16,6 @@ The objectives of cub3D are to learn raycasting. As a graphics project, cub3D en
 
 ## Usage
 
-
-
 ### Example
 A minimalist .cub scene:
 ```
