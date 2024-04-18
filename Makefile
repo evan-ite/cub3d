@@ -6,7 +6,7 @@
 #    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/18 14:16:46 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/04/18 15:32:03 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS = -Wall -Werror -Wextra -g
 
 LIBFT = src/libft/libft.a
 
-SRC = src/main.c src/error.c src/parsing/parsing.c
+SRC = src/main.c src/error.c src/parsing/parsing.c \
+	src/parsing/utils.c
 
 OBJ := $(SRC:.c=.o)
 

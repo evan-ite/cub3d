@@ -15,10 +15,10 @@
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 {
 	if (err_msg)
-		// putstr(err_msg);
+		ft_putstr_fd(err_msg, STDERR_FILENO);
 	if (map)
-		// free map
+		free(map);
 	if (game)
-		// free struct
+		free(game);
 	exit(err_code);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@students.42berlin.de>   +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:59:29 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 12:06:46 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:35:34 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_map	*map;
 
-	if (parsing(argc, argv, &map))
+	map = NULL;
+	if (parsing(argc, argv, map))
 	{
-		start_game(&map);
+		// start_game(map);
+		printf("START GAME!! :)\n");
 		return (0);
 	}
 	else

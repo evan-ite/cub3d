@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:04:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 14:47:48 by evan-ite         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "mlx_int.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	if (!s || !*s)
-		return (0);
-	while (*s != '\0')
-	{
-		if (write(fd, s, 1) < 0)
-			return (1);
-		s++;
-	}
-	return (0);
+	XCloseDisplay(xvar->display);
 }

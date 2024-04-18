@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 14:18:33 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:48:37 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "../src/libft/libft.h"
+# include "../src/libft/getnextline.h"
+# include "../src/libft/ft_printf.h"
 
 typedef struct s_map
 {
