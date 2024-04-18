@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/18 16:24:39 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:29:16 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FUNCS_H
 
 void	init_map(t_map *map);
-int		extract_path(char **dest, char *str);
+char	*extract_path(char *str);
 int		extract_color(char *str);
 
 // parsing

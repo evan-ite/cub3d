@@ -6,11 +6,11 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:03 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:30:05 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
+#include "../../includes/cub3d.h"
 
 void	init_map(t_map *map)
 /* Initializes map struct */

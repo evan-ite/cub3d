@@ -6,11 +6,11 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:38 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:29:56 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
+#include "../../includes/cub3d.h"
 
 static int	check_extension(char *file)
 /*Check if the input file has the .cub extension.

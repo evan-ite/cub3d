@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 16:27:27 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:31:27 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "../src/libft/libft.h"
 # include "../src/libft/getnextline.h"
 # include "../src/libft/ft_printf.h"
-# include "../../minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "funcs.h"
 # include "structs.h"
 
