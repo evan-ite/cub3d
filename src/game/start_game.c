@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:43 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:25:00 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	init_window()
 	w->player = w->player_1_ptr;
 	_init_hud(w);
 	return (1);
-}
 }
 
 int	start_game(t_map *map)
