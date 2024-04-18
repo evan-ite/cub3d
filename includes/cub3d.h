@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:27 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:27:27 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include <string.h>
 # include "../src/libft/libft.h"
 # include "../src/libft/getnextline.h"
 # include "../src/libft/ft_printf.h"
+# include "../../minilibx-linux/mlx.h"
 # include "funcs.h"
 # include "structs.h"
 
