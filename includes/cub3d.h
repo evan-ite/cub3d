@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 12:57:41 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:18:33 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,13 @@ typedef struct s_map
 	int		max_height;
 }	t_map;
 
+// parsing
 int		parsing(int argc, char **argv, t_map *map);
+
+// visualization
 int		start_game(t_map *map);
+
+// utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
 
 #endif

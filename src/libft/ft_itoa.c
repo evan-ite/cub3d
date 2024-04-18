@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:19:49 by evan-ite          #+#    #+#             */
-/*   Updated: 2023/12/14 11:27:06 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:17:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,23 @@ static void	print_nbr(char *str, int n, int strlen)
 		n *= -1;
 		print_nbr(str, n, strlen);
 	}
+}
+
+static int	count_digits(int n)
+{
+	int	counter;
+
+	if (n == 0)
+		return (1);
+	counter = 0;
+	if (n < 0)
+		counter++;
+	while (n != 0)
+	{
+		n /= 10;
+		counter++;
+	}
+	return (counter);
 }
 
 char	*ft_itoa(int n)

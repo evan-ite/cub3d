@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 13:03:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:19:40 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	parsing(int argc, char **argv, t_map *map)
 {
 	if (argc != 2)
-		hanlde_error(ERR_ARGC, 1, map, NULL);
+		handle_error(ERR_ARGC, 1, map, NULL);
+	argv++;
 
 //Except for the map content which always has to be the last, each type of
 //element can be set in any order in the file !!!
@@ -37,4 +38,5 @@ int	parsing(int argc, char **argv, t_map *map)
 	// map is surrounded by walls
 	// only 1 player
 
+	return (1);
 }

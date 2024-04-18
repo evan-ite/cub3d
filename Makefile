@@ -6,7 +6,7 @@
 #    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/18 12:38:25 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/04/18 14:16:46 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,23 +15,30 @@ NAME = cub3d
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 
-SRC =
+LIBFT = src/libft/libft.a
+
+SRC = src/main.c src/error.c src/parsing/parsing.c
+
 OBJ := $(SRC:.c=.o)
 
-all: $(NAME)
+all: libft $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+
+libft:
+	$(MAKE) -C src/libft
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
 clean:
 	rm -f $(OBJ)
+	$(MAKE) -C src/libft clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C src/libft fclean
 
 re: fclean all
 
