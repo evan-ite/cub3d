@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 12:50:44 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:03:23 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	parsing(int argc, char **argv, t_map *map)
 {
 	if (argc != 2)
-		exit_error(ERR_ARGC);
+		hanlde_error(ERR_ARGC, 1, map, NULL);
 
 //Except for the map content which always has to be the last, each type of
 //element can be set in any order in the file !!!
