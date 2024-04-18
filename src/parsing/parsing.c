@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:29:56 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:59:32 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,27 @@ Returns 1 if file has .cub extension, 0 if it hasn't */
 static int	get_content(int fd, t_map *map)
 {
 	char	*line;
+	int		i;
 
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("line: %s \n", line);
-		if (*line == 'N')
-			map->no = extract_path(line);
-		else if (*line == 'S')
-			map->so = extract_path(line);
-		else if (*line == 'W')
-			map->we = extract_path(line);
-		else if (*line == 'E')
-			map->ea = extract_path(line);
-		else if (*line == 'F')
-			map->f = extract_color(line);
-		else if (*line == 'C')
-			map->c= extract_color(line);
+		i = 0;
+		// printf("line: %s \n", line);
+		while (ft_isspace(line[i]))
+			i++;
+		if (line[i] == 'N')
+			map->no = extract_path(i, line);
+		else if (line[i] == 'S')
+			map->so = extract_path(i, line);
+		else if (line[i] == 'W')
+			map->we = extract_path(i, line);
+		else if (line[i] == 'E')
+			map->ea = extract_path(i, line);
+		else if (line[i]== 'F')
+			map->f = extract_color(i, line);
+		else if (line[i] == 'C')
+			map->c= extract_color(i, line);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -76,6 +80,7 @@ int	parsing(int argc, char **argv, t_map *map)
 {
 	int	fd;
 
+	init_map(map);
 	if (argc != 2)
 		handle_error(ERR_ARGC, 1, map, NULL);
 	if (!check_extension(argv[1]))
@@ -83,7 +88,6 @@ int	parsing(int argc, char **argv, t_map *map)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		handle_error(ERR_FILE, 1, map, NULL);
-	init_map(map);
 	get_content(fd, map);
 	return (1);
 }

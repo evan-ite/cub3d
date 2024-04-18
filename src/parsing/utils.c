@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:30:05 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:59:15 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_map(t_map *map)
 	map->max_width = 0;
 }
 
-char	*extract_path(char *str)
+char	*extract_path(int start, char *str)
 /* extracts the filepath from str and saves it in dest */
 {
 	int		i;
@@ -34,20 +34,21 @@ char	*extract_path(char *str)
 	char	*path;
 
 	len = ft_strlen(str);
-	i = 2;
+	i = start + 2;
 	while (ft_isspace(str[i]))
 		i++;
 	path = ft_substr(str, i, len - i);
 	len = ft_strlen(path);
 	if (path[len - 1] == '\n')
 		path[len - 1] = '\0';
-	printf("path = '%s'\n", path);
 	return (path);
 }
 
-int	extract_color(char *str)
+int	extract_color(int start, char *str)
 /* extracts the RGB colors from str and saves it in dest */
 {
-	printf("extract colors %s\n", str);
+	start++;
+	str++;
+	// printf("extract colors %s %i\n", str, start);
 	return (1);
 }
