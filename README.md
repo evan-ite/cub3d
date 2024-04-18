@@ -9,8 +9,6 @@ cub3D is a project inspired by the legendary Wolfenstein 3D game, renowned as th
 ## Wolfenstein 3D
 Developed by Id Software, with contributions from John Carmack and John Romero, Wolfenstein 3D marked the inception of the "First Person Shooter" genre in the gaming industry. With cub3D, you get to relive this historic moment in gaming history.
 
-![John Romero and John Carmack](https://via.placeholder.com/500)
-
 ## Goals
 The objectives of cub3D are to learn raycasting. As a graphics project, cub3D enhances your skills in windows, colors, events, and shape filling.
 
