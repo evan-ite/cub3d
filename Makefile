@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/18 16:56:54 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/04/18 17:25:43 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,20 @@ NAME = cub3d
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
+LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
 
 SRC = src/main.c src/error.c src/print.c \
-	src/parsing/parsing.c src/parsing/utils.c
+	src/parsing/parsing.c src/parsing/utils.c \
+	src/game/start_game.c
 
 OBJ := $(SRC:.c=.o)
 
 all: libft $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(LFLAGS)
 
 libft:
 	$(MAKE) -C src/libft
