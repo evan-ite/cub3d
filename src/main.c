@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@students.42berlin.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:59:29 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 10:07:46 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/04/18 12:06:46 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
