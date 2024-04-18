@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:51:20 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:56:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:04:53 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	print_map(t_map *map)
 {
+	printf("------ 	PRINT MAP -----\n");
 	printf("North: '%s'\n", map->no);
 	printf("South: '%s'\n", map->so);
 	printf("West: '%s'\n", map->we);
