@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 16:19:27 by jstrozyk         ###   ########.fr       */
+/*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
+/*   Updated: 2024/04/18 16:22:45 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "../src/libft/libft.h"
-# include "../src/libft/getnextline.h"
-# include "../src/libft/ft_printf.h"
-# include "funcs.h"
-# include "structs.h"
+typedef struct s_game
+{
+	t_map	*map;
+}	t_game;
 
-# define ERR_ARGC "Please provide one map argument\n"
-# define ERR_FILE "Please provide a valid map file\n"
-
-
+typedef struct s_map
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		f;
+	int		c; //https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
+	char	**map;
+	int		max_width;
+	int		max_height;
+}	t_map;
 
 #endif
