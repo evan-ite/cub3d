@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:45:40 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 15:12:37 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:59:52 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static uint32_t	create_color(int red, int green, int blue, t_map *map)
 	color_integer |= (uint32_t)blue;
 	color_integer |= ((uint32_t)green << 8);
 	color_integer |= ((uint32_t)red << 16);
-
 	return color_integer;
 }
 
