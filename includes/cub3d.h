@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 17:02:55 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:36:19 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 # define ERR_ARGC "Please provide one map argument\n"
 # define ERR_FILE "Please provide a valid map file\n"
+# define ERR_MEM "Error allocating memory\n"
 # define WINDOW_NAME "PAPARAZZO"
 
 #endif

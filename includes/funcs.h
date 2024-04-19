@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/18 16:56:26 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:15:36 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		extract_color(int start, char *str);
 int		parsing(int argc, char **argv, t_map *map);
 
 // visualization
-int		start_game(t_map *map);
+int		start_game(t_game *game);
 
 // utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
