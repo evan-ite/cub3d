@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:59:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:35:17 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,33 @@ char	*extract_path(int start, char *str)
 	return (path);
 }
 
+uint32_t	create_color(int red, int green, int blue)
+/* Taking the RGB values and putting it in an integer which is returned. */
+{
+	uint32_t	color_integer = 0;
+
+	color_integer |= (uint32_t)blue;
+	color_integer |= ((uint32_t)green << 8);
+	color_integer |= ((uint32_t)red << 16);
+
+	return color_integer;
+}
+
 int	extract_color(int start, char *str)
 /* extracts the RGB colors from str and saves it in dest */
 {
-	start++;
-	str++;
+	int		i;
+	char	*temp;
+
+	i = start + 1;
+	while (ft_isspace(str[i]))
+		i++;
+	start = i;
+	while (ft_isdigit(str[i]) || str[i] == ',')
+		i++;
+	temp = ft_substr(str, start, i - start);
+	if (!temp)
+		handle_error()
 	// printf("extract colors %s %i\n", str, start);
 	return (1);
 }

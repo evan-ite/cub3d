@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:59:32 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:29:48 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static int	get_content(int fd, t_map *map)
 	while (line)
 	{
 		i = 0;
-		// printf("line: %s \n", line);
 		while (ft_isspace(line[i]))
 			i++;
 		if (line[i] == 'N')
@@ -80,11 +79,11 @@ int	parsing(int argc, char **argv, t_map *map)
 {
 	int	fd;
 
-	init_map(map);
 	if (argc != 2)
-		handle_error(ERR_ARGC, 1, map, NULL);
+		handle_error(ERR_ARGC, 1, NULL, NULL);
 	if (!check_extension(argv[1]))
-		handle_error(ERR_FILE, 1, map, NULL);
+		handle_error(ERR_FILE, 1, NULL, NULL);
+	init_map(map);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		handle_error(ERR_FILE, 1, map, NULL);
