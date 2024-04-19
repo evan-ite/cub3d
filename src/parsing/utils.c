@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 16:59:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:30:22 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	init_map(t_map *map)
 	map->ea = NULL;
 	map->f = -1;
 	map->c = -1;
-	map->max_height = 0;
-	map->max_width = 0;
+	map->max_height = 100;
+	map->max_width = 100;
 }
 
 char	*extract_path(int start, char *str)

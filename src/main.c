@@ -3,24 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:59:29 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/18 16:59:41 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:42:07 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+static void	init_window(t_game *g, void *mlx)
+{
+	g->win->mlx = mlx;
+	g->win->win = mlx_new_window(mlx, 1000, 1000, WINDOW_NAME);
+}
+
+
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_game	g;
+	t_map	m;
+	t_win	w;
 
-	if (parsing(argc, argv, &map))
+	if (parsing(argc, argv, &m))
 	{
-		// start_game(map);
-		print_map(&map);
+		g.map = &m;
+		g.win = &w;
+		init_window(&g, mlx_init());
+		print_map(&m);
 		printf("START GAME!! :)\n");
+		start_game(&g);
+		mlx_destroy_window(g.win->mlx, g.win->win);
 		return (0);
 	}
 	else
