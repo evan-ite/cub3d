@@ -6,13 +6,13 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:28:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 16:20:47 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:23:07 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static int	is_mapchar(char c)
+int	is_mapchar(char c)
 {
 	if (c == '1' || c == '0' || c == ' ' || c == '\n')
 		return (1);
@@ -22,34 +22,62 @@ static int	is_mapchar(char c)
 		return (0);
 }
 
+static int	white_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (!ft_isspace(line[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	map_line(char *str)
 {
 	int	i;
-	int	space;
 
 	i = 0;
-	space = 0;
+	if (white_line(str))
+		return (0);
 	while (str[i])
 	{
 		if (!is_mapchar(str[i]))
 			return (0);
-		if (ft_isspace(str[i]))
-			space++;
 		i++;
 	}
-	if (space == (int)ft_strlen(str))
-		return (0);
 	return (1);
 }
 
 int	get_map(t_map *map)
 {
-	map->map = gnl_calloc(map->max_height, sizeof(char *));
+	char	*line;
+	int		len;
+	int		i;
+
+	map->map = gnl_calloc(map->max_height + 1, sizeof(char *));
 	if (!map)
 		handle_error(ERR_MEM, 1, map, NULL);
-
-	// 6 possible chars: 0,1,N,S,E,W
-	// map is surrounded by walls
-	// only 1 player
+	i = 0;
+	line = get_next_line(map->fd);
+	while (line)
+	{
+		if (map_line(line))
+		{
+			len = ft_strlen(line);
+			if (line[len - 1] == '\n')
+				line[len - 1] = '\0';
+			map->map[i] = ft_strdup(line);
+			if (!map->map[i])
+				handle_error(ERR_MEM, 1, map, NULL);
+			i++;
+		}
+		free(line);
+		line = get_next_line(map->fd);
+	}
+	check_valid(map);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 16:20:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:06:12 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,5 @@ int	parsing(int argc, char **argv, t_map *map)
 	map->fd = open(argv[1], O_RDONLY);
 	get_map(map);
 	ft_close(&map->fd);
-	// CHECK IF ALL CONTENT IN MAP EXISTS!!
 	return (1);
 }

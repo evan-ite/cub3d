@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 15:34:28 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 16:23:44 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_map(t_map *map)
 	map->max_width = 100;
 	map->fd = -1;
 }
+
 
 char	*extract_path(int start, char *str, t_map *map)
 /* extracts the filepath from str and saves it in dest */
