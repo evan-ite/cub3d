@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err_msg.c                                            :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:51:00 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 12:56:37 by evan-ite         ###   ########.fr       */
+/*   Created: 2024/04/19 15:33:00 by evan-ite          #+#    #+#             */
+/*   Updated: 2024/04/19 15:36:47 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "libft.h"
 
-void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
+void	ft_close(int *fd)
 {
-	if (err_msg)
-		ft_putstr_fd(err_msg, STDERR_FILENO);
-	if (map->fd >= 0)
-		ft_close(&map->fd);
-	if (map)
-		// free(map);
-	if (game)
-		free(game);
-	exit(err_code);
+	close(*fd);
+	*fd = -1;
 }

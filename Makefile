@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
+#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/18 17:25:43 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/04/19 15:29:04 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 LIBFT = src/libft/libft.a
 
 SRC = src/main.c src/error.c src/print.c \
-	src/parsing/parsing.c src/parsing/utils.c \
+	src/parsing/parsing.c src/parsing/utils.c src/parsing/color.c src/parsing/map.c\
 	src/game/start_game.c
 
 OBJ := $(SRC:.c=.o)

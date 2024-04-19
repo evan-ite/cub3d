@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 14:39:20 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:34:28 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ void	init_map(t_map *map)
 	map->c = -1;
 	map->max_height = 100;
 	map->max_width = 100;
+	map->fd = -1;
 }
 
-char	*extract_path(int start, char *str)
+char	*extract_path(int start, char *str, t_map *map)
 /* extracts the filepath from str and saves it in dest */
 {
 	int		i;
+	int		fd_valid;
 	int		len;
 	char	*path;
 
@@ -38,39 +40,14 @@ char	*extract_path(int start, char *str)
 	while (ft_isspace(str[i]))
 		i++;
 	path = ft_substr(str, i, len - i);
+	if (!path)
+		handle_error(ERR_MEM, 1, map, NULL);
 	len = ft_strlen(path);
 	if (path[len - 1] == '\n')
 		path[len - 1] = '\0';
+	fd_valid = open(path, O_RDONLY);
+	if ( fd_valid == -1)
+		handle_error(ERR_TEXT, 1, map, NULL);
+	close(fd_valid);
 	return (path);
-}
-
-uint32_t	create_color(int red, int green, int blue)
-/* Taking the RGB values and putting it in an integer which is returned. */
-{
-	uint32_t	color_integer = 0;
-
-	color_integer |= (uint32_t)blue;
-	color_integer |= ((uint32_t)green << 8);
-	color_integer |= ((uint32_t)red << 16);
-
-	return color_integer;
-}
-
-int	extract_color(int start, char *str)
-/* extracts the RGB colors from str and saves it in dest */
-{
-	int		i;
-	char	*temp;
-
-	i = start + 1;
-	while (ft_isspace(str[i]))
-		i++;
-	start = i;
-	while (ft_isdigit(str[i]) || str[i] == ',')
-		i++;
-	temp = ft_substr(str, start, i - start);
-	if (!temp)
-		handle_error()
-	// printf("extract colors %s %i\n", str, start);
-	return (1);
 }

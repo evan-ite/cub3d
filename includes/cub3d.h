@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/19 14:36:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/19 16:14:08 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@
 # define ERR_ARGC "Please provide one map argument\n"
 # define ERR_FILE "Please provide a valid map file\n"
 # define ERR_MEM "Error allocating memory\n"
+# define ERR_TEXT "Map does not contain valid texture files\n"
+# define ERR_COL "Map does not contain valid RGB colors\n"
+# define ERR_MAP "Please provide a valid map\n"
 # define WINDOW_NAME "PAPARAZZO"
 
 #endif
