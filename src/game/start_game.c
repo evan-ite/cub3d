@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/22 18:10:54 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:22:21 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static	void *draw_tex(t_game *g)
 	x = TEX_X;
 	y = TEX_Y;
 	ptr = mlx_xpm_file_to_image(g->win->mlx, g->map->no, &x, &y);
-	return(ptr);
+	// mlx_get_data_addr();
+	return (ptr);
 }
 
 static int	next_frame(t_game *game)
@@ -41,11 +42,11 @@ static int	next_frame(t_game *game)
 	c = 0;
 	void	*ptr = draw_tex(game);
 	printf("%s\n", (char *)ptr);
-	while(++c < WIDTH)
+	while (++c < WIDTH)
 	{
 		r = 0;
 		// now draw the rest of the owl
-		while(++r < HEIGHT)
+		while (++r < HEIGHT)
 		{
 
 			if (r > HEIGHT/3)
