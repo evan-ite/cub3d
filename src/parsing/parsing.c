@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 17:06:12 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:39:27 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	parsing(int argc, char **argv, t_map *map)
 	if (!check_extension(argv[1]))
 		handle_error(ERR_FILE, 1, NULL, NULL);
 	init_map(map);
+	print_map(map);
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd == -1)
 		handle_error(ERR_FILE, 1, map, NULL);

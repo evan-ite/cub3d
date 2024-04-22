@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:59:29 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/19 15:09:35 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:39:15 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	t_game	g;
 	t_map	m;
 	t_win	w;
-	
+
 	if (parsing(argc, argv, &m))
 	{
 		g.map = &m;

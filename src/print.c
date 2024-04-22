@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:51:20 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/18 17:04:53 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:28:57 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	print_map(t_map *map)
 	printf("Ceiling color: %i\n", map->c);
 	printf("Max width: %i\n", map->max_width);
 	printf("Max height: %i\n", map->max_height);
-	for (int i = 0; i < map->max_height; i++)
-		printf("map[%i]: %s\n", i, map->map[i]);
+	if (map->map)
+	{
+		for (int i = 0; i < map->max_height; i++)
+			printf("map[%i]: %s\n", i, map->map[i]);
+	}
 }
