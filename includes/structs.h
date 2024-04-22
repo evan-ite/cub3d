@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/22 17:58:45 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:20:48 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_map
 	char	*we;
 	char	*ea;
 	int		f;
-	int		c; //https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
+	int		c; // https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
 	char	**map;
 	int		max_width;
 	int		max_height;
@@ -46,6 +46,7 @@ typedef struct s_game
 {
 	t_map	*map;
 	t_win	*win;
+	t_tex	*texts[4]; // 0 == North, 1 == East, 2 == South, 3 == West
 }	t_game;
 
 #endif
