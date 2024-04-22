@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/19 17:15:56 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/04/22 10:23:52 by elisevanite      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT = src/libft/libft.a
 
 SRC = src/main.c src/error.c src/print.c \
 	src/parsing/parsing.c src/parsing/utils.c src/parsing/color.c src/parsing/map.c \
-	src/parsing/valid_map.c \
+	src/parsing/valid_map.c src/parsing/walls.c \
 	src/game/start_game.c
 
 OBJ := $(SRC:.c=.o)

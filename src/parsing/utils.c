@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 16:23:44 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:34:27 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	init_map(t_map *map)
 /* Initializes map struct */
 {
-	map = gnl_calloc(1, sizeof(t_map));
+	map->map = NULL;
 	map->no = NULL;
 	map->so = NULL;
 	map->we = NULL;
 	map->ea = NULL;
 	map->f = -1;
 	map->c = -1;
-	map->max_height = 100;
-	map->max_width = 100;
+	map->max_height = 0;
+	map->max_width = 0;
 	map->fd = -1;
 }
 

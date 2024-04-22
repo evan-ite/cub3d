@@ -29,11 +29,6 @@ static int	valid_chars(char *str)
 	return (1);
 }
 
-static int	check_walls(t_map *map)
-{
-	map->fd = -1;
-	return (1);
-}
 
 int	check_valid(t_map *map)
 {
@@ -44,7 +39,6 @@ int	check_valid(t_map *map)
 	player = 0;
 	while (map->map[i])
 	{
-		printf("TEST '%s'\n", map->map[i]);
 		if (!valid_chars(map->map[i]))
 			handle_error(ERR_MAP, 1, map, NULL);
 		if (ft_strchr(map->map[i], 'N'))
