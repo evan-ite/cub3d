@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/22 15:03:19 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:03:10 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define ERR_COL "Map does not contain valid RGB colors\n"
 # define ERR_MAP "Please provide a valid map\n"
 # define WINDOW_NAME "PAPARAZZO"
-# define HEIGHT 1920
-# define WIDTH 1080
+# define WIDTH 1920
+# define HEIGHT 960
 
 #endif

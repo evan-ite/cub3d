@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:59:29 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/22 16:46:33 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:54:36 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	init_window(t_game *g, void *mlx)
 {
 	g->win->mlx = mlx;
-	g->win->win = mlx_new_window(mlx, HEIGHT, WIDTH, WINDOW_NAME);
+	g->win->win = mlx_new_window(mlx, WIDTH, HEIGHT, WINDOW_NAME);
 }
 
 
