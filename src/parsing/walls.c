@@ -3,63 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:58:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/22 10:23:34 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/04/22 15:24:33 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// Loop over each tile in the map
-	// if i + 1, i - 1, j + 1 or j - 1 doesn't exist/ is empty
-		// if current tile not a wall
-			// Invalid map
-
-static int	check_surrounding(char** tiles, int i, int j, t_map *map)
+static char	**copy_map(char **map, int height)
 {
-	if (tiles[i + 1][j] && ft_isspace(tiles[i + 1][j]))
+	int		i;
+	char	**copy;
+
+	copy = gnl_calloc(height + 1, sizeof(char *));
+	i = 0;
+	while (map[i])
 	{
-		if (tiles[i][j] != '1')
-			handle_error(ERR_MAP, 1, map, NULL);
+		copy[i] = ft_strdup(map[i]);
+		i++;
 	}
-	else if (tiles[i - 1][j] && ft_isspace(tiles[i - 1][j]))
-	{
-		if (tiles[i][j] != '1')
-			handle_error(ERR_MAP, 1, map, NULL);
-	}
-	else if (tiles[i][j + 1] && ft_isspace(tiles[i][j + 1]))
-	{
-		if (tiles[i][j] != '1')
-			handle_error(ERR_MAP, 1, map, NULL);
-	}
-	else if (tiles[i][j - 1] && ft_isspace(tiles[i][j - 1]))
-	{
-		if (tiles[i][j] != '1')
-			handle_error(ERR_MAP, 1, map, NULL);
-	}
-	return (1);
+	return (copy);
+}
+
+static void	flood_fill(int	x, int y, char **tiles, t_map *map)
+{
+	if (x < 0 || x > map->max_width || y < 0 || y > map->max_height)
+		handle_error(ERR_MAP, 1, map, NULL);
+	if (tiles[y][x] == 'V' || tiles[y][x] == '1')
+		return ;
+	tiles[y][x] = 'V';
+	flood_fill(x + 1, y, tiles, map);
+	flood_fill(x - 1, y, tiles, map);
+	flood_fill(x, y + 1, tiles, map);
+	flood_fill(x, y - 1, tiles, map);
 }
 
 int	check_walls(t_map *map)
 {
-	char	**tiles;
 	int		i;
 	int		j;
+	char	**copy;
 
-	tiles = map->map;
+	copy = copy_map(map->map, map->max_height);
 	i = 0;
-	while (tiles[i])
+	while (copy[i])
 	{
 		j = 0;
-		while(tiles[i][j])
+		while (copy[i][j])
 		{
-			check_surrounding(tiles, i, j, map);
+			if (copy[i][j] == 'N')
+				flood_fill(j, i, copy, map);
 			j++;
 		}
 		i++;
 	}
+	free_array((void **)copy, -1);
 	return (1);
 }
 
