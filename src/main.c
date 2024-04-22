@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:59:29 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/19 15:09:35 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:24:57 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	init_window(t_game *g, void *mlx)
 {
 	g->win->mlx = mlx;
-	g->win->win = mlx_new_window(mlx, 1000, 1000, WINDOW_NAME);
+	g->win->win = mlx_new_window(mlx, HEIGHT, WIDTH, WINDOW_NAME);
 }
 
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	t_game	g;
 	t_map	m;
 	t_win	w;
-	
+
 	if (parsing(argc, argv, &m))
 	{
 		g.map = &m;
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 		init_window(&g, mlx_init());
 		print_map(&m);
 		printf("START GAME!! :)\n");
+		printf("%p, %p\n", g.win->mlx, g.win->win);
 		start_game(&g);
 		mlx_destroy_window(g.win->mlx, g.win->win);
 		return (0);
