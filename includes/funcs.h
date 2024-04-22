@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/19 17:23:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:24:06 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		get_map(t_map *map);
 int		map_line(char *str);
 int		check_valid(t_map *map);
 int		is_mapchar(char c);
+int		check_walls(t_map *map);
 
 // parsing
 int		parsing(int argc, char **argv, t_map *map);

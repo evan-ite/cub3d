@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:45:40 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 15:12:37 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:10:22 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	extract_color(int start, char *str, t_map *map)
 	start = i;
 	while (ft_isdigit(str[i]) || str[i] == ',')
 		i++;
+	if (str[i + 1] && !ft_isspace(str[i + 1]))
+		handle_error(ERR_COL, 1, map, NULL);
 	temp = ft_substr(str, start, i - start);
 	if (!temp)
 		handle_error(ERR_MEM, 1, map, NULL);
