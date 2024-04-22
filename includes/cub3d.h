@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/22 17:03:10 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:05:55 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@
 # define WINDOW_NAME "PAPARAZZO"
 # define WIDTH 1920
 # define HEIGHT 960
+# define TEX_X 256
+# define TEX_Y 256
 
 #endif
