@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 15:02:20 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:03:54 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,5 @@ int	init_frame(t_game *g)
 	ft_memset(f->addr, 0, (f->len * HEIGHT));
 	fill_bg(f, g->map->c, g->map->f);
 	g->frame = f;
-	print_img(g->frame);
 	return (1); // meaningfull error handling tbi
 }
-

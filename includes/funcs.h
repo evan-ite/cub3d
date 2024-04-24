@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 15:02:37 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:04:35 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		parsing(int argc, char **argv, t_map *map);
 int		start_game(t_game *game);
 int		init_textures(t_game *g);
 int		init_frame(t_game *g);
+int		draw_frame(t_game *g);
 int		fill_bg(t_img *frame, int c, int f);
 
 // utils

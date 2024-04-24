@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 15:57:52 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:22:46 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	fill_bg(t_img *frame, int c, int f)
 	return (1); // meaningfull error handling tbi
 }
 
-int	draw_px(t_coord	*px, int c, t_game *g)
+int	set_px(t_coord	*px, int c, t_game *g)
 {
 	char	*ptr;
 
@@ -44,10 +44,39 @@ int	draw_px(t_coord	*px, int c, t_game *g)
 
 int	get_px(t_coord *px, t_img *i, int verify)
 {
+	int	*c;
+
 	if(verify)
 	{
 		if (px->x > TEX_X || px->y > TEX_Y)
 			return (-1);
 	}
-	return ((int) *(i->addr + ((px->y * i->len) + (i->bpp / 8) * px->x)));
+	c = (int *) (i->addr + ((px->y * i->len) + (i->bpp / 8) * px->x));
+	return (*c);
+}
+
+int	draw_frame(t_game *g)
+{
+	t_img	*text;
+	t_coord	get;
+	t_coord	set;
+
+	text = g->texts[0];
+	set.x = 250;
+	get.x = 0;
+
+	while(get.x < TEX_X)
+	{
+		get.y = 0;
+		set.y = 250;
+		while(get.y < TEX_Y)
+		{
+			set_px(&set, get_px(&get, text, 1), g);
+			get.y++;
+			set.y++;
+		}
+		get.x++;
+		set.x++;
+	}
+	return (1); // meaningfull error handling tbi
 }
