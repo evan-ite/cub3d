@@ -6,56 +6,20 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/22 18:22:21 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:59:16 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static	void *draw_tex(t_game *g)
+static void	next_frame(t_game *game)
 {
-	void	*ptr;
-	int		x;
-	int		y;
+	void*	win;
+	void*	mlx;
 
-	ptr = malloc(1);
-	x = TEX_X;
-	y = TEX_Y;
-	ptr = mlx_xpm_file_to_image(g->win->mlx, g->map->no, &x, &y);
-	// mlx_get_data_addr();
-	return (ptr);
-}
-
-static int	next_frame(t_game *game)
-{
-	void*	win_ptr;
-	void*	mlx_ptr;
-	int		ceiling;
-	int		floor;
-	int		r;
-	int		c;
-
-	win_ptr = game->win->win;
-	mlx_ptr = game->win->mlx;
-	ceiling = game->map->c;
-	floor = game->map->f;
-	c = 0;
-	void	*ptr = draw_tex(game);
-	printf("%s\n", (char *)ptr);
-	while (++c < WIDTH)
-	{
-		r = 0;
-		// now draw the rest of the owl
-		while (++r < HEIGHT)
-		{
-
-			if (r > HEIGHT/3)
-				mlx_pixel_put(mlx_ptr, win_ptr, c, r, floor);
-			else
-				mlx_pixel_put(mlx_ptr, win_ptr, c, r, ceiling);
-		}
-	}
-	return (0);
+	win = game->win->win;
+	mlx = game->win->mlx;
+	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
 }
 
 static int	on_keypress()
@@ -77,6 +41,7 @@ int	start_game(t_game *game)
 
 	win_ptr = game->win->win;
 	mlx_ptr = game->win->mlx;
+	init_frame(game);
 	mlx_hook(win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &game);
 	mlx_hook(win_ptr, DestroyNotify, StructureNotifyMask, &on_end, &game);
 	mlx_loop_hook(mlx_ptr, next_frame, game);

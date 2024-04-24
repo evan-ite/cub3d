@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/22 16:22:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:02:37 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ int		parsing(int argc, char **argv, t_map *map);
 
 // visualization
 int		start_game(t_game *game);
+int		init_textures(t_game *g);
+int		init_frame(t_game *g);
+int		fill_bg(t_img *frame, int c, int f);
 
 // utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
-void	print_map(t_map *map);
 
+// debugging
+void	print_map(t_map *map);
+void	print_img(t_img *i);
 #endif
