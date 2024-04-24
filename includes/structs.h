@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 15:04:12 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:43:51 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef	struct s_coord
 	int	x;
 	int	y;
 }	t_coord;
+
+typedef	struct s_player
+{
+	t_coord	coord;
+	int		view;
+}	t_player;
 
 typedef struct s_map
 {
@@ -51,10 +57,11 @@ typedef struct s_image
 
 typedef struct s_game
 {
-	t_map	*map;
-	t_win	*win;
-	t_img	*texts[4]; // 0 == North, 1 == East, 2 == South, 3 == West
-	t_img	*frame;
+	t_map		*map;
+	t_win		*win;
+	t_img		*texts[4]; // 0 == North, 1 == East, 2 == South, 3 == West
+	t_img		*frame;
+	t_player	player;
 }	t_game;
 
 #endif

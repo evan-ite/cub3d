@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 16:22:46 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:37:46 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	draw_frame(t_game *g)
 			set_px(&set, get_px(&get, text, 1), g);
 			get.y++;
 			set.y++;
+
 		}
 		get.x++;
 		set.x++;

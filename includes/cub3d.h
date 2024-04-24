@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/24 12:10:28 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:14:55 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@
 # define HEIGHT 960
 # define TEX_X 256
 # define TEX_Y 256
+# define FOV 256
+# define SUBCELL 64
 
 #endif
