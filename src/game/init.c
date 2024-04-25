@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 16:03:54 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:39:12 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,31 @@ int	init_frame(t_game *g)
 	fill_bg(f, g->map->c, g->map->f);
 	g->frame = f;
 	return (1); // meaningfull error handling tbi
+}
+
+int	init_player(t_game *g)
+{
+	g->player = malloc(sizeof(t_player));
+	set_coord(0, 0, &(g->player->view));
+	set_coord(0, 0, &(g->player->coord));
+	while(g->map->map[(int) g->player->coord.y])
+	{
+		g->player->coord.x = 0;
+		while (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x])
+		{
+			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'N')
+				set_coord(0, -1, &g->player->view);
+			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'E')
+				set_coord(1, 0, &g->player->view);
+			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'S')
+				set_coord(0, 1, &g->player->view);
+			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'W')
+				set_coord(-1, 0, &g->player->view);
+			if (g->player->view.x != 0 && g->player->view.y != 0)
+				return (1);
+			g->player->coord.x++;
+		}
+		g->player->coord.y++;
+	}
+	return (0);
 }

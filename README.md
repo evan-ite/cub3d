@@ -55,7 +55,9 @@ C 225,30,0
 
 ## Current to-do
 - invalid fd close() when texture file doesn't exist or is broke
+- map considered invalid when player starts facing any direction other than north
 - use strcmp to check texture files instead of just checking 1st letter
 - add player starting point and view angle to parser
+- free all the stuff and fix a million leaks
 - draw the rest of the owl
 

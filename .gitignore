@@ -3,3 +3,4 @@ cub3d
 .vscode
 val.out
 libft/libft.a
+src/libft/libft.a

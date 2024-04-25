@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/24 16:21:57 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:37:58 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,12 @@ int	start_game(t_game *game)
 
 	win_ptr = game->win->win;
 	mlx_ptr = game->win->mlx;
+	init_player(game);
+	printf("%f, %f\n%f, %f\n", game->player->coord.x, game->player->coord.y, game->player->view.x, game->player->view.y);
+	raycast(game);
 	init_textures(game);
 	init_frame(game);
+	mlx_destroy_window(mlx_ptr, win_ptr); // init testing only!
 	mlx_hook(win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &game);
 	mlx_hook(win_ptr, DestroyNotify, StructureNotifyMask, &on_end, &game);
 	mlx_loop_hook(mlx_ptr, next_frame, game);

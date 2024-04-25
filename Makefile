@@ -6,7 +6,7 @@
 #    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/24 14:38:46 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/04/25 17:39:33 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ LIBFT = src/libft/libft.a
 SRC = src/main.c src/error.c src/print.c \
 	src/parsing/parsing.c src/parsing/utils.c src/parsing/color.c src/parsing/map.c \
 	src/parsing/valid_map.c src/parsing/walls.c \
-	src/game/start_game.c src/game/init.c src/game/draw.c
+	src/game/start_game.c src/game/init.c src/game/draw.c \
+	src/game/pixels.c src/game/game_utils.c src/dda/dda.c
 
 OBJ := $(SRC:.c=.o)
 
