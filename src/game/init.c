@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/25 17:39:12 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:27:55 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	init_frame(t_game *g)
 	f = malloc(sizeof(t_img));
 	f->mlx_img = mlx_new_image(mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->mlx_img, &(f->bpp), &(f->len), &(f->endian));
-	ft_memset(f->addr, 0, (f->len * HEIGHT));
+	ft_memset(f->addr, 0, (f->len * HEIGHT)); // not necessary?
 	fill_bg(f, g->map->c, g->map->f);
 	g->frame = f;
 	return (1); // meaningfull error handling tbi
@@ -66,7 +66,7 @@ int	init_player(t_game *g)
 				set_coord(0, 1, &g->player->view);
 			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'W')
 				set_coord(-1, 0, &g->player->view);
-			if (g->player->view.x != 0 && g->player->view.y != 0)
+			if (g->player->view.x != 0 || g->player->view.y != 0)
 				return (1);
 			g->player->coord.x++;
 		}

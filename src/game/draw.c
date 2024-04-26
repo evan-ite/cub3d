@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/25 10:41:51 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:05:23 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,46 @@ int	fill_bg(t_img *frame, int c, int f)
 
 int	draw_frame(t_game *g)
 {
-	t_img	*text;
-	t_coord	get;
-	t_coord	set;
+	// t_img	*text;
+	// t_coord	get;
+	// t_coord	set;
 
-	text = g->texts[1];
-	set.x = 250;
-	get.x = 0;
+	// text = g->texts[1];
+	// set.x = 250;
+	// get.x = 0;
 
-	while(get.x < TEX_X)
+	// while(get.x < TEX_X)
+	// {
+	// 	get.y = 0;
+	// 	set.y = 250;
+	// 	while(get.y < TEX_Y)
+	// 	{
+	// 		set_px(&set, get_px(&get, text, 1), g);
+	// 		get.y++;
+	// 		set.y++;
+
+	// 	}
+	// 	get.x++;
+	// 	set.x++;
+	// }
+	fill_bg(g->frame, g->map->c, g->map->f);
+	raycast(g);
+	return (1); // meaningfull error handling tbi
+}
+
+int	draw_line(int height, int col, int c, t_game *g)
+{
+	t_coord	px;
+	int		ctr;
+
+	ctr = -1;
+	px.y = (int) (HEIGHT - height) / 2;
+	px.x = (int) col;
+	while (++ctr <= height)
 	{
-		get.y = 0;
-		set.y = 250;
-		while(get.y < TEX_Y)
-		{
-			set_px(&set, get_px(&get, text, 1), g);
-			get.y++;
-			set.y++;
-
-		}
-		get.x++;
-		set.x++;
+		set_px(&px, c, g);
+		px.y++;
 	}
 	return (1); // meaningfull error handling tbi
 }
+// int	set_px(t_coord	*px, int c, t_game *g)

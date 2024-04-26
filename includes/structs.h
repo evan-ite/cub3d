@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/25 17:12:04 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/26 14:28:23 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_game
 	t_img		*texts[4]; // 0 == North, 1 == East, 2 == South, 3 == West
 	t_img		*frame;
 	t_player	*player;
+	size_t		tick;
 }	t_game;
 
 #endif

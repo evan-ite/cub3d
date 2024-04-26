@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/24 18:14:55 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:00:31 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@
 # define WINDOW_NAME "PAPARAZZO"
 # define WIDTH 1920
 # define HEIGHT 960
+// # define WIDTH 600
+// # define HEIGHT 300
 # define TEX_X 256
 # define TEX_Y 256
-# define FOV 256
-# define SUBCELL 64
+# define FOV 1
+# define DEBUG 1
 
 #endif

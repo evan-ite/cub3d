@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:51:20 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/24 14:16:11 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:05:49 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,15 @@ void	print_img(t_img *i)
 	printf("endian: '%d'\n", i->endian);
 	printf("len: '%d'\n", i->len);
 	printf("mlx_img: %p\n", i->mlx_img);
+}
+
+
+void printfd(const char *format, ...)
+{
+	if (!DEBUG)
+		return ;
+	va_list args;
+	va_start(args, format);
+	vprintf(format, args);
+	va_end(args);
 }
