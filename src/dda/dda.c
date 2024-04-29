@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:20:10 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/26 16:38:34 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/29 12:23:36 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ void raycast(t_game *g)
 	t_coord	delta_dist;
 
 	ctr = -1;
-	set_coord(0, 1, &plane);
-	set_coord(0, 1, &cam);
-	if (DEBUG)
-		set_coord(1, 0, &(g->player->view));
+	plane = perp_vec(g->player->view);
+	set_coord(g->player->view.x, g->player->view.y, &cam);
 
 	// Perform DDA for each column of the screen
 	while (++ctr < WIDTH)
