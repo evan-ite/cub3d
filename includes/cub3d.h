@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/26 16:00:31 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:34:34 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <string.h>
+# include <math.h>
 # include "../src/libft/libft.h"
 # include "../src/libft/getnextline.h"
 # include "../src/libft/ft_printf.h"
@@ -35,12 +36,13 @@
 # define ERR_COL "Map does not contain valid RGB colors\n"
 # define ERR_MAP "Please provide a valid map\n"
 # define WINDOW_NAME "PAPARAZZO"
-# define WIDTH 1920
-# define HEIGHT 960
-// # define WIDTH 600
-// # define HEIGHT 300
+// # define WIDTH 1920
+// # define HEIGHT 960
+# define WIDTH 600
+# define HEIGHT 300
 # define TEX_X 256
 # define TEX_Y 256
+# define TURNSPEED 0.30
 # define FOV 1
 # define DEBUG 1
 

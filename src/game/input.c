@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/29 12:49:39 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:36:56 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,45 @@ static int	on_end(t_game *g)
 	exit(0);
 }
 
+static	int	turn(t_game *g, char dir, float speed)
+{
+	float	dir_x = g->player->view.x;
+	float	dir_y = g->player->view.y;
+
+	printfd("%f, %f, %f\n", dir_x, dir_y, speed);
+
+	if (dir == 'r')
+	{
+		// turn right
+		g->player->view.x = dir_x * cos(speed) - dir_y * sin(speed);
+		g->player->view.y = dir_x * sin(speed) + dir_y * cos(speed);
+
+	}
+	else
+	{
+		// turn left
+		g->player->view.x = dir_x* cos(-speed) - dir_y * sin(-speed);
+		g->player->view.y = dir_x * sin(-speed) + dir_y * cos(-speed);
+	}
+	return (0);
+}
+
 int	on_keypress(int keysym, t_game *g)
 {
 	t_coord	change;
 
 	set_coord(0, 0, &change);
-	if ((keysym == 65361 || keysym == 97)) // left or a
+	if (keysym == 65361) // left
+		turn(g, 'l', TURNSPEED);
+	if (keysym == 97) // a
 		change.x = -0.5;
-	if ((keysym == 65362 || keysym == 119)) // up or w
+	if (keysym == 65362 || keysym == 119) // up or w
 		change.y = -0.5;
 	if (keysym == 65364 || keysym == 115) // down or s
 		change.y = 0.5;
-	if (keysym == 65363 || keysym == 100) // right or d
+	if (keysym == 65363) // right
+		turn(g, 'r', TURNSPEED);
+	if (keysym == 100) // d
 		change.x = 0.5;
 	if (keysym == 65307) //esc
 		on_end(g);
@@ -48,13 +75,14 @@ int	on_mouse_click(int button,int x,int y, t_game *g)
 
 int	on_mouse_move(t_game *g)
 {
-	t_coord	mouse;
+	int		x;
+	int		y;
 
-	set_coord(0, 0, &mouse);
-	mlx_mouse_get_pos(g->win->mlx, g->win->win, (int *)&(mouse.x), (int *)&(mouse.y));
-	mlx_mouse_move(g->win->mlx, 0, 0);
-	if (mouse.x || mouse.y)
-
-		// add_vectors(&(g->player->coord), &mouse);
+	mlx_mouse_get_pos(g->win->mlx, g->win->win, &x, &y);
+	mlx_mouse_move(g->win->mlx, g->win->win, WIDTH/2, HEIGHT/2);
+	if ((x - WIDTH/2) < 0)
+		turn(g, 'l', fabs((float)x / 1000));
+	else if ((x - WIDTH/2) > 0)
+		turn(g, 'r', fabs((float)x / 1000));
 	return (0);
 }
