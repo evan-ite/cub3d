@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/26 15:55:04 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/29 12:46:23 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	next_frame(t_game *game)
 
 	win = game->win->win;
 	mlx = game->win->mlx;
+	on_mouse_move(game);
 	draw_frame(game);
 	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
 	game->tick++;
@@ -44,7 +45,10 @@ int	start_game(t_game *game)
 	init_textures(game);
 	init_frame(game);
 	// mlx_destroy_window(mlx_ptr, win_ptr); // init testing only!
+	mlx_mouse_hide(mlx_ptr, win_ptr);
 	mlx_hook(win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, game);
+	// int mlx_mouse_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
+	mlx_mouse_hook(win_ptr, &on_mouse_click, game); // mouse clicks only, do we need that?
 	mlx_hook(win_ptr, DestroyNotify, StructureNotifyMask, &on_end, game);
 	mlx_loop_hook(mlx_ptr, next_frame, game);
 	mlx_loop(mlx_ptr);

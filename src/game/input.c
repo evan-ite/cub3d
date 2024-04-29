@@ -6,17 +6,11 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/26 15:58:08 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/04/29 12:49:39 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-static void	move_player(t_coord c, t_game *g)
-{
-	g->player->coord.x += c.x;
-	g->player->coord.y += c.y;
-}
 
 static int	on_end(t_game *g)
 {
@@ -40,6 +34,27 @@ int	on_keypress(int keysym, t_game *g)
 		change.x = 0.5;
 	if (keysym == 65307) //esc
 		on_end(g);
-	move_player(change, g);
+	add_vectors(&(g->player->coord), &change);
+	return (0);
+}
+
+int	on_mouse_click(int button,int x,int y, t_game *g)
+{
+	(void) button;
+	(void) g;
+	printfd("%d, %d \n", x, y);
+	return (0);
+}
+
+int	on_mouse_move(t_game *g)
+{
+	t_coord	mouse;
+
+	set_coord(0, 0, &mouse);
+	mlx_mouse_get_pos(g->win->mlx, g->win->win, (int *)&(mouse.x), (int *)&(mouse.y));
+	mlx_mouse_move(g->win->mlx, 0, 0);
+	if (mouse.x || mouse.y)
+
+		// add_vectors(&(g->player->coord), &mouse);
 	return (0);
 }
