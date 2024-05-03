@@ -41,7 +41,7 @@ int	check_valid(t_map *map)
 	{
 		if (!valid_chars(map->map[i]))
 			handle_error(ERR_MAP, 1, map, NULL);
-		if (ft_strchr(map->map[i], 'N'))
+		if (ft_strchr(map->map[i], 'N')) /// add other directions
 			player++;
 		i++;
 	}
