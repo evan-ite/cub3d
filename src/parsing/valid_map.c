@@ -31,8 +31,10 @@ static int	valid_chars(char *str)
 
 
 int	check_valid(t_map *map)
+/* checks if the map contains valid characters, 1 player and walls. */
 {
 	int	i;
+	int	j;
 	int	player;
 
 	i = 0;
@@ -41,8 +43,13 @@ int	check_valid(t_map *map)
 	{
 		if (!valid_chars(map->map[i]))
 			handle_error(ERR_MAP, 1, map, NULL);
-		if (ft_strchr(map->map[i], 'N')) /// add other directions
-			player++;
+		j = 0;
+		while (map->map[i][j])
+		{
+			if (ft_strchr("NESW", map->map[i][j])) /// add other directions
+				player++;
+			j++;
+		}
 		i++;
 	}
 	if (player != 1)
