@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/29 17:36:56 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:21:21 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,16 @@ int	on_mouse_click(int button,int x,int y, t_game *g)
 	return (0);
 }
 
-int	on_mouse_move(t_game *g)
+int	on_mouse_move(int x, int y, t_game *g)
 {
-	int		x;
-	int		y;
+	float	turnval;
 
-	mlx_mouse_get_pos(g->win->mlx, g->win->win, &x, &y);
-	mlx_mouse_move(g->win->mlx, g->win->win, WIDTH/2, HEIGHT/2);
+	(void)y;
+	turnval = MOUSE_SENS * fabs((float)x / 1000000);
 	if ((x - WIDTH/2) < 0)
-		turn(g, 'l', fabs((float)x / 1000));
+		turn(g, 'l', turnval);
 	else if ((x - WIDTH/2) > 0)
-		turn(g, 'r', fabs((float)x / 1000));
+		turn(g, 'r', turnval);
+	mlx_mouse_move(g->win->mlx, g->win->win, WIDTH/2, HEIGHT/2);
 	return (0);
 }

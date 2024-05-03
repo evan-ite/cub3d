@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 11:18:44 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:04:28 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		set_px(t_coord	*px, int c, t_game *g);
 // movement
 int		on_keypress(int keysym, t_game *g);
 int		on_mouse_click (int button,int x,int y, t_game *g);
-int		on_mouse_move(t_game *g);
+int		on_mouse_move(int x, int y, t_game *g);
 
 // vectors
 void	add_vectors(t_coord *v1, t_coord *v2);

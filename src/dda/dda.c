@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:20:10 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/29 12:27:24 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:03:54 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void raycast(t_game *g)
 	while (++ctr < WIDTH)
 	{
 		// Calculate ray direction
-		cam.x = 2 * ctr / (float) WIDTH; // x-coordinate in camera space
-		cam.x = cam.x * FOV;
+		cam.x = (2 * ctr / (float) WIDTH) * FOV; // x-coordinate in camera space
 		ray_dir.x = g->player->view.x + plane.x * cam.x;
 		ray_dir.y = g->player->view.y + plane.y * cam.x;
 		// Map position
