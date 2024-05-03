@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 12:12:53 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:00:44 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	next_frame(t_game *game)
 
 	win = game->win->win;
 	mlx = game->win->mlx;
-	// on_mouse_move(game);
+	move(game);
 	draw_frame(game);
 	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
 	game->tick++;
@@ -46,8 +46,9 @@ int	start_game(t_game *game)
 	init_frame(game);
 	mlx_mouse_hide(mlx, win);
 	mlx_mouse_move(mlx, win, WIDTH/2, HEIGHT/2);
-	mlx_hook(win, KeyRelease, KeyReleaseMask, &on_keypress, game);
-	mlx_hook(win, MotionNotify, PointerMotionMask, &on_mouse_move, game);
+	mlx_hook(win, KeyPress, KeyPressMask, &key_on, game);
+	mlx_hook(win, KeyRelease, KeyReleaseMask, &key_off, game);
+	mlx_hook(win, MotionNotify, PointerMotionMask, &mouse_move, game);
 	mlx_hook(win, DestroyNotify, StructureNotifyMask, &on_end, game);
 	mlx_loop_hook(mlx, next_frame, game);
 	mlx_loop(mlx);

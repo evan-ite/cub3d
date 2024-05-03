@@ -6,7 +6,7 @@
 #    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/04/29 12:17:10 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/05/03 15:00:13 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = src/main.c src/error.c src/print.c \
 	src/parsing/valid_map.c src/parsing/walls.c \
 	src/game/start_game.c src/game/init.c src/game/draw.c \
 	src/game/pixels.c src/game/game_utils.c src/dda/dda.c \
-	src/game/input.c src/dda/dda_utils.c
+	src/game/input.c src/dda/dda_utils.c src/game/move.c
 
 OBJ := $(SRC:.c=.o)
 

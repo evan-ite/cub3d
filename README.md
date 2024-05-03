@@ -57,11 +57,11 @@ C 225,30,0
 - invalid fd close() when texture file doesn't exist or is broke
 - ~~map considered invalid when player starts facing any direction other than North~~
 - ~~use strcmp to check texture files instead of just checking 1st letter~~
-- get rid of input lag on mouse control
+- <s>get rid of input lag on mouse control</s>
 - add vector math to make player walk forward
 - ~~add player starting point and view angle to parser~~
 - free all the stuff and fix a million leaks
 - ~~make or find nice textures for the mall themed vibe~~
 - minimap
 - draw the rest of the owl
-
+- collision checks

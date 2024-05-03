@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/26 15:27:55 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:02:43 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,22 @@ int	init_frame(t_game *g)
 	return (1); // meaningfull error handling tbi
 }
 
+static void init_moves(t_game *g)
+{
+	g->player->move[0] = 0;
+	g->player->move[1] = 0;
+	g->player->move[2] = 0;
+	g->player->move[3] = 0;
+	g->player->move[4] = 0;
+	g->player->move[5] = 0;
+}
+
 int	init_player(t_game *g)
 {
 	g->player = malloc(sizeof(t_player));
 	set_coord(0, 0, &(g->player->view));
 	set_coord(0, 0, &(g->player->coord));
+	init_moves(g);
 	while(g->map->map[(int) g->player->coord.y])
 	{
 		g->player->coord.x = 0;
