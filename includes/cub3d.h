@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/03 10:34:08 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:36:13 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define HEIGHT 960
 // # define WIDTH 600
 // # define HEIGHT 300
-# define TEX_X 256
-# define TEX_Y 256
+# define TEX_X 640
+# define TEX_Y 640
 # define TURNSPEED 0.30
 # define FOV 1
 # define DEBUG 1
