@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/24 11:56:21 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:11:39 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ void	init_map(t_map *map)
 	map->text_files[1] = NULL;
 	map->text_files[2] = NULL;
 	map->text_files[3] = NULL;
-	// map->no = NULL;
-	// map->so = NULL;
-	// map->we = NULL;
-	// map->ea = NULL;
 	map->f = -1;
 	map->c = -1;
 	map->max_height = 0;
@@ -55,4 +51,21 @@ char	*extract_path(int start, char *str, t_map *map)
 		handle_error(ERR_TEXT, 1, map, NULL);
 	close(fd_valid);
 	return (path);
+}
+
+int	check_struct(t_map *map)
+/* checks if all the necessary values are valid in the struct.
+	If somethings wrong an error is handled and the program will exit,
+	if the struct is valid the function returns 1. */
+{
+	if (!map->map)
+		handle_error(ERR_MAP, 1, map, NULL);
+	if (!map->text_files[0] || !map->text_files[1] \
+		|| !map->text_files[2] || !map->text_files[3])
+		handle_error(ERR_TEXT, 1, map, NULL);
+	if (map->f == -1 || map->c == -1)
+		handle_error(ERR_COL, 1, map, NULL);
+	if (map->max_height == 0 || map->max_width == 0)
+		handle_error(ERR_MAP, 1, map, NULL);
+	return (1);
 }

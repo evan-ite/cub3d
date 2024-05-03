@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/24 11:30:12 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:04:22 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ Returns 1 if file has .cub extension, 0 if it hasn't */
 
 static void	check_element(int i, char *line, t_map *map)
 {
-	if (line[i] == 'N')
+	if (line[i] == 'N' && line[i + 1] == 'O')
 		map->text_files[0] = extract_path(i, line, map);
-	else if (line[i] == 'S')
+	else if (line[i] == 'S'&& line[i + 1] == 'O')
 		map->text_files[2] = extract_path(i, line, map);
-	else if (line[i] == 'W')
+	else if (line[i] == 'W' && line[i + 1] == 'E')
 		map->text_files[3] = extract_path(i, line, map);
-	else if (line[i] == 'E')
+	else if (line[i] == 'E' && line[i + 1] == 'A')
 		map->text_files[1] = extract_path(i, line, map);
 	else if (line[i]== 'F')
 		map->f = extract_color(i, line, map);
@@ -93,5 +93,6 @@ int	parsing(int argc, char **argv, t_map *map)
 	map->fd = open(argv[1], O_RDONLY);
 	get_map(map);
 	ft_close(&map->fd);
+	check_struct(map);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/29 12:45:29 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:18:44 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 
 # include "structs.h"
 
+// init parsing
 void	init_map(t_map *map);
+
+// extract from file
 char	*extract_path(int start, char *str, t_map *map);
 int		extract_color(int start, char *str, t_map *map);
 int		get_map(t_map *map);
 int		map_line(char *str);
+
+// check validity
 int		check_valid(t_map *map);
 int		is_mapchar(char c);
 int		check_walls(t_map *map);
+int		check_struct(t_map *map);
 
 // parsing
 int		parsing(int argc, char **argv, t_map *map);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/26 14:28:23 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:10:05 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ typedef	struct s_player
 
 typedef struct s_map
 {
-	// char	*no;
-	// char	*so;
-	// char	*we;
-	// char	*ea;
 	char	*text_files[4]; // 0 == North, 1 == East, 2 == South, 3 == West
 	int		f;
 	int		c; // https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
