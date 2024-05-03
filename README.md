@@ -61,7 +61,7 @@ C 225,30,0
 - add vector math to make player walk forward
 - ~~add player starting point and view angle to parser~~
 - free all the stuff and fix a million leaks
-- make or find nice textures for the mall themed vibe
+- ~~make or find nice textures for the mall themed vibe~~
 - minimap
 - draw the rest of the owl
 
