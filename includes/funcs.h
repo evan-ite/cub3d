@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 14:59:57 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:54:50 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		init_player(t_game *g);
 // visualization
 int		start_game(t_game *game);
 int		draw_frame(t_game *g);
-int		draw_line(int height, int col, int c, t_game *g);
+int		draw_line(int height, int col, float width_ratio, int dir, t_game *g);
 int		get_px(t_coord *px, t_img *i, int verify);
 int		set_px(t_coord	*px, int c, t_game *g);
 

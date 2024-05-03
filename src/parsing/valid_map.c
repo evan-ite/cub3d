@@ -29,7 +29,6 @@ static int	valid_chars(char *str)
 	return (1);
 }
 
-
 int	check_valid(t_map *map)
 /* checks if the map contains valid characters, 1 player and walls. */
 {

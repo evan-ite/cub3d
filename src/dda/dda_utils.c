@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:20:10 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/04/29 12:16:54 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:45:50 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,20 @@ t_coord	perp_vec(t_coord v)
 	per.x = -v.y;
 	per.y = v.x;
 	return (per);
+}
+
+void	set_coord(int x, int y, t_coord *coord)
+{
+	coord->x = x;
+	coord->y = y;
+}
+
+int ft_clamp(int value, int min, int max)
+{
+	if (value < min)
+		return (min);
+	else if (value > max)
+		return (max);
+	else
+		return (value);
 }

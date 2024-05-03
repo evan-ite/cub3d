@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:20:10 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 13:03:54 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:10:17 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void raycast(t_game *g)
 	int		side;
 	int		height;
 	float	wall_dist;
+	float	width_ratio;
 	t_coord	plane;
 	t_coord	cam;
 	t_coord	ray_dir;
@@ -35,12 +36,14 @@ void raycast(t_game *g)
 	ctr = -1;
 	plane = perp_vec(g->player->view);
 	set_coord(g->player->view.x, g->player->view.y, &cam);
+	width_ratio = FOV / WIDTH;
 
 	// Perform DDA for each column of the screen
 	while (++ctr < WIDTH)
 	{
 		// Calculate ray direction
-		cam.x = (2 * ctr / (float) WIDTH) * FOV; // x-coordinate in camera space
+		cam.x = (2 * ctr / (float) WIDTH) * FOV;// x-coordinate in camera space
+		cam.x += width_ratio * 0.5;
 		ray_dir.x = g->player->view.x + plane.x * cam.x;
 		ray_dir.y = g->player->view.y + plane.y * cam.x;
 		// Map position
@@ -106,14 +109,32 @@ void raycast(t_game *g)
 				wall_dist = INFINITY; // Handle division by zero case
 		}
 
+		// calculate intersection points or x-axis ratio
+		float intersection_x, intersection_y;
+		if (!side)
+		{
+			intersection_x = (float)(g->player->coord.x + wall_dist * ray_dir.x);
+			intersection_y = cell_y + ((ray_dir.y > 0) ? 1 : 0);
+		}
+		else
+		{
+			intersection_x = cell_x + ((ray_dir.x > 0) ? 1 : 0);
+			intersection_y = g->player->coord.y + wall_dist * ray_dir.y;
+		}
+
 		// Calculate height of line to draw on screen
 		height = (int)(HEIGHT / wall_dist);
 		if (height >= HEIGHT)
 			height = HEIGHT - 1;
-		if (side)
-			draw_line(height, ctr, 0xFFF1F1F1, g);
-		else
-			draw_line(height, ctr, 0xFF000000, g);
+		if (!side && step_x < 0)
+			draw_line(height, ctr, 1, 0, g);
+		if (!side && step_x > 0)
+			draw_line(height, ctr, 1, 1, g);
+		if (side && step_y < 0)
+			draw_line(height, ctr, 1, 2, g);
+		if (side && step_y > 0)
+			draw_line(height, ctr, 1, 3, g);
 	}
 }
 
+//int	draw_line(int height, int col, int dir, t_game *g)

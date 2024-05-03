@@ -58,7 +58,7 @@ C 225,30,0
 - ~~map considered invalid when player starts facing any direction other than North~~
 - ~~use strcmp to check texture files instead of just checking 1st letter~~
 - <s>get rid of input lag on mouse control</s>
-- add vector math to make player walk forward
+- <s>add vector math to make player walk forward</s>
 - ~~add player starting point and view angle to parser~~
 - free all the stuff and fix a million leaks
 - ~~make or find nice textures for the mall themed vibe~~

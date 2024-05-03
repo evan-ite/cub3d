@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 11:37:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:10:59 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,33 @@ int	draw_frame(t_game *g)
 	return (1); // meaningfull error handling tbi
 }
 
-int	draw_line(int height, int col, int c, t_game *g)
+static int	get_color(int x, int y, int dir, t_game *g)
 {
 	t_coord	px;
+
+	px.x = y;
+	px.y = x;
+	return (get_px(&px, g->texts[dir], 0));
+}
+
+int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
+{
+	t_coord	px;
+	t_coord	tx;
 	int		ctr;
+	int		color;
+	float	ratio;
 
 	ctr = -1;
-	px.y = (int) (HEIGHT - height) / 2;
+	ratio = (float)TEX_Y / height;
+	px.y = (int) ((HEIGHT - height) / 2);
 	px.x = (int) col;
+	tx.x = (int) width_ratio * col;
 	while (++ctr <= height)
 	{
-		set_px(&px, c, g);
+		tx.x = (int)(ctr * ratio);
+		color = get_color(tx.x, tx.y, dir, g);
+		set_px(&px, color, g);
 		px.y++;
 	}
 	return (1); // meaningfull error handling tbi
