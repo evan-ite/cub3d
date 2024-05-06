@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 17:10:59 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:54:39 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ static int	get_color(int x, int y, int dir, t_game *g)
 {
 	t_coord	px;
 
-	px.x = y;
-	px.y = x;
+	px.x = x;
+	px.y = y;
 	return (get_px(&px, g->texts[dir], 0));
 }
 
@@ -75,16 +75,16 @@ int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 	t_coord	tx;
 	int		ctr;
 	int		color;
-	float	ratio;
+	float	height_ratio;
 
 	ctr = -1;
-	ratio = (float)TEX_Y / height;
+	height_ratio = (float)TEX_Y / (float)height;
 	px.y = (int) ((HEIGHT - height) / 2);
 	px.x = (int) col;
-	tx.x = (int) width_ratio * col;
+	tx.x = (int)(width_ratio * TEX_Y);
 	while (++ctr <= height)
 	{
-		tx.x = (int)(ctr * ratio);
+		tx.y = (int)(ctr * height_ratio);
 		color = get_color(tx.x, tx.y, dir, g);
 		set_px(&px, color, g);
 		px.y++;

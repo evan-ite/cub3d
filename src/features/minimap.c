@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:12:13 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/06 15:00:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:07:22 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void draw_map(t_game *game)
 	map = game->map->map;
 	win = game->win->win;
 	mlx = game->win->mlx;
-	wall = mlx_xpm_file_to_image(mlx, "/home/evan-ite/Projects/cub3d/textures/mini_wall.xpm", &size, &size);
-	empty = mlx_xpm_file_to_image(mlx, "/home/evan-ite/Projects/cub3d/textures/mini_empty.xpm", &size, &size);
-	player = mlx_xpm_file_to_image(mlx, "/home/evan-ite/Projects/cub3d/textures/mini_pl.xpm", &size, &size);
+	wall = mlx_xpm_file_to_image(mlx, "textures/mini_wall.xpm", &size, &size);
+	empty = mlx_xpm_file_to_image(mlx, "textures/mini_empty.xpm", &size, &size);
+	player = mlx_xpm_file_to_image(mlx, "textures/mini_pl.xpm", &size, &size);
 
 	y = 0;
 	while (map[y])

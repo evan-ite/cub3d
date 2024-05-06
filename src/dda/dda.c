@@ -1,19 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   dda.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 12:20:10 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 17:10:17 by jstrozyk         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/cub3d.h"
-
-#include <stdio.h>
-#include <math.h>
 
 void raycast(t_game *g)
 {
@@ -32,6 +17,8 @@ void raycast(t_game *g)
 	t_coord	ray_dir;
 	t_coord	side_dist;
 	t_coord	delta_dist;
+	float	intersection_x;
+	float	intersection_y;
 
 	ctr = -1;
 	plane = perp_vec(g->player->view);
@@ -42,7 +29,7 @@ void raycast(t_game *g)
 	while (++ctr < WIDTH)
 	{
 		// Calculate ray direction
-		cam.x = (2 * ctr / (float) WIDTH) * FOV;// x-coordinate in camera space
+		cam.x = (2 * ctr / (float) WIDTH) * FOV; // x-coordinate in camera space
 		cam.x += width_ratio * 0.5;
 		ray_dir.x = g->player->view.x + plane.x * cam.x;
 		ray_dir.y = g->player->view.y + plane.y * cam.x;
@@ -100,6 +87,7 @@ void raycast(t_game *g)
 				wall_dist = (cell_x - g->player->coord.x + (1 - step_x) / 2) / ray_dir.x;
 			else
 				wall_dist = INFINITY; // Handle division by zero case
+			intersection_y = g->player->coord.y + wall_dist * ray_dir.y;
 		}
 		else
 		{
@@ -107,34 +95,26 @@ void raycast(t_game *g)
 				wall_dist = (cell_y - g->player->coord.y + (1 - step_y) / 2) / ray_dir.y;
 			else
 				wall_dist = INFINITY; // Handle division by zero case
-		}
+			intersection_x = g->player->coord.x + wall_dist * ray_dir.x;
 
-		// calculate intersection points or x-axis ratio
-		float intersection_x, intersection_y;
+		}
+		// Calculate fractional values for texture sampling
+		float width_ratio;
 		if (!side)
-		{
-			intersection_x = (float)(g->player->coord.x + wall_dist * ray_dir.x);
-			intersection_y = cell_y + ((ray_dir.y > 0) ? 1 : 0);
-		}
+			width_ratio = intersection_y - cell_y; // Fractional distance along the y-axis
 		else
-		{
-			intersection_x = cell_x + ((ray_dir.x > 0) ? 1 : 0);
-			intersection_y = g->player->coord.y + wall_dist * ray_dir.y;
-		}
+			width_ratio = intersection_x - (float) cell_x; // Fractional distance along the x-axis
 
 		// Calculate height of line to draw on screen
+		printfd("int_x %f int_y %f fract val %f\n",intersection_x, intersection_y, width_ratio);
 		height = (int)(HEIGHT / wall_dist);
-		if (height >= HEIGHT)
-			height = HEIGHT - 1;
 		if (!side && step_x < 0)
-			draw_line(height, ctr, 1, 0, g);
+			draw_line(height, ctr, width_ratio, 0, g);
 		if (!side && step_x > 0)
-			draw_line(height, ctr, 1, 1, g);
+			draw_line(height, ctr, width_ratio, 1, g);
 		if (side && step_y < 0)
-			draw_line(height, ctr, 1, 2, g);
+			draw_line(height, ctr, width_ratio, 2, g);
 		if (side && step_y > 0)
-			draw_line(height, ctr, 1, 3, g);
+			draw_line(height, ctr, width_ratio, 3, g);
 	}
 }
-
-//int	draw_line(int height, int col, int dir, t_game *g)
