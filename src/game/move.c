@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 15:04:22 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:37:24 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,27 @@
 static t_coord	movement_vec(t_coord vec, float speed)
 {
 	t_coord	movement_vec;
+
 	movement_vec.x = vec.x * speed;
 	movement_vec.y = vec.y * speed;
 	return (movement_vec);
+}
+
+/* checks if player is moving towards a wall, returns 0 if player is
+is colliding with wall, returns 1 if there's is no collision */
+static int	check_collision(t_coord movement, t_game *g)
+{
+	int		new_x;
+	int		new_y;
+
+	new_x = g->player->coord.x + movement.x;
+	new_y = g->player->coord.y + movement.y;
+	if (g->map->map[new_y + 1][new_x] == '1' || g->map->map[new_y][new_x + 1] == '1')
+		return (0);
+	else if (g->map->map[new_y - 1][new_x] == '1' || g->map->map[new_y][new_x - 1] == '1')
+		return (0);
+	printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
+	return (1);
 }
 
 static int	move_forward_backward(t_game *g, float speed, int dir)
@@ -25,7 +43,8 @@ static int	move_forward_backward(t_game *g, float speed, int dir)
 	t_coord	movement;
 
 	movement = movement_vec(g->player->view, (speed * dir));
-	add_vectors(&g->player->coord, &movement);
+	if (check_collision(movement, g))
+		add_vectors(&g->player->coord, &movement);
 	return (1); // error handling!?
 }
 
@@ -36,7 +55,8 @@ static int	move_left_right(t_game *g, float speed, int dir) // 1 = l, -1 = r
 
 	perpendicular = perp_vec(g->player->view);
 	movement = movement_vec(perpendicular, (speed * dir));
-	add_vectors(&g->player->coord, &movement);
+	if (check_collision(movement, g))
+		add_vectors(&g->player->coord, &movement);
 	return (1); // error handling!?
 }
 

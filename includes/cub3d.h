@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/03 15:12:01 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/07 14:57:22 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@
 // # define HEIGHT 300
 # define TEX_X 640
 # define TEX_Y 640
-# define TURNSPEED 0.3
-# define WALKSPEED 0.2
+# define TURNSPEED 0.1
+# define WALKSPEED 0.1
 # define MOUSE_SENS 20
 # define FOV 0.5
 # define DEBUG 1
