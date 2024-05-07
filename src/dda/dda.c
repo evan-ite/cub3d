@@ -106,7 +106,7 @@ void raycast(t_game *g)
 			width_ratio = intersection_x - (float) cell_x; // Fractional distance along the x-axis
 
 		// Calculate height of line to draw on screen
-		printfd("int_x %f int_y %f fract val %f\n",intersection_x, intersection_y, width_ratio);
+		// printfd("int_x %f int_y %f fract val %f\n",intersection_x, intersection_y, width_ratio);
 		height = (int)(HEIGHT / wall_dist);
 		if (!side && step_x < 0)
 			draw_line(height, ctr, width_ratio, 0, g);
