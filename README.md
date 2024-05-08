@@ -60,8 +60,12 @@ C 225,30,0
 - <s>get rid of input lag on mouse control</s>
 - <s>add vector math to make player walk forward</s>
 - ~~add player starting point and view angle to parser~~
-- free all the stuff and fix a million leaks
+- free all the stuff and fix a million leaks (Elise)
 - ~~make or find nice textures for the mall themed vibe~~
-- minimap
+- <s>minimap</s>
+- minimap into frame (jan)
 - draw the rest of the owl
 - collision checks
+- better textures
+- flip textures (jan)
+

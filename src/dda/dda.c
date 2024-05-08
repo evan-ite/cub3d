@@ -22,15 +22,13 @@ void raycast(t_game *g)
 
 	ctr = -1;
 	plane = perp_vec(g->player->view);
-	set_coord(g->player->view.x, g->player->view.y, &cam);
 	width_ratio = FOV / WIDTH;
 
 	// Perform DDA for each column of the screen
 	while (++ctr < WIDTH)
 	{
 		// Calculate ray direction
-		cam.x = (2 * ctr / (float) WIDTH) * FOV; // x-coordinate in camera space
-		cam.x += width_ratio * 0.5;
+		cam.x = ((2 * ctr / (float) WIDTH) - 1) * FOV; // x-coordinate in camera space
 		ray_dir.x = g->player->view.x + plane.x * cam.x;
 		ray_dir.y = g->player->view.y + plane.y * cam.x;
 		// Map position

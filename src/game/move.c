@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/07 16:28:41 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:18:56 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	check_collision(t_coord movement, int dir, t_game *g)
 		return (0);
 	else if (g->map->map[new_y - 1][new_x] == '1' || g->map->map[new_y][new_x - 1] == '1')
 		return (0);
-	printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
+	// printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
 	return (1);
 }
 
