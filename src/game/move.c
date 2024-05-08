@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/08 14:18:56 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:40:39 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,28 @@ static int	check_collision(t_coord movement, int dir, t_game *g)
 	int		new_x;
 	int		new_y;
 
-	// if (dir > 0)
-	// {
-	// 	new_x = ceil(g->player->coord.x + movement.x);
-	// 	new_y = ceil(g->player->coord.y + movement.y);
-	// }
-	// else
-	// {
-	// 	new_x = floor(g->player->coord.x + movement.x);
-	// 	new_y = floor(g->player->coord.y + movement.y);
-	// }
+	if (movement.x > 0)
+		new_x = ceil(g->player->coord.x + movement.x);
+	else
+		new_x = floor(g->player->coord.x + movement.x);
+	if (movement.y > 0)
+		new_y = ceil(g->player->coord.y + movement.y);
+	else
+		new_y = floor(g->player->coord.y + movement.y);
+
 	(void)dir;
-	new_x = g->player->coord.x + movement.x;
-	new_y = g->player->coord.y + movement.y;
+	// new_x = g->player->coord.x + movement.x;
+	// new_y = g->player->coord.y + movement.y;
 	if (g->map->map[new_y][new_x] == '1')
+	{
+		printfd("wall map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
 		return (0);
-	else if (g->map->map[new_y + 1][new_x] == '1' || g->map->map[new_y][new_x + 1] == '1')
-		return (0);
-	else if (g->map->map[new_y - 1][new_x] == '1' || g->map->map[new_y][new_x - 1] == '1')
-		return (0);
-	// printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
+	}
+	// else if (g->map->map[new_y + 1][new_x] == '1' || g->map->map[new_y][new_x + 1] == '1')
+	// 	return (0);
+	// else if (g->map->map[new_y - 1][new_x] == '1' || g->map->map[new_y][new_x - 1] == '1')
+	// 	return (0);
+	printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
 	return (1);
 }
 

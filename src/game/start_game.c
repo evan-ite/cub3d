@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/06 14:29:36 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:30:43 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	next_frame(t_game *game)
 	move(game);
 	draw_frame(game);
 	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
-	mini_map(game);
+	// mini_map(game);
 	game->tick++;
 	return (0);
 }

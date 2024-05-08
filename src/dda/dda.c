@@ -106,6 +106,7 @@ void raycast(t_game *g)
 		// Calculate height of line to draw on screen
 		// printfd("int_x %f int_y %f fract val %f\n",intersection_x, intersection_y, width_ratio);
 		height = (int)(HEIGHT / wall_dist);
+		printfd("height %d wall_dist %f\n", height, wall_dist);
 		if (!side && step_x < 0)
 			draw_line(height, ctr, width_ratio, 0, g);
 		if (!side && step_x > 0)
@@ -114,5 +115,6 @@ void raycast(t_game *g)
 			draw_line(height, ctr, width_ratio, 2, g);
 		if (side && step_y > 0)
 			draw_line(height, ctr, width_ratio, 3, g);
+		// int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 	}
 }

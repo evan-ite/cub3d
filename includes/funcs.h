@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/07 15:22:10 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:02:10 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_coord	perp_vec(t_coord v);
 // utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
 void	set_coord(int x, int y, t_coord *coord);
+int		ft_clamp(int value, int min, int max);
 
 // debugging
 void	print_map(t_map *map);
