@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 13:47:15 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:32:30 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		init_textures(t_game *g);
 int		init_frame(t_game *g);
 int		init_player(t_game *g);
 void	reverse_texture(t_img *img);
+void	draw_minimap(t_game *g);
 
 // visualization
 int		start_game(t_game *game);

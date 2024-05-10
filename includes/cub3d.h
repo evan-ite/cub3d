@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/10 10:34:20 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:13:38 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,9 @@
 # define MOUSE_SENS 20
 # define FOV 0.7
 # define DEBUG 1
+# define MMOFFSET 50
+# define MMWALL 0x0
+# define MMPLAYER 0xFF0000
+# define MMDOTSIZE 6
 
 #endif

@@ -63,9 +63,9 @@ C 225,30,0
 - free all the stuff and fix a million leaks (Elise)
 - ~~make or find nice textures for the mall themed vibe~~
 - <s>minimap</s>
-- minimap into frame (jan)
+- <s>minimap into frame (jan)</s>
 - draw the rest of the owl
 - collision checks
 - better textures
-- flip textures (jan)
+- <s>flip textures (jan)</s>
 
