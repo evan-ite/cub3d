@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/10 15:13:38 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:13:59 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@
 # define MMWALL 0x0
 # define MMPLAYER 0xFF0000
 # define MMDOTSIZE 6
+# define DSLR "textures/dlsr.xpm"
+# define DSLRX 256
+# define DSLRY 256
 
 #endif

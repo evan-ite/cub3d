@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 14:32:30 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:31:05 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static int	next_frame(t_game *game)
 	draw_frame(game);
 	draw_minimap(game);
 	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
-	// mini_map(game);
 	game->tick++;
 	return (0);
 }

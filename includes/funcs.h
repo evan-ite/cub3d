@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 14:32:30 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:31:21 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ int		turn(t_game *g, char dir, float speed);
 int		move(t_game *g);
 
 // vectors
-void	add_vectors(t_coord *v1, t_coord *v2);
-t_coord	perp_vec(t_coord v);
+void	add_vectors(t_coordf *v1, t_coordf *v2);
+t_coordf	perp_vec(t_coordf v);
 
 // utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
+void	set_coordf(float x, float y, t_coordf *coord);
 void	set_coord(int x, int y, t_coord *coord);
 int		ft_clamp(int value, int min, int max);
 
@@ -72,6 +73,6 @@ void	raycast(t_game *g);
 void	printfd(const char *format, ...);
 
 // bonus
-void	mini_map(t_game *game);
+// void	mini_map(t_game *game);
 
 #endif

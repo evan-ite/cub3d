@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 10:35:06 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:24:22 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,31 @@ int	fill_bg(t_img *frame, int c, int f)
 
 int	draw_frame(t_game *g)
 {
-	t_img	*text;
+	t_img	*cam;
 	t_coord	get;
 	t_coord	set;
 
-	text = g->texts[0];
-	set.x = 250;
+	cam = g->dlsr;
+	set.x = WIDTH - DSLRX;
 	get.x = 0;
 
-	while(get.x < TEX_X)
+	fill_bg(g->frame, g->map->c, g->map->f);
+	raycast(g);
+	while(get.x < DSLRX)
 	{
 		get.y = 0;
-		set.y = 250;
-		while(get.y < TEX_Y)
+		set.y = HEIGHT - DSLRY;
+		while(get.y < DSLRY)
 		{
-			set_px(&set, get_px(&get, text, 1), g);
+			int col	= get_px(&get, cam, 1);
+			if (col > 0)
+				set_px(&set, col, g);
 			get.y++;
 			set.y++;
-
 		}
 		get.x++;
 		set.x++;
 	}
-	fill_bg(g->frame, g->map->c, g->map->f);
-	raycast(g);
 	return (1); // meaningfull error handling tbi
 }
 

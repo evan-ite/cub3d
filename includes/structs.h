@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 14:04:07 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:11:02 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,23 @@ typedef	struct s_win
 	void	*win;
 }	t_win;
 
-typedef	struct s_coord
+
+typedef	struct s_coordf
 {
 	float	x;
 	float	y;
+}	t_coordf;
+
+typedef	struct s_coord
+{
+	int	x;
+	int	y;
 }	t_coord;
 
 typedef	struct s_player
 {
-	t_coord	coord;
-	t_coord	view;
+	t_coordf	coord;
+	t_coordf	view;
 	int		move[6]; // 0 left, 1 up, 2 down, 3 right, 4 turn l, 5 turn r
 }	t_player;
 
@@ -57,9 +64,27 @@ typedef struct s_game
 	t_map		*map;
 	t_win		*win;
 	t_img		*texts[4]; // 0 == North, 1 == East, 2 == South, 3 == West
+	t_img		*dlsr;
 	t_img		*frame;
 	t_player	*player;
 	size_t		tick;
 }	t_game;
+
+typedef	struct s_ray
+{
+	int		height;
+	int		side;
+	int		hit;
+	float	w_dist;
+	float	w_ratio;
+	t_coord		cell;
+	t_coord		step;
+	t_coordf	plane;
+	t_coordf	cam;
+	t_coordf	r_dir;
+	t_coordf	side_dist;
+	t_coordf	delta_dist;
+	t_coordf	intersect;
+}	t_ray;
 
 #endif

@@ -6,15 +6,15 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 10:35:58 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:00:31 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static t_coord	movement_vec(t_coord vec, float speed)
+static t_coordf	movement_vec(t_coordf vec, float speed)
 {
-	t_coord	movement_vec;
+	t_coordf	movement_vec;
 
 	movement_vec.x = vec.x * speed;
 	movement_vec.y = vec.y * speed;
@@ -23,7 +23,7 @@ static t_coord	movement_vec(t_coord vec, float speed)
 
 /* checks if player is moving towards a wall, returns 0 if player is
 is colliding with wall, returns 1 if there's is no collision */
-static int	check_collision(t_coord movement, int dir, t_game *g)
+static int	check_collision(t_coordf movement, int dir, t_game *g)
 {
 	int		new_x;
 	int		new_y;
@@ -55,7 +55,7 @@ static int	check_collision(t_coord movement, int dir, t_game *g)
 
 static int	move_forward_backward(t_game *g, float speed, int dir)
 {
-	t_coord	movement;
+	t_coordf	movement;
 
 	movement = movement_vec(g->player->view, (speed * dir));
 	if (check_collision(movement, dir, g))
@@ -65,8 +65,8 @@ static int	move_forward_backward(t_game *g, float speed, int dir)
 
 static int	move_left_right(t_game *g, float speed, int dir) // 1 = l, -1 = r
 {
-	t_coord	perpendicular;
-	t_coord	movement;
+	t_coordf	perpendicular;
+	t_coordf	movement;
 
 	perpendicular = perp_vec(g->player->view);
 	movement = movement_vec(perpendicular, (speed * dir));
