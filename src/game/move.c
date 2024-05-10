@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/08 16:40:39 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 10:35:58 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static int	check_collision(t_coord movement, int dir, t_game *g)
 	// new_y = g->player->coord.y + movement.y;
 	if (g->map->map[new_y][new_x] == '1')
 	{
-		printfd("wall map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
+		// printfd("wall map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
 		return (0);
 	}
 	// else if (g->map->map[new_y + 1][new_x] == '1' || g->map->map[new_y][new_x + 1] == '1')
 	// 	return (0);
 	// else if (g->map->map[new_y - 1][new_x] == '1' || g->map->map[new_y][new_x - 1] == '1')
 	// 	return (0);
-	printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
+	// printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
 	return (1);
 }
 

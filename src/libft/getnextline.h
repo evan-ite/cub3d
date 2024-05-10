@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   getnextline.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:34:22 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/02/06 14:44:34 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:16:43 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 1000000000
 # endif
 
 // Functions for getnextline

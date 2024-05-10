@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/08 17:51:09 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/10 10:35:06 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,17 @@ int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 	px.y = (HEIGHT - height) / 2;
 	px.x = (int) col;
 	tx.x = (int)(width_ratio * TEX_Y);
-	// printf("tx x %f, height_ratio %f, heihght %d \n", tx.x, height_ratio, height);
-	printf("col %d \n", col);
 	while (++ctr <= height)
 	{
 		tx.y = (int)(ctr * height_ratio);
 		tx.y = ft_clamp(tx.y, 0, TEX_Y - 1);
-		tx.x = ft_clamp(tx.x, 0, TEX_Y - 1);
+		tx.x = ft_clamp(tx.x, 0, TEX_X - 1);
 		color = get_color(tx.x, tx.y, dir, g);
-		// printf("tx x %f, tx y %f, ctr %d, px x %f, px y %f\n", tx.x, tx.y, ctr, px.x, px.y);
 		tx.x = ft_clamp(tx.x, 0, WIDTH -1);
 		tx.y = ft_clamp(tx.y, 0, HEIGHT - 1);
 
 		set_px(&px, color, g);
 		px.y++;
 	}
-	printfd("end loop\n");
 	return (1); // meaningfull error handling tbi
 }

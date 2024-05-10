@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/06 14:26:50 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/05/10 11:55:21 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3d
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=address
 
 LIBFT = src/libft/libft.a
 
@@ -24,7 +24,7 @@ SRC = src/main.c src/error.c src/print.c \
 	src/game/start_game.c src/game/init.c src/game/draw.c \
 	src/game/pixels.c src/dda/dda.c src/game/input.c \
 	src/dda/dda_utils.c src/game/move.c \
-	src/features/minimap.c
+	src/features/minimap.c src/parsing/textures.c
 
 OBJ := $(SRC:.c=.o)
 
