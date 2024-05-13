@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/10 17:13:59 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:20:03 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@
 # define DSLR "textures/dlsr.xpm"
 # define DSLRX 256
 # define DSLRY 256
+# define DOOR1 "textures/door1.xpm"
+# define DOOR2 "textures/door2.xpm"
+# define DOOR3 "textures/door3.xpm"
 
 #endif

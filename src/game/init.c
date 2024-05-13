@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 17:19:19 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:25:19 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	init_textures(t_game *g)
 	int		ctr;
 
 	ctr = -1;
-	while (++ctr < 4)
+	while (++ctr < 7)
 	{
 		ptr = mlx_xpm_file_to_image(g->win->mlx, g->map->text_files[ctr], &x, &y);
 		g->texts[ctr] = malloc(sizeof(t_img));
