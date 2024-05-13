@@ -6,14 +6,14 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/03 11:11:39 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:20:13 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	init_map(t_map *map)
 /* Initializes map struct */
+void	init_map(t_map *map)
 {
 	map->map = NULL;
 	map->text_files[0] = NULL;
@@ -27,9 +27,8 @@ void	init_map(t_map *map)
 	map->fd = -1;
 }
 
-
-char	*extract_path(int start, char *str, t_map *map)
 /* extracts the filepath from str and saves it in dest */
+char	*extract_path(int start, char *str, t_map *map)
 {
 	int		i;
 	int		fd_valid;
@@ -47,16 +46,16 @@ char	*extract_path(int start, char *str, t_map *map)
 	if (path[len - 1] == '\n')
 		path[len - 1] = '\0';
 	fd_valid = open(path, O_RDONLY);
-	if ( fd_valid == -1)
+	if (fd_valid == -1)
 		handle_error(ERR_TEXT, 1, map, NULL);
 	close(fd_valid);
 	return (path);
 }
 
-int	check_struct(t_map *map)
 /* checks if all the necessary values are valid in the struct.
 	If somethings wrong an error is handled and the program will exit,
 	if the struct is valid the function returns 1. */
+int	check_struct(t_map *map)
 {
 	if (!map->map)
 		handle_error(ERR_MAP, 1, map, NULL);

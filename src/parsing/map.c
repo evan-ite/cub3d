@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:28:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 17:23:07 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:05:44 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	get_map(t_map *map)
 	map->map = gnl_calloc(map->max_height + 1, sizeof(char *));
 	if (!map)
 		handle_error(ERR_MEM, 1, map, NULL);
-	i = 0;
+	i = -1;
 	line = get_next_line(map->fd);
 	while (line)
 	{
@@ -71,9 +71,8 @@ int	get_map(t_map *map)
 			if (line[len - 1] == '\n')
 				line[len - 1] = '\0';
 			map->map[i] = ft_strdup(line);
-			if (!map->map[i])
+			if (!map->map[++i])
 				handle_error(ERR_MEM, 1, map, NULL);
-			i++;
 		}
 		free(line);
 		line = get_next_line(map->fd);

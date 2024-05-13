@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 16:43:50 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/15 11:10:40 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:04:53 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 			return (-1);
 		i++;
 	}
-	if (s1[i] ||  s2[i])
+	if (s1[i] || s2[i])
 		return (-1);
 	return (0);
 }

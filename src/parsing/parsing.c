@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/03 14:29:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:14:58 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static void	check_element(int i, char *line, t_map *map)
 {
 	if (line[i] == 'N' && line[i + 1] == 'O')
 		map->text_files[0] = extract_path(i, line, map);
-	else if (line[i] == 'S'&& line[i + 1] == 'O')
+	else if (line[i] == 'S' && line[i + 1] == 'O')
 		map->text_files[2] = extract_path(i, line, map);
 	else if (line[i] == 'W' && line[i + 1] == 'E')
 		map->text_files[3] = extract_path(i, line, map);
 	else if (line[i] == 'E' && line[i + 1] == 'A')
 		map->text_files[1] = extract_path(i, line, map);
-	else if (line[i]== 'F')
+	else if (line[i] == 'F')
 		map->f = extract_color(i, line, map);
 	else if (line[i] == 'C')
 		map->c= extract_color(i, line, map);
@@ -82,7 +82,6 @@ int	parsing(int argc, char **argv, t_map *map)
 	if (!check_extension(argv[1]))
 		handle_error(ERR_FILE, 1, NULL, NULL);
 	init_map(map);
-	// print_map(map);
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd == -1)
 		handle_error(ERR_FILE, 1, map, NULL);

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_map.str[i]                                        :+:      :+:    :+:   */
+/*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:04:47 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 17:12:27 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:11:45 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static int	valid_chars(char *str)
 // checks if map only contains 6 possible chars: 0,1,N,S,E,W,space
+static int	valid_chars(char *str)
 {
 	int	i;
 
 	if (!str || !*str)
 		return (0);
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (!is_mapchar(str[i]))
 			return (0);
@@ -29,8 +29,8 @@ static int	valid_chars(char *str)
 	return (1);
 }
 
-int	check_valid(t_map *map)
 /* checks if the map contains valid characters, 1 player and walls. */
+int	check_valid(t_map *map)
 {
 	int	i;
 	int	j;
@@ -45,7 +45,7 @@ int	check_valid(t_map *map)
 		j = 0;
 		while (map->map[i][j])
 		{
-			if (ft_strchr("NESW", map->map[i][j])) /// add other directions
+			if (ft_strchr("NESW", map->map[i][j]))
 				player++;
 			j++;
 		}
