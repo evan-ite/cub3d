@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 16:31:21 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:09:23 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ void	print_map(t_map *map);
 void	print_img(t_img *i);
 void	raycast(t_game *g);
 void	printfd(const char *format, ...);
+
+// free
+void	free_game(t_game *game);
+void	free_map(t_map *map);
 
 // bonus
 // void	mini_map(t_game *game);

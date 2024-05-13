@@ -31,6 +31,13 @@ void	free_map(t_map *map)
 	ft_close(&map->fd);
 }
 
+void	free_game(t_game *game)
+{
+	if (game->map)
+		free_map(game->map);
+	free(game);
+}
+
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 {
 	if (err_msg)
@@ -38,6 +45,6 @@ void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 	if (map)
 		free_map(map);
 	if (game)
-		free(game);
+		free_game(game);
 	exit(err_code);
 }

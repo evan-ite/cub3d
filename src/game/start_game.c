@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 15:31:05 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:10:52 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	next_frame(t_game *game)
 
 static int	on_end(t_game *g)
 {
-	// free_game(g);
+	free_game(g);
 	(void) g;
 	exit(0);
 }
