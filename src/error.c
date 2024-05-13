@@ -12,16 +12,41 @@
 
 #include "../includes/cub3d.h"
 
+void	free_map(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while(i < 4)
+	{
+		if (map->text_files[i])
+		{
+			free(map->text_files[i]);
+			map->text_files[i] = NULL;
+		}
+		i++;
+	}
+	if (map->map)
+		free_array((void **)map->map, -1);
+	ft_close(&map->fd);
+	free(map);
+}
+
+void	free_game(t_game *game)
+{
+	if (game->map)
+		free_map(game->map);
+	// free other stuff
+	free(game);
+}
+
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 {
 	if (err_msg)
 		ft_putstr_fd(err_msg, STDERR_FILENO);
 	if (map)
-	{
-		ft_close(&map->fd);
-		// free(map);
-	}
+		free_map(map);
 	if (game)
-		free(game);
+		free_game(game);
 	exit(err_code);
 }
