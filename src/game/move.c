@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 17:00:31 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:20:16 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,45 +21,52 @@ static t_coordf	movement_vec(t_coordf vec, float speed)
 	return (movement_vec);
 }
 
+static t_coordf	get_check_coor(t_coordf mov, t_game *g)
+{
+	t_coordf		new;
+
+	if (mov.x >= 0)
+		new.x = 0.5 + g->player->coord.x + mov.x;
+	else
+		new.x = -0.5 + g->player->coord.x + mov.x;
+	if (mov.y >= 0)
+		new.y = 0.5 + g->player->coord.y + mov.y;
+	else
+		new.y = -0.5 + g->player->coord.y + mov.y;
+	return (new);
+}
+
 /* checks if player is moving towards a wall, returns 0 if player is
 is colliding with wall, returns 1 if there's is no collision */
-static int	check_collision(t_coordf movement, int dir, t_game *g)
+static t_coordf	check_collision(t_coordf mov, t_game *g)
 {
-	int		new_x;
-	int		new_y;
+	t_coordf	new;
+	char		tile;
+	t_coordf	check;
 
-	if (movement.x > 0)
-		new_x = ceil(g->player->coord.x + movement.x);
+	check = get_check_coor(mov, g);
+	tile = g->map->map[(int)g->player->coord.y][(int)check.x];
+	if (tile == '1')
+		new.x = 0;
 	else
-		new_x = floor(g->player->coord.x + movement.x);
-	if (movement.y > 0)
-		new_y = ceil(g->player->coord.y + movement.y);
+		new.x = mov.x;
+	tile = g->map->map[(int)check.y][(int)g->player->coord.x];
+	if (tile == '1')
+		new.y = 0;
 	else
-		new_y = floor(g->player->coord.y + movement.y);
+		new.y = mov.y;
 
-	(void)dir;
-	// new_x = g->player->coord.x + movement.x;
-	// new_y = g->player->coord.y + movement.y;
-	if (g->map->map[new_y][new_x] == '1')
-	{
-		// printfd("wall map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
-		return (0);
-	}
-	// else if (g->map->map[new_y + 1][new_x] == '1' || g->map->map[new_y][new_x + 1] == '1')
-	// 	return (0);
-	// else if (g->map->map[new_y - 1][new_x] == '1' || g->map->map[new_y][new_x - 1] == '1')
-	// 	return (0);
-	// printfd("map[%i][%i] = %c\n", new_y, new_x, g->map->map[new_y][new_x]);
-	return (1);
+	return (new);
 }
 
 static int	move_forward_backward(t_game *g, float speed, int dir)
 {
 	t_coordf	movement;
+	t_coordf	adjusted;
 
 	movement = movement_vec(g->player->view, (speed * dir));
-	if (check_collision(movement, dir, g))
-		add_vectors(&g->player->coord, &movement);
+	adjusted = check_collision(movement, g);
+	add_vectors(&g->player->coord, &adjusted);
 	return (1); // error handling!?
 }
 
@@ -67,11 +74,12 @@ static int	move_left_right(t_game *g, float speed, int dir) // 1 = l, -1 = r
 {
 	t_coordf	perpendicular;
 	t_coordf	movement;
+	t_coordf	adjusted;
 
 	perpendicular = perp_vec(g->player->view);
 	movement = movement_vec(perpendicular, (speed * dir));
-	if (check_collision(movement, dir, g))
-		add_vectors(&g->player->coord, &movement);
+	adjusted = check_collision(movement, g);
+	add_vectors(&g->player->coord, &adjusted);
 	return (1); // error handling!?
 }
 
