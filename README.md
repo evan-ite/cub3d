@@ -65,7 +65,7 @@ C 225,30,0
 - <s>minimap</s>
 - <s>minimap into frame (jan)</s>
 - draw the rest of the owl
-- collision checks
+- ~~collision checks~~
 - better textures
 - <s>flip textures (jan)</s>
 
