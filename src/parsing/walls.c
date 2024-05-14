@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:58:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/04/22 15:24:33 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	**copy_map(char **map, int height)
 	return (copy);
 }
 
-static void	flood_fill(int	x, int y, char **tiles, t_map *map)
+static void	flood_fill(int x, int y, char **tiles, t_map *map)
 {
 	if (x < 0 || x > map->max_width || y < 0 || y > map->max_height)
 		handle_error(ERR_MAP, 1, map, NULL);
@@ -46,7 +46,7 @@ int	check_walls(t_map *map)
 	int		j;
 	char	**copy;
 
-	copy = copy_map(map->map, map->max_height);
+	copy = copy_map(map->m, map->max_height);
 	i = 0;
 	while (copy[i])
 	{
@@ -62,4 +62,3 @@ int	check_walls(t_map *map)
 	free_array((void **)copy, -1);
 	return (1);
 }
-

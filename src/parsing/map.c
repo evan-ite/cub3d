@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:28:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/14 14:22:20 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ static void	copy_line(char *line, int *i, t_map *map)
 	len = ft_strlen(line);
 	if (line[len - 1] == '\n')
 		line[len - 1] = '\0';
-	map->map[*i] = ft_strdup(line);
-	if (!map->map[*i])
+	map->m[*i] = ft_strdup(line);
+	if (!map->m[*i])
 		handle_error(ERR_MEM, 1, map, NULL);
 	(*i)++;
 }
@@ -92,7 +92,7 @@ int	get_map(t_map *map)
 	int		i;
 	int		count;
 
-	map->map = gnl_calloc(map->max_height + 1, sizeof(char *));
+	map->m = gnl_calloc(map->max_height + 1, sizeof(char *));
 	if (!map)
 		handle_error(ERR_MEM, 1, map, NULL);
 	i = 0;

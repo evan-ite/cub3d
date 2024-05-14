@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_map.str[i]                                        :+:      :+:    :+:   */
+/*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:04:47 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 17:12:27 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	valid_chars(char *str)
 	if (!str || !*str)
 		return (0);
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (!is_mapchar(str[i]))
 			return (0);
@@ -38,14 +38,14 @@ int	check_valid(t_map *map)
 
 	i = 0;
 	player = 0;
-	while (map->map[i])
+	while (map->m[i])
 	{
-		if (!valid_chars(map->map[i]))
+		if (!valid_chars(map->m[i]))
 			handle_error(ERR_MAP, 1, map, NULL);
 		j = 0;
-		while (map->map[i][j])
+		while (map->m[i][j])
 		{
-			if (ft_strchr("NESW", map->map[i][j])) /// add other directions
+			if (ft_strchr("NESW", map->m[i][j]))
 				player++;
 			j++;
 		}

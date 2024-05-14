@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/14 13:52:13 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_map
 	char	*text_files[4]; // 0 == North, 1 == East, 2 == South, 3 == West
 	int		f;
 	int		c; // https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
-	char	**map;
+	char	**m;
 	int		max_width;
 	int		max_height; // I don't think we will use these?
 	int		fd; // Jan you don't need it but i need it in case of error to close file

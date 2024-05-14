@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/14 13:39:38 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:39:36 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,16 @@ int		get_px(t_coord *px, t_img *i, int verify);
 int		set_px(t_coord	*px, int c, t_game *g);
 
 // movement
-int		key_on(int keysym, t_game *g);
-int		key_off(int keysym, t_game *g);
-int		on_mouse_click (int button,int x,int y, t_game *g);
-int		mouse_move(int x, int y, t_game *g);
-int		turn(t_game *g, char dir, float speed);
-int		move(t_game *g);
+int			key_on(int keysym, t_game *g);
+int			key_off(int keysym, t_game *g);
+int			on_mouse_click (int button,int x,int y, t_game *g);
+int			mouse_move(int x, int y, t_game *g);
+int			turn(t_game *g, char dir, float speed);
+int			move(t_game *g);
+t_coordf	check_collision(t_coordf mov, t_game *g);
 
 // vectors
-void	add_vectors(t_coordf *v1, t_coordf *v2);
+void		add_vectors(t_coordf *v1, t_coordf *v2);
 t_coordf	perp_vec(t_coordf v);
 
 // utils

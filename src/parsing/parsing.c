@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/14 14:20:38 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:31:29 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ static void	check_element(int i, char *line, t_map *map)
 {
 	if (line[i] == 'N' && line[i + 1] == 'O')
 		map->text_files[0] = extract_path(i, line, map);
-	else if (line[i] == 'S'&& line[i + 1] == 'O')
+	else if (line[i] == 'S' && line[i + 1] == 'O')
 		map->text_files[2] = extract_path(i, line, map);
 	else if (line[i] == 'W' && line[i + 1] == 'E')
 		map->text_files[3] = extract_path(i, line, map);
 	else if (line[i] == 'E' && line[i + 1] == 'A')
 		map->text_files[1] = extract_path(i, line, map);
-	else if (line[i]== 'F')
+	else if (line[i] == 'F')
 		map->f = extract_color(i, line, map);
 	else if (line[i] == 'C')
-		map->c= extract_color(i, line, map);
+		map->c = extract_color(i, line, map);
 }
 
 static int	get_content(t_map *map)

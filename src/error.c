@@ -26,8 +26,8 @@ void	free_map(t_map *map)
 		}
 		i++;
 	}
-	if (map->map)
-		free_array((void **)map->map, -1);
+	if (map->m)
+		free_array((void **)map->m, -1);
 	ft_close(&map->fd);
 }
 

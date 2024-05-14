@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:12:13 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/13 14:39:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	draw_minimap(t_game *g)
 	t_coord	px;
 
 	y = -1;
-	while (g->map->map[++y])
+	while (g->map->m[++y])
 	{
 		x = -1;
-		while (g->map->map[y][++x])
+		while (g->map->m[y][++x])
 		{
-			if (g->map->map[y][x] == '1')
+			if (g->map->m[y][x] == '1')
 			{
 				set_coord(x, y, &px);
 				set_mm_pixels(px, MMWALL, g);

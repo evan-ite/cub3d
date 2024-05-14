@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:51:20 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/26 16:05:49 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	print_map(t_map *map)
 	printf("Ceiling color: %i\n", map->c);
 	printf("Max width: %i\n", map->max_width);
 	printf("Max height: %i\n", map->max_height);
-	if (map->map)
+	if (map->m)
 	{
 		for (int i = 0; i < map->max_height; i++)
-			printf("map[%i]: %s\n", i, map->map[i]);
+			printf("map[%i]: %s\n", i, map->m[i]);
 	}
 }
 
@@ -40,12 +40,11 @@ void	print_img(t_img *i)
 	printf("mlx_img: %p\n", i->mlx_img);
 }
 
-
 void printfd(const char *format, ...)
 {
 	if (!DEBUG)
 		return ;
-	va_list args;
+	va_list	args;
 	va_start(args, format);
 	vprintf(format, args);
 	va_end(args);

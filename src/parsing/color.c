@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:45:40 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/10 11:22:54 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:32:19 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static uint32_t	create_color(int red, int green, int blue, t_map *map)
 {
 	uint32_t	color_integer;
 
-	if (red < 0 || red > 255 || green < 0 || green > 255 ||\
+	if (red < 0 || red > 255 || green < 0 || green > 255 || \
 		blue < 0 || blue > 255)
 		handle_error(ERR_COL, 1, map, NULL);
 	color_integer = 0;
 	color_integer |= (uint32_t)blue;
 	color_integer |= ((uint32_t)green << 8);
 	color_integer |= ((uint32_t)red << 16);
-	return color_integer;
+	return (color_integer);
 }
 
 static int	check_rgb(char *str)
@@ -49,7 +49,7 @@ static int	check_rgb(char *str)
 		return (0);
 }
 
-int	extract_color(int start, char *str, t_map *map)
+int	extract_color(int start, char *str, t_map *m)
 /* Extracts the RGB color from a string and converts it to an integer */
 {
 	int		i;
@@ -64,17 +64,17 @@ int	extract_color(int start, char *str, t_map *map)
 	while (ft_isdigit(str[i]) || str[i] == ',')
 		i++;
 	if (str[i + 1] && !ft_isspace(str[i + 1]))
-		handle_error(ERR_COL, 1, map, NULL);
+		handle_error(ERR_COL, 1, m, NULL);
 	temp = ft_substr(str, start, i - start);
 	if (!temp)
-		handle_error(ERR_MEM, 1, map, NULL);
+		handle_error(ERR_MEM, 1, m, NULL);
 	if (!check_rgb(temp))
-		handle_error(ERR_COL, 1, map, NULL);
+		handle_error(ERR_COL, 1, m, NULL);
 	rgb = ft_split(temp, ',');
 	free(temp);
 	if (!rgb)
-		handle_error(ERR_MEM, 1, map, NULL);
-	result = create_color(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]), map);
+		handle_error(ERR_MEM, 1, m, NULL);
+	result = create_color(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]), m);
 	free_array((void **)rgb, -1);
 	return (result);
 }

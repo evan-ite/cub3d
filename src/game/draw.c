@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 17:24:22 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:42:22 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	fill_bg(t_img *frame, int c, int f)
 
 	ctr = 0;
 	px = frame->addr;
-	while(ctr < (frame->len * HEIGHT))
+	while (ctr < (frame->len * HEIGHT))
 	{
-		if (ctr < (frame->len * HEIGHT/2))
+		if (ctr < (frame->len * HEIGHT / 2))
 			*(int *)(px) = c;
 		else
 			*(int *)(px) = f;
-		px += frame->bpp/8;
-		ctr += frame->bpp/8;
+		px += frame->bpp / 8;
+		ctr += frame->bpp / 8;
 	}
 	return (1); // meaningfull error handling tbi
 }
@@ -40,14 +40,13 @@ int	draw_frame(t_game *g)
 	cam = g->dlsr;
 	set.x = WIDTH - DSLRX;
 	get.x = 0;
-
 	fill_bg(g->frame, g->map->c, g->map->f);
 	raycast(g);
-	while(get.x < DSLRX)
+	while (get.x < DSLRX)
 	{
 		get.y = 0;
 		set.y = HEIGHT - DSLRY;
-		while(get.y < DSLRY)
+		while (get.y < DSLRY)
 		{
 			int col	= get_px(&get, cam, 1);
 			if (col > 0)

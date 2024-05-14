@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 17:19:19 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	init_frame(t_game *g)
 	return (1); // meaningfull error handling tbi
 }
 
-static void init_moves(t_game *g)
+static void	init_moves(t_game *g)
 {
 	g->player->move[0] = 0;
 	g->player->move[1] = 0;
@@ -68,18 +68,18 @@ int	init_player(t_game *g)
 	set_coordf(0, 0, &(g->player->coord));
 	set_coordf(0, 0, &(g->player->view));
 	init_moves(g);
-	while(g->map->map[(int) g->player->coord.y])
+	while (g->map->m[(int) g->player->coord.y])
 	{
 		g->player->coord.x = 0;
-		while (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x])
+		while (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x])
 		{
-			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'N')
+			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'N')
 				set_coordf(0, -1, &g->player->view);
-			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'E')
+			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'E')
 				set_coordf(1, 0, &g->player->view);
-			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'S')
+			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'S')
 				set_coordf(0, 1, &g->player->view);
-			if (g->map->map[(int) g->player->coord.y][(int) g->player->coord.x] == 'W')
+			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'W')
 				set_coordf(-1, 0, &g->player->view);
 			if (g->player->view.x != 0 || g->player->view.y != 0)
 				return (1);
