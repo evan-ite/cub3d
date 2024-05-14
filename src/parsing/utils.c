@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/03 11:11:39 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:20:29 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_map(t_map *map)
 	map->max_height = 0;
 	map->max_width = 0;
 	map->fd = -1;
+	map->fd_lines = 0;
 }
 
 

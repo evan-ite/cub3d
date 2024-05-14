@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/13 14:09:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:39:38 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_map(t_map *map);
 char	*extract_path(int start, char *str, t_map *map);
 int		extract_color(int start, char *str, t_map *map);
 int		get_map(t_map *map);
-int		map_line(char *str);
+int		map_line(char *str, int check_vals, t_map *map);
 
 // check validity
 int		check_valid(t_map *map);

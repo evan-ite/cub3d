@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/03 14:29:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:20:38 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ static int	get_content(t_map *map)
 	width = 0;
 	while (line)
 	{
-		i = 0;
-		while (ft_isspace(line[i]))
-			i++;
+		map->fd_lines++;
+		i = -1;
+		while (ft_isspace(line[++i]))
+			map->fd_lines++;
 		check_element(i, line, map);
-		if (map_line(line))
+		if (map_line(line, 0, map))
 		{
 			map->max_height++;
 			width = ft_strlen(line);
@@ -74,15 +75,14 @@ static int	get_content(t_map *map)
 	return (1);
 }
 
-int	parsing(int argc, char **argv, t_map *map)
 /* Checking arguments, valid file and file content.*/
+int	parsing(int argc, char **argv, t_map *map)
 {
 	if (argc != 2)
 		handle_error(ERR_ARGC, 1, NULL, NULL);
 	if (!check_extension(argv[1]))
 		handle_error(ERR_FILE, 1, NULL, NULL);
 	init_map(map);
-	// print_map(map);
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd == -1)
 		handle_error(ERR_FILE, 1, map, NULL);
