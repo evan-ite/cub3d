@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:28:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:27:14 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_mapchar(char c)
 {
 	if (c == '1' || c == '0' || c == ' ' || c == '\n' || c == 'X')
 		return (1);
-	else if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
+	else if (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == 'D')
 		return (1);
 	else
 		return (0);

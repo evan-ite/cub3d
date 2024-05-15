@@ -6,13 +6,13 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:21:04 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:29:35 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	set_side_dist(t_ray *r, t_game *g)
+void	set_side_dist(t_ray *r, t_game *g)
 {
 	if (r->r_dir.x < 0)
 	{
@@ -41,7 +41,6 @@ static void	set_side_dist(t_ray *r, t_game *g)
 static void	init_ray(t_ray *r, int ctr, t_game *g)
 {
 	set_coord(g->player->coord.x, g->player->coord.y, &(r->cell));
-	r->hit = 0;
 	r->side = 0;
 	r->height = 0;
 	r->w_dist = 0;
@@ -56,8 +55,10 @@ static void	init_ray(t_ray *r, int ctr, t_game *g)
 
 static void	find_wall(t_ray *r, t_game *g)
 {
-	r->hit = 0;
-	while (!r->hit)
+	int	hit;
+
+	hit = 0;
+	while (!hit)
 	{
 		if (r->side_dist.x < r->side_dist.y)
 		{
@@ -72,7 +73,7 @@ static void	find_wall(t_ray *r, t_game *g)
 			r->side = 1;
 		}
 		if (g->map->m[r->cell.y][r->cell.x] == '1')
-			r->hit = 1;
+			hit = 1;
 	}
 }
 
@@ -119,11 +120,15 @@ void	raycast(t_game *g)
 			draw_line(r.height, ctr, r.w_ratio, 0, g);
 		if (!r.side && r.step.x > 0)
 			draw_line(r.height, ctr, r.w_ratio, 1, g);
-		if (r.side && r.step.y < 0)
+		if (r.side == 1 && r.step.y < 0)
 			draw_line(r.height, ctr, r.w_ratio, 2, g);
-		if (r.side && r.step.y > 0)
+		if (r.side == 1 && r.step.y > 0)
 			draw_line(r.height, ctr, r.w_ratio, 3, g);
+		if (r.side == 2)
+			draw_line(r.height, ctr, r.w_ratio, 4, g); // DRAW DOOR
 		g->zbuf[ctr] = r.w_dist;
 	}
 	draw_kim(g, r);
+	if (interaction_ray(g))
+		show_hint(g);
 }

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 15:47:28 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:27:00 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	init_textures(t_game *g)
 	int		ctr;
 
 	ctr = -1;
-	while (++ctr < 4)
+	while (++ctr < 7)
 	{
 		g->texts[ctr] = malloc(sizeof(t_img));
 		g->texts[ctr]->mlx_img = mlx_xpm_file_to_image(g->win->mlx, g->map->text_files[ctr], &x, &y);
@@ -35,6 +35,10 @@ int	init_textures(t_game *g)
 	g->kim = malloc(sizeof(t_img));
 	g->kim->mlx_img = mlx_xpm_file_to_image(g->win->mlx, KIM, &x, &y);
 	g->kim->addr = mlx_get_data_addr(g->kim->mlx_img, &(g->kim->bpp), &(g->kim->len), &(g->kim->endian));
+	g->hint = malloc(sizeof(t_img));
+	// g->hint->mlx_img = mlx_xpm_file_to_image(g->win->mlx, HINT, &x, &y);
+	g->hint->mlx_img = mlx_xpm_file_to_image(g->win->mlx, HINT, &(g->hint->x), &(g->hint->y));
+	g->hint->addr = mlx_get_data_addr(g->hint->mlx_img, &(g->hint->bpp), &(g->hint->len), &(g->hint->endian));
 	return (1); // meaningfull error handling tbi
 }
 

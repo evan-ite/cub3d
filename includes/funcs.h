@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 15:20:37 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:29:13 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_coordf	check_collision(t_coordf mov, t_game *g);
 // vectors
 void		add_vectors(t_coordf *v1, t_coordf *v2);
 t_coordf	perp_vec(t_coordf v);
+void		set_side_dist(t_ray *r, t_game *g);
 
 // utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
@@ -81,5 +82,7 @@ void	free_map(t_map *map);
 
 // bonus
 // void	mini_map(t_game *game);
-
+void	open_doors(t_game *g);
+int		interaction_ray(t_game *g);
+void	show_hint(t_game *g);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 11:13:30 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:27:06 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	key_off(int keysym, t_game *g)
 		g->player->move[4] = 0;
 	if (keysym == 65363) // right
 		g->player->move[5] = 0;
+	if (keysym == 32) // space
+		open_doors(g);
 	return (0);
 }
 

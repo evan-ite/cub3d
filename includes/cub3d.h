@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/15 15:47:20 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:29:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,14 @@
 # define MMPLAYER 0x0
 # define MMDOTSIZE 6
 # define DSLR "textures/dlsr.xpm"
+# define HINT "textures/hint.xpm"
 # define DSLRX 256
 # define DSLRY 256
 # define texWidth 64
 # define texHeight 64
 # define KIM "textures/kim_before.xpm"
+# define DOOR1 "textures/door1.xpm"
+# define DOOR2 "textures/door2.xpm"
+# define DOOR3 "textures/door3.xpm"
 
 #endif
