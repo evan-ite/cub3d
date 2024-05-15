@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:44:15 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 // char * mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *size_line, int *endian );
 int	init_textures(t_game *g)
 {
-	void	*ptr;
 	int		x;
 	int		y;
 	int		ctr;
@@ -23,17 +22,16 @@ int	init_textures(t_game *g)
 	ctr = -1;
 	while (++ctr < 4)
 	{
-		ptr = mlx_xpm_file_to_image(g->win->mlx, g->map->text_files[ctr], &x, &y);
 		g->texts[ctr] = malloc(sizeof(t_img));
-		g->texts[ctr]->addr = mlx_get_data_addr(ptr, &(g->texts[ctr]->bpp), &(g->texts[ctr]->len), &(g->texts[ctr]->endian));
+		g->texts[ctr]->mlx_img = mlx_xpm_file_to_image(g->win->mlx, g->map->text_files[ctr], &x, &y);
+		g->texts[ctr]->addr = mlx_get_data_addr(g->texts[ctr]->mlx_img, &(g->texts[ctr]->bpp), \
+		&(g->texts[ctr]->len), &(g->texts[ctr]->endian));
 		if (ctr == 0 || ctr == 3)
 			reverse_texture(g->texts[ctr]);
-		free(ptr);
 	}
-	ptr = mlx_xpm_file_to_image(g->win->mlx, DSLR, &x, &y);
 	g->dlsr = malloc(sizeof(t_img));
-	g->dlsr->addr = mlx_get_data_addr(ptr, &(g->dlsr->bpp), &(g->dlsr->len), &(g->dlsr->endian));
-	free(ptr);
+	g->dlsr->mlx_img = mlx_xpm_file_to_image(g->win->mlx, DSLR, &x, &y);
+	g->dlsr->addr = mlx_get_data_addr(g->dlsr->mlx_img, &(g->dlsr->bpp), &(g->dlsr->len), &(g->dlsr->endian));
 	return (1); // meaningfull error handling tbi
 }
 

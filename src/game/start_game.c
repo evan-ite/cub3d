@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/14 14:37:37 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:49:39 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ static int	next_frame(t_game *game)
 	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
 	game->tick++;
 	return (0);
-}
-
-static int	on_end(t_game *g)
-{
-	free_game(g);
-	(void) g;
-	exit(0);
 }
 
 int	start_game(t_game *game)
