@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:49:38 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:55:34 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 	float	height_ratio;
 
 	ctr = -1;
-	height_ratio = (float)TEX_Y / height;
+	height_ratio = (float)g->texts[dir]->y / height;
 	px.y = (HEIGHT - height) / 2;
 	px.x = (int) col;
-	tx.x = (int)(width_ratio * TEX_Y);
+	tx.x = (int)(width_ratio * g->texts[dir]->y);
 	while (++ctr <= height)
 	{
 		tx.y = (int)(ctr * height_ratio);
-		tx.y = ft_clamp(tx.y, 0, TEX_Y - 1);
-		tx.x = ft_clamp(tx.x, 0, TEX_X - 1);
+		tx.y = ft_clamp(tx.y, 0, g->texts[dir]->y - 1);
+		tx.x = ft_clamp(tx.x, 0, g->texts[dir]->y - 1);
 		color = get_color(tx.x, tx.y, dir, g);
 		tx.x = ft_clamp(tx.x, 0, WIDTH -1);
 		tx.y = ft_clamp(tx.y, 0, HEIGHT - 1);

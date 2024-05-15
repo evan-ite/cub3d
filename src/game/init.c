@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:46:08 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:59:56 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static t_img	*init_img(char *path, t_game *g)
 	t_img	*img;
 
 	img = malloc(sizeof(t_img));
+	if (!img)
+		handle_error(ERR_MEM, 127, g->map, g);
 	img->mlx_img = mlx_xpm_file_to_image(g->win->mlx, path, &(img->x), &(img->y));
 	img->addr = mlx_get_data_addr(img->mlx_img, &(img->bpp), &(img->len), &(img->endian));
 	return (img);

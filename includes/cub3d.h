@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/15 17:49:04 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:57:42 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@
 # define WINDOW_NAME "PAPARAZZO"
 # define WIDTH 1920
 # define HEIGHT 960
-# define TEX_X 640
-# define TEX_Y 640
 # define TURNSPEED 0.1
 # define WALKSPEED 0.1
 # define MOUSE_SENS 20
@@ -49,10 +47,10 @@
 # define MMWALL 0xFA69DA
 # define MMPLAYER 0x0
 # define MMDOTSIZE 6
-# define DSLR "textures/dlsr.xpm"
-# define HINT "textures/hint.xpm"
 # define texWidth 375
 # define texHeight 620
+# define DSLR "textures/dlsr.xpm"
+# define HINT "textures/hint.xpm"
 # define KIM "textures/kim_before.xpm"
 # define DOOR1 "textures/door1.xpm"
 # define DOOR2 "textures/door2.xpm"

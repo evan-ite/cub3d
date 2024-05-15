@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:40:05 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 16:33:58 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:54:11 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	get_px(t_coord *px, t_img *i, int verify)
 
 	if (verify)
 	{
-		if (px->x > TEX_X || px->y > TEX_Y)
+		if (px->x > i->x || px->y > i->y)
 			return (-1);
 	}
 	c = (int *)(i->addr + (((int) px->y * i->len) + \
