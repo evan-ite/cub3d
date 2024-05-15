@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_objects.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 16:59:31 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:33:06 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	show_hint(t_game *g)
 		while(get.y < g->hint->y)
 		{
 			int col	= get_px(&get, g->hint, 1);
-			if (col > 0)
-				set_px(&set, col, g);
+			// if (col > 0)
+			set_px(&set, col, g);
 			get.y++;
 			set.y++;
 		}
@@ -69,7 +69,7 @@ int	interaction_ray(t_game *g)
 		r.cell.y += r.step.y;
 		r.side = 1;
 	}
-	if (g->map->map[r.cell.y][r.cell.x] == 'D' || g->map->map[r.cell.y][r.cell.x] == 'X')
+	if (g->map->m[r.cell.y][r.cell.x] == 'D' || g->map->m[r.cell.y][r.cell.x] == 'X')
 	{
 		if (r.side == 0)
 			r.w_dist = (r.cell.x - g->player->coord.x + (1 - r.step.x) / 2) / r.r_dir.x;
