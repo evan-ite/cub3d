@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 11:14:20 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:20:37 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		draw_frame(t_game *g);
 int		draw_line(int height, int col, float width_ratio, int dir, t_game *g);
 int		get_px(t_coord *px, t_img *i, int verify);
 int		set_px(t_coord	*px, int c, t_game *g);
+void	draw_kim(t_game *g, t_ray r);
 
 // movement
 int			key_on(int keysym, t_game *g);

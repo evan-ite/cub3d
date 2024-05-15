@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 12:37:03 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:47:47 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_game
 	t_img		*texts[4]; // 0 == North, 1 == East, 2 == South, 3 == West
 	t_img		*dlsr;
 	t_img		*frame;
+	t_img		*kim;
 	t_player	*player;
 	size_t		tick;
 	int			zbuf[1920];

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 12:32:48 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:21:04 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,4 +125,5 @@ void	raycast(t_game *g)
 			draw_line(r.height, ctr, r.w_ratio, 3, g);
 		g->zbuf[ctr] = r.w_dist;
 	}
+	draw_kim(g, r);
 }

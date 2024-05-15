@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
+#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/15 11:05:23 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/05/15 14:47:29 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC = src/main.c src/error.c src/print.c \
 	src/game/start_game.c src/game/init.c src/game/draw.c \
 	src/game/pixels.c src/dda/dda.c src/game/input.c \
 	src/dda/dda_utils.c src/game/move.c src/game/collision.c \
-	src/features/minimap.c src/parsing/textures.c
+	src/features/minimap.c src/parsing/textures.c src/features/kim.c
 
 OBJ := $(SRC:.c=.o)
 

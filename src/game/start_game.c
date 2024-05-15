@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 12:44:17 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:19:42 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	next_frame(t_game *game)
 	mlx = game->win->mlx;
 	move(game);
 	draw_frame(game);
-	// draw_kim(game);
 	draw_minimap(game);
 	mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
 	game->tick++;

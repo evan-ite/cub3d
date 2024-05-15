@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 11:44:15 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:47:28 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	init_textures(t_game *g)
 	g->dlsr = malloc(sizeof(t_img));
 	g->dlsr->mlx_img = mlx_xpm_file_to_image(g->win->mlx, DSLR, &x, &y);
 	g->dlsr->addr = mlx_get_data_addr(g->dlsr->mlx_img, &(g->dlsr->bpp), &(g->dlsr->len), &(g->dlsr->endian));
+	g->kim = malloc(sizeof(t_img));
+	g->kim->mlx_img = mlx_xpm_file_to_image(g->win->mlx, KIM, &x, &y);
+	g->kim->addr = mlx_get_data_addr(g->kim->mlx_img, &(g->kim->bpp), &(g->kim->len), &(g->kim->endian));
 	return (1); // meaningfull error handling tbi
 }
 
