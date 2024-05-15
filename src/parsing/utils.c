@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:39:16 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_map(t_map *map)
 	map->max_width = 0;
 	map->fd = -1;
 	map->fd_lines = 0;
+	map->n_kim = 0;
 }
 
 char	*extract_path(int start, char *str, t_map *map)

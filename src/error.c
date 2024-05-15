@@ -35,6 +35,8 @@ void	free_game(t_game *game)
 {
 	if (game->map)
 		free_map(game->map);
+	if (game->win)
+		mlx_destroy_window(game->win->mlx, game->win->win);
 	free(game);
 }
 

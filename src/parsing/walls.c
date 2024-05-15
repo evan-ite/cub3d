@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:58:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:42:07 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_walls(t_map *map)
 		j = 0;
 		while (copy[i][j])
 		{
-			if (copy[i][j] == 'N')
+			if (ft_strchr("NESW",copy[i][j]))
 				flood_fill(j, i, copy, map);
 			j++;
 		}

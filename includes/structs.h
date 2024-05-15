@@ -6,12 +6,13 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:37:03 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
 
 typedef	struct s_win
 {
@@ -49,6 +50,7 @@ typedef struct s_map
 	int		max_height; // I don't think we will use these?
 	int		fd; // Jan you don't need it but i need it in case of error to close file
 	int		fd_lines;
+	int		n_kim;
 }	t_map;
 
 typedef struct s_image
@@ -69,6 +71,7 @@ typedef struct s_game
 	t_img		*frame;
 	t_player	*player;
 	size_t		tick;
+	int			zbuf[1920];
 }	t_game;
 
 typedef	struct s_ray
