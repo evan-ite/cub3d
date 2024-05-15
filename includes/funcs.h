@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/10 17:34:34 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:32:30 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	printfd(const char *format, ...);
 
 // bonus
 // void	mini_map(t_game *game);
-
+void	open_doors(t_game *g);
 #endif

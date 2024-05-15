@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/13 10:36:59 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:30:51 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	key_off(int keysym, t_game *g)
 		g->player->move[4] = 0;
 	if (keysym == 65363) // right
 		g->player->move[5] = 0;
-	if (keysym == 32) // right
+	if (keysym == 32) // space
 		open_doors(g);
 	return (0);
 }
