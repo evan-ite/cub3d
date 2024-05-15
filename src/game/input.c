@@ -6,18 +6,11 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/03 14:59:20 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:13:30 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-static int	on_end(t_game *g)
-{
-	// free_game(g);
-	(void) g;
-	exit(0);
-}
 
 int	turn(t_game *g, char dir, float speed)
 {
