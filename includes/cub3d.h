@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/15 17:35:01 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:49:04 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@
 # define WINDOW_NAME "PAPARAZZO"
 # define WIDTH 1920
 # define HEIGHT 960
-// # define WIDTH 600
-// # define HEIGHT 300
 # define TEX_X 640
 # define TEX_Y 640
 # define TURNSPEED 0.1
@@ -53,10 +51,8 @@
 # define MMDOTSIZE 6
 # define DSLR "textures/dlsr.xpm"
 # define HINT "textures/hint.xpm"
-# define DSLRX 256
-# define DSLRY 256
-# define texWidth 64
-# define texHeight 64
+# define texWidth 375
+# define texHeight 620
 # define KIM "textures/kim_before.xpm"
 # define DOOR1 "textures/door1.xpm"
 # define DOOR2 "textures/door2.xpm"

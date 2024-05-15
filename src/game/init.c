@@ -3,42 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:27:00 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:46:08 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
+static t_img	*init_img(char *path, t_game *g)
+{
+	t_img	*img;
+
+	img = malloc(sizeof(t_img));
+	img->mlx_img = mlx_xpm_file_to_image(g->win->mlx, path, &(img->x), &(img->y));
+	img->addr = mlx_get_data_addr(img->mlx_img, &(img->bpp), &(img->len), &(img->endian));
+	return (img);
+}
+
 // char * mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *size_line, int *endian );
 int	init_textures(t_game *g)
 {
-	int		x;
-	int		y;
 	int		ctr;
 
 	ctr = -1;
 	while (++ctr < 7)
-	{
-		g->texts[ctr] = malloc(sizeof(t_img));
-		g->texts[ctr]->mlx_img = mlx_xpm_file_to_image(g->win->mlx, g->map->text_files[ctr], &x, &y);
-		g->texts[ctr]->addr = mlx_get_data_addr(g->texts[ctr]->mlx_img, &(g->texts[ctr]->bpp), \
-		&(g->texts[ctr]->len), &(g->texts[ctr]->endian));
-		if (ctr == 0 || ctr == 3)
-			reverse_texture(g->texts[ctr]);
-	}
-	g->dlsr = malloc(sizeof(t_img));
-	g->dlsr->mlx_img = mlx_xpm_file_to_image(g->win->mlx, DSLR, &x, &y);
-	g->dlsr->addr = mlx_get_data_addr(g->dlsr->mlx_img, &(g->dlsr->bpp), &(g->dlsr->len), &(g->dlsr->endian));
-	g->kim = malloc(sizeof(t_img));
-	g->kim->mlx_img = mlx_xpm_file_to_image(g->win->mlx, KIM, &x, &y);
-	g->kim->addr = mlx_get_data_addr(g->kim->mlx_img, &(g->kim->bpp), &(g->kim->len), &(g->kim->endian));
-	g->hint = malloc(sizeof(t_img));
-	// g->hint->mlx_img = mlx_xpm_file_to_image(g->win->mlx, HINT, &x, &y);
-	g->hint->mlx_img = mlx_xpm_file_to_image(g->win->mlx, HINT, &(g->hint->x), &(g->hint->y));
-	g->hint->addr = mlx_get_data_addr(g->hint->mlx_img, &(g->hint->bpp), &(g->hint->len), &(g->hint->endian));
+		g->texts[ctr] = init_img(g->map->text_files[ctr], g);
+	reverse_texture(g->texts[0]);
+	reverse_texture(g->texts[3]);
+	g->dlsr = init_img(DSLR, g);
+	g->hint = init_img(HINT, g);
+	g->kim = init_img(KIM, g);
 	return (1); // meaningfull error handling tbi
 }
 

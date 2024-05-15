@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_objects.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:33:06 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:51:11 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	show_hint(t_game *g)
 		while(get.y < g->hint->y)
 		{
 			int col	= get_px(&get, g->hint, 1);
-			// if (col > 0)
 			set_px(&set, col, g);
 			get.y++;
 			set.y++;

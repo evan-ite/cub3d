@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/14 14:42:22 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:49:38 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ int	draw_frame(t_game *g)
 	t_coord	set;
 
 	cam = g->dlsr;
-	set.x = WIDTH - DSLRX;
+	set.x = WIDTH - cam->x;
 	get.x = 0;
 	fill_bg(g->frame, g->map->c, g->map->f);
 	raycast(g);
-	while (get.x < DSLRX)
+	while (get.x < cam->x)
 	{
 		get.y = 0;
-		set.y = HEIGHT - DSLRY;
-		while (get.y < DSLRY)
+		set.y = HEIGHT - cam->y;
+		while (get.y < cam->y)
 		{
 			int col	= get_px(&get, cam, 1);
 			if (col > 0)
