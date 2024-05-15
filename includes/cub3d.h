@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/13 10:20:03 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:03:45 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define MMPLAYER 0xFF0000
 # define MMDOTSIZE 6
 # define DSLR "textures/dlsr.xpm"
+# define HINT "textures/hint.xpm"
 # define DSLRX 256
 # define DSLRY 256
 # define DOOR1 "textures/door1.xpm"

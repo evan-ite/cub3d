@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/13 10:22:30 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:56:14 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_image
 	int		bpp;
 	int		len;
 	int		endian;
+	int		x;
+	int		y;
 }	t_img;
 
 typedef struct s_game
@@ -65,6 +67,7 @@ typedef struct s_game
 	t_win		*win;
 	t_img		*texts[7]; // 0 == North, 1 == East, 2 == South, 3 == West, 4-6 == Door closed, half open, open
 	t_img		*dlsr;
+	t_img		*hint;
 	t_img		*frame;
 	t_player	*player;
 	size_t		tick;

@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 15:32:30 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:00:05 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		move(t_game *g);
 // vectors
 void		add_vectors(t_coordf *v1, t_coordf *v2);
 t_coordf	perp_vec(t_coordf v);
+void		set_side_dist(t_ray *r, t_game *g);
 
 // utils
 void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
@@ -75,4 +76,6 @@ void	printfd(const char *format, ...);
 // bonus
 // void	mini_map(t_game *game);
 void	open_doors(t_game *g);
+int		interaction_ray(t_game *g);
+void	show_hint(t_game *g);
 #endif

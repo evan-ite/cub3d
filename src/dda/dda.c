@@ -6,13 +6,13 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/13 10:22:19 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:59:47 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	set_side_dist(t_ray *r, t_game *g)
+void	set_side_dist(t_ray *r, t_game *g)
 {
 	if (r->r_dir.x < 0)
 	{
@@ -132,4 +132,6 @@ void	raycast(t_game *g)
 		if (r.side == 2)
 			draw_line(r.height, ctr, r.w_ratio, 4, g);
 	}
+	if (interaction_ray(g))
+		show_hint(g);
 }

@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/13 10:25:19 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:08:17 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	init_textures(t_game *g)
 	g->dlsr = malloc(sizeof(t_img));
 	g->dlsr->addr = mlx_get_data_addr(ptr, &(g->dlsr->bpp), &(g->dlsr->len), &(g->dlsr->endian));
 	free(ptr);
+	g->hint = malloc(sizeof(t_img));
+	// g->hint->mlx_img = mlx_xpm_file_to_image(g->win->mlx, HINT, &x, &y);
+	g->hint->mlx_img = mlx_xpm_file_to_image(g->win->mlx, HINT, &(g->hint->x), &(g->hint->y));
+	g->hint->addr = mlx_get_data_addr(g->hint->mlx_img, &(g->hint->bpp), &(g->hint->len), &(g->hint->endian));
 	return (1); // meaningfull error handling tbi
 }
 
