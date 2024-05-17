@@ -6,7 +6,7 @@
 #    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/15 17:30:31 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/05/17 15:53:37 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC = src/main.c src/error.c src/print.c \
 	src/game/pixels.c src/dda/dda.c src/game/input.c \
 	src/dda/dda_utils.c src/game/move.c src/game/collision.c \
 	src/features/minimap.c src/parsing/textures.c src/features/kim.c \
-	src/features/doors.c src/dda/dda_objects.c
+	src/features/doors.c src/dda/dda_objects.c src/features/kim_utils.c
 
 OBJ := $(SRC:.c=.o)
 

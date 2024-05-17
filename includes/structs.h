@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:24:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:43:20 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,30 @@ typedef	struct s_ray
 	t_coordf	delta_dist;
 	t_coordf	intersect;
 }	t_ray;
+
+typedef	struct s_sprite_meta
+{
+	t_coord	*sprites;
+	int		order[100];
+	float	dist[100];
+	void	*img;
+}	t_sprite_meta;
+
+typedef	struct s_sprite
+{
+	t_coordf	plane;
+	t_coordf	vec_spr;
+	float		transformY;
+	float		transformX;
+	int			spriteScreenX;
+	int			spriteHeight;
+	int			drawStartY;
+	int			drawEndY;
+	int			spriteWidth;
+	int			drawStartX;
+	int			drawEndX;
+}	t_sprite;
+
+
 
 #endif

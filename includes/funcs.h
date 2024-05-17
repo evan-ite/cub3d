@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/17 13:34:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:53:02 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		get_px(t_coord *px, t_img *i, int verify);
 int		set_px(t_coord	*px, int c, t_game *g);
 void	draw_kim(t_game *g);
 
+
 // movement
 int			key_on(int keysym, t_game *g);
 int			key_off(int keysym, t_game *g);
@@ -68,6 +69,7 @@ void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
 void	set_coordf(float x, float y, t_coordf *coord);
 void	set_coord(int x, int y, t_coord *coord);
 int		ft_clamp(int value, int min, int max);
+void	calc_sprite(t_game *g, t_sprite_meta *d);
 
 // debugging
 void	print_map(t_map *map);
