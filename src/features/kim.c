@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/17 13:54:49 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/17 15:16:22 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	draw_kim(t_game *g)
 	float	s_dist[g->map->n_kim];
 	int		size;
 
+	if (g->map->n_kim <= 0)
+		return ;
 	// 1. Sort sprites according to distance from player
 	size =450;
 	sprite = get_sprite_coord(g);
