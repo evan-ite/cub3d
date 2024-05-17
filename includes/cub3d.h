@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/15 17:57:42 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/17 13:52:05 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@
 # define MMWALL 0xFA69DA
 # define MMPLAYER 0x0
 # define MMDOTSIZE 6
-# define texWidth 375
-# define texHeight 620
+# define KIMSIZE 450
 # define DSLR "textures/dlsr.xpm"
 # define HINT "textures/hint.xpm"
 # define KIM "textures/kim_before.xpm"

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:29:35 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/17 13:34:09 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,9 @@ void	raycast(t_game *g)
 {
 	int		ctr;
 	t_ray	r;
+	t_ray	*rs;
 
+	rs = gnl_calloc(WIDTH, sizeof(t_ray));
 	ctr = -1;
 	while (++ctr < WIDTH)
 	{
@@ -127,8 +129,9 @@ void	raycast(t_game *g)
 		if (r.side == 2)
 			draw_line(r.height, ctr, r.w_ratio, 4, g); // DRAW DOOR
 		g->zbuf[ctr] = r.w_dist;
+		rs[ctr] = r;
 	}
-	draw_kim(g, r);
+	draw_kim(g);
 	if (interaction_ray(g))
 		show_hint(g);
 }
