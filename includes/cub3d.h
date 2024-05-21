@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/21 15:46:39 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:48:56 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@
 # define HINT "textures/hint.xpm"
 # define KIM "textures/kim_before.xpm"
 # define FLASH "textures/flash.xpm"
+# define WIN "textures/win.xpm"
 # define DOOR1 "textures/door1.xpm"
 # define DOOR2 "textures/door2.xpm"
 # define DOOR3 "textures/door3.xpm"

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 14:03:46 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:51:44 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,12 @@ typedef	struct s_sprite
 
 typedef	struct s_sprite_meta
 {
+	t_sprite	sp[100];
 	t_coord		sp_coor[100];
 	int			order[100];
 	float		dist[100];
 	void		*img;
-	t_sprite	sp[100];
+	int			sp_left;
 }	t_sp_meta;
 
 typedef struct s_game
@@ -99,7 +100,9 @@ typedef struct s_game
 	t_img		*frame;
 	t_player	*player;
 	size_t		tick;
+	int			photos; //photos taken by player
 	int			zbuf[1920];
+	int			won;
 	t_sp_meta	sm;
 }	t_game;
 

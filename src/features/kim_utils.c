@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 13:49:53 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:34:03 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	calc_sprite(t_game *g, t_sp_meta *sm)
 	int			i;
 
 	i = -1;
-	while (++i < g->map->n_kim)
+	while (++i < sm->sp_left)
 	{
 		sm->sp[i].plane = perp_vec(g->player->view);
 		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->player->coord.x;

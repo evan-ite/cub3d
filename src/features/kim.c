@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 14:05:35 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:33:47 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static int	get_sprite_coord(t_game *g, t_coord *sprite)
 			}
 		}
 	}
+	g->sm.sp_left = ctr;
 	return (0);
 }
 
@@ -68,11 +69,10 @@ static void	sort_sprites(int *order, float *dist, int len)
 void	draw_kim(t_game *g)
 {
 	int				i;
-	int				size;
 
 	if (g->map->n_kim <= 0)
 		return ;
-	size = KIMSIZE;
+	g->sm.sp_left = 0;
 	if (get_sprite_coord(g, g->sm.sp_coor) == -1)
 		handle_error("Couldn't find sprites", 1, NULL, g);
 	i = -1;
@@ -81,6 +81,6 @@ void	draw_kim(t_game *g)
 		g->sm.order[i] = i;
 		g->sm.dist[i] = pow(g->player->coord.x - g->sm.sp_coor[i].x, 2) + pow(g->player->coord.y - g->sm.sp_coor[i].y, 2);
 	}
-	sort_sprites(g->sm.order, g->sm.dist, g->map->n_kim);
+	sort_sprites(g->sm.order, g->sm.dist, g->sm.sp_left);
 	calc_sprite(g, &g->sm);
 }
