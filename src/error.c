@@ -32,5 +32,7 @@ void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 		free_map(map);
 		exit(err_code);
 	}
-	on_end(game);
+	if (game)
+		on_end(game);
+	exit(err_code);
 }
