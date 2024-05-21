@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 10:54:31 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:03:46 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,12 @@ typedef	struct s_sprite
 	int			spriteWidth;
 	int			drawStartX;
 	int			drawEndX;
+	int			moveScreen;
 }	t_sprite;
 
 typedef	struct s_sprite_meta
 {
-	t_coord		*sp_coor;
+	t_coord		sp_coor[100];
 	int			order[100];
 	float		dist[100];
 	void		*img;

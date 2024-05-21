@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/17 19:06:16 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:12:48 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 # define ERR_TEXT "Map does not contain valid texture files\n"
 # define ERR_COL "Map does not contain valid RGB colors\n"
 # define ERR_MAP "Please provide a valid map\n"
+# define ERR_NKIM "This game can not handle more than 100 Kim K's, she's too iconic\n"
+# define ERR_KIM_VALID "Not all Kims are reachable\n"
 # define WINDOW_NAME "PAPARAZZO"
 # define WIDTH 1920
 # define HEIGHT 960
@@ -48,6 +50,9 @@
 # define MMPLAYER 0x0
 # define MMDOTSIZE 6
 # define KIMSIZE 450
+# define HSCALE 1
+# define WSCALE 1
+# define MOVE 90
 # define DSLR "textures/dlsr.xpm"
 # define HINT "textures/hint.xpm"
 # define KIM "textures/kim_before.xpm"

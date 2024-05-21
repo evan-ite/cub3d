@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 11:16:02 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:05:41 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ void	free_game(t_game *g)
 {
 	if (g->map)
 		free_map(g->map);
-	if (g->map->n_kim > 0)
-	{
-		free(g->sm.sp_coor);
-		g->sm.sp_coor = NULL;
-	}
 }
 
 void	free_images(t_game *g)

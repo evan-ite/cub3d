@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 10:57:46 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:49:53 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void	calc_screen_coor(t_game *g, t_sprite *s)
 /* Scale sprite height according to distance*/
 static void	calc_height(t_sprite *s)
 {
-	s->spriteHeight = abs((int)(HEIGHT / s->transformY));
-	s->drawStartY = -s->spriteHeight / 2 + HEIGHT / 2;
+	s->spriteHeight = abs((int)(HEIGHT / s->transformY)) / HSCALE;
+	s->drawStartY = -s->spriteHeight / 2 + HEIGHT / 2 + s->moveScreen;
 	if(s->drawStartY < 0)
 		s->drawStartY = 0;
-	s->drawEndY = s->spriteHeight / 2 + HEIGHT / 2;
+	s->drawEndY = s->spriteHeight / 2 + HEIGHT / 2 + s->moveScreen;
 	if(s->drawEndY >= HEIGHT)
 		s->drawEndY = HEIGHT - 1;
 }
@@ -39,7 +39,7 @@ static void	calc_height(t_sprite *s)
 /* Scale sprite width according to distance*/
 static void	calc_width(t_sprite *s)
 {
-	s->spriteWidth = abs((int)(HEIGHT / s->transformY));
+	s->spriteWidth = abs((int)(HEIGHT / s->transformY)) / WSCALE;
 	s->drawStartX = -s->spriteWidth / 2 + s->spriteScreenX;
 	if(s->drawStartX < 0)
 		s->drawStartX = 0;
@@ -68,7 +68,7 @@ static void	loop_stripes(t_sprite s, t_game *g)
 			y = s.drawStartY - 1;
 			while (++y < s.drawEndY)
 			{
-				d = (y) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
+				d = (y - s.moveScreen) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
 				tex.y = ((d * KIMSIZE) / s.spriteHeight) / 256;
 
 				color = get_px(&tex, g->sm.img, 0);
@@ -91,6 +91,7 @@ void	calc_sprite(t_game *g, t_sp_meta *sm)
 		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->player->coord.x;
 		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->player->coord.y;
 		calc_screen_coor(g, &sm->sp[i]);
+		sm->sp->moveScreen = (int) (MOVE / sm->sp->transformY);
 		calc_height(&sm->sp[i]);
 		calc_width(&sm->sp[i]);
 		loop_stripes(sm->sp[i], g);

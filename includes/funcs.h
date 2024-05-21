@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 10:48:08 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:14:41 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ int		draw_frame(t_game *g);
 int		draw_line(int height, int col, float width_ratio, int dir, t_game *g);
 int		get_px(t_coord *px, t_img *i, int verify);
 int		set_px(t_coord	*px, int c, t_game *g);
-void	draw_kim(t_game *g);
-
 
 // movement
 int			key_on(int keysym, t_game *g);
@@ -88,4 +86,7 @@ void	free_images(t_game *g);
 void	open_doors(t_game *g);
 int		interaction_ray(t_game *g);
 void	show_hint(t_game *g);
+int		valid_kim(t_map *map);
+void	draw_kim(t_game *g);
+
 #endif

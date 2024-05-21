@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:04:47 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/15 12:38:57 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:08:13 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,25 @@ int	check_valid(t_map *map)
 	int	j;
 	int	player;
 
-	i = 0;
+	i = -1;
 	player = 0;
-	while (map->m[i])
+	while (map->m[++i])
 	{
 		if (!valid_chars(map->m[i]))
 			handle_error(ERR_MAP, 1, map, NULL);
-		j = 0;
-		while (map->m[i][j])
+		j = -1;
+		while (map->m[i][++j])
 		{
 			if (ft_strchr("NESW", map->m[i][j]))
 				player++;
 			if (map->m[i][j] == 'X')
 				map->n_kim++;
-			j++;
 		}
-		i++;
 	}
 	if (player != 1)
 		handle_error(ERR_MAP, 1, map, NULL);
+	if (map->n_kim > 0)
+		valid_kim(map);
 	check_walls(map);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 11:21:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:05:35 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,6 @@ void	draw_kim(t_game *g)
 	if (g->map->n_kim <= 0)
 		return ;
 	size = KIMSIZE;
-	if (g->sm.sp_coor)
-		free(g->sm.sp_coor);
-	g->sm.sp_coor = gnl_calloc(g->map->n_kim + 1, sizeof(t_coord));
 	if (get_sprite_coord(g, g->sm.sp_coor) == -1)
 		handle_error("Couldn't find sprites", 1, NULL, g);
 	i = -1;
