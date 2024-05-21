@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 15:19:42 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:22:58 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	start_game(t_game *game)
 	void	*mlx;
 
 	game->tick = 0;
+	game->sm.sp_coor = NULL;
 	win = game->win->win;
 	mlx = game->win->mlx;
 	init_player(game);

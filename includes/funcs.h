@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/17 15:53:02 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:48:08 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	handle_error(char *err_msg, int err_code, t_map *map, void *game);
 void	set_coordf(float x, float y, t_coordf *coord);
 void	set_coord(int x, int y, t_coord *coord);
 int		ft_clamp(int value, int min, int max);
-void	calc_sprite(t_game *g, t_sprite_meta *d);
+void	calc_sprite(t_game *g, t_sp_meta *d);
 
 // debugging
 void	print_map(t_map *map);
@@ -81,6 +81,7 @@ void	printfd(const char *format, ...);
 int		on_end(t_game *g);
 void	free_game(t_game *game);
 void	free_map(t_map *map);
+void	free_images(t_game *g);
 
 // bonus
 // void	mini_map(t_game *game);

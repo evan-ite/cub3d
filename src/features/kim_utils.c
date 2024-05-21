@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/17 15:52:49 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:57:46 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void	loop_stripes(t_sprite s, t_game *g)
 {
 	int		stripe;
 	int		y;
+	int		d;
+	int		color;
 	t_coord	tex;
 	t_coord	set;
 
@@ -66,10 +68,10 @@ static void	loop_stripes(t_sprite s, t_game *g)
 			y = s.drawStartY - 1;
 			while (++y < s.drawEndY)
 			{
-				int d = (y) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
+				d = (y) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
 				tex.y = ((d * KIMSIZE) / s.spriteHeight) / 256;
 
-				int color = get_px(&tex, g->kim, 0);
+				color = get_px(&tex, g->sm.img, 0);
 				set_coord(stripe, y, &set);
 				if (color > 0)
 					set_px(&set, color, g);
@@ -78,20 +80,19 @@ static void	loop_stripes(t_sprite s, t_game *g)
 	}
 }
 
-void	calc_sprite(t_game *g, t_sprite_meta *d)
+void	calc_sprite(t_game *g, t_sp_meta *sm)
 {
 	int			i;
-	t_sprite	s;
 
 	i = -1;
 	while (++i < g->map->n_kim)
 	{
-		s.plane = perp_vec(g->player->view);
-		s.vec_spr.x = d->sprites[d->order[i]].x - g->player->coord.x;
-		s.vec_spr.y = d->sprites[d->order[i]].y - g->player->coord.y;
-		calc_screen_coor(g, &s);
-		calc_height(&s);
-		calc_width(&s);
-		loop_stripes(s, g);
+		sm->sp[i].plane = perp_vec(g->player->view);
+		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->player->coord.x;
+		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->player->coord.y;
+		calc_screen_coor(g, &sm->sp[i]);
+		calc_height(&sm->sp[i]);
+		calc_width(&sm->sp[i]);
+		loop_stripes(sm->sp[i], g);
 	}
 }

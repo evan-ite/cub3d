@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/17 15:43:20 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:54:31 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,30 @@ typedef struct s_image
 	int		y;
 }	t_img;
 
+typedef	struct s_sprite
+{
+	t_coordf	plane;
+	t_coordf	vec_spr;
+	float		transformY;
+	float		transformX;
+	int			spriteScreenX;
+	int			spriteHeight;
+	int			drawStartY;
+	int			drawEndY;
+	int			spriteWidth;
+	int			drawStartX;
+	int			drawEndX;
+}	t_sprite;
+
+typedef	struct s_sprite_meta
+{
+	t_coord		*sp_coor;
+	int			order[100];
+	float		dist[100];
+	void		*img;
+	t_sprite	sp[100];
+}	t_sp_meta;
+
 typedef struct s_game
 {
 	t_map		*map;
@@ -72,10 +96,10 @@ typedef struct s_game
 	t_img		*dlsr;
 	t_img		*hint;
 	t_img		*frame;
-	t_img		*kim;
 	t_player	*player;
 	size_t		tick;
 	int			zbuf[1920];
+	t_sp_meta	sm;
 }	t_game;
 
 typedef	struct s_ray
@@ -93,30 +117,5 @@ typedef	struct s_ray
 	t_coordf	delta_dist;
 	t_coordf	intersect;
 }	t_ray;
-
-typedef	struct s_sprite_meta
-{
-	t_coord	*sprites;
-	int		order[100];
-	float	dist[100];
-	void	*img;
-}	t_sprite_meta;
-
-typedef	struct s_sprite
-{
-	t_coordf	plane;
-	t_coordf	vec_spr;
-	float		transformY;
-	float		transformX;
-	int			spriteScreenX;
-	int			spriteHeight;
-	int			drawStartY;
-	int			drawEndY;
-	int			spriteWidth;
-	int			drawStartX;
-	int			drawEndX;
-}	t_sprite;
-
-
 
 #endif
