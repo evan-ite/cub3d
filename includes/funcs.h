@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 14:14:41 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:50:14 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int		interaction_ray(t_game *g);
 void	show_hint(t_game *g);
 int		valid_kim(t_map *map);
 void	draw_kim(t_game *g);
+void	take_photo(t_game *g);
 
 #endif

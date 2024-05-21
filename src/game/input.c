@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:27:06 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:55:31 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	key_on(int keysym, t_game *g)
 		g->player->move[5] = 1;
 	if (keysym == 65307) //esc
 		on_end(g);
+	if (keysym == 32) // space
+		take_photo(g);
 	return (0);
 }
 
