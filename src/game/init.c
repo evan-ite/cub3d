@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 10:59:16 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:47:58 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ static t_img	*init_img(char *path, t_game *g)
 
 	img = malloc(sizeof(t_img));
 	if (!img)
-		handle_error(ERR_MEM, 127, g->map, g);
+		handle_error(ERR_MEM, 127, g->map, g); //which error code?
 	img->mlx_img = mlx_xpm_file_to_image(g->win->mlx, path, &(img->x), &(img->y));
 	img->addr = mlx_get_data_addr(img->mlx_img, &(img->bpp), &(img->len), &(img->endian));
 	return (img);
 }
 
-// char * mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *size_line, int *endian );
 int	init_textures(t_game *g)
 {
 	int		ctr;
 
 	ctr = -1;
+	g->map->text_files[4] = DOOR1;
+	g->map->text_files[5] = DOOR2;
+	g->map->text_files[6] = DOOR3;
 	while (++ctr < 7)
 		g->texts[ctr] = init_img(g->map->text_files[ctr], g);
 	reverse_texture(g->texts[0]);

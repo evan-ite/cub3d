@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/15 17:27:36 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:28:11 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ static void	check_element(int i, char *line, t_map *map)
 		map->f = extract_color(i, line, map);
 	else if (line[i] == 'C')
 		map->c= extract_color(i, line, map);
-	map->text_files[4] = DOOR1;
-	map->text_files[5] = DOOR2;
-	map->text_files[6] = DOOR3;
 }
 
 static int	get_content(t_map *map)

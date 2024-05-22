@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:55:34 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:45:29 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 		color = get_color(tx.x, tx.y, dir, g);
 		tx.x = ft_clamp(tx.x, 0, WIDTH -1);
 		tx.y = ft_clamp(tx.y, 0, HEIGHT - 1);
-
 		set_px(&px, color, g);
 		px.y++;
 	}

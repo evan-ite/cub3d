@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/21 16:48:56 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 11:16:27 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define KIMSIZE 450
 # define HSCALE 1
 # define WSCALE 1
-# define MOVE 90
+# define MOVE 0
 # define DSLR "textures/dlsr.xpm"
 # define HINT "textures/hint.xpm"
 # define KIM "textures/kim_before.xpm"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 10:44:12 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:45:22 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,11 @@ static void	find_wall(t_ray *r, t_game *g)
 			r->cell.y += r->step.y;
 			r->side = 1;
 		}
-		if (g->map->m[r->cell.y][r->cell.x] == '1')
-			hit = 1;
+		if (g->map->m[r->cell.y][r->cell.x] == '1' || g->map->m[r->cell.y][r->cell.x] == 'D')
+			hit = g->map->m[r->cell.y][r->cell.x];
 	}
+	if (hit == 'D')
+		r->side = 2;
 }
 
 static void	get_wall_width(t_ray *r, t_game *g)

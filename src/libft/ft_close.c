@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:33:00 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/04/19 15:36:47 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 11:41:45 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_close(int *fd)
 {
+	if (*fd < 0)
+		return ;
 	close(*fd);
 	*fd = -1;
 }
