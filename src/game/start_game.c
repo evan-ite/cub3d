@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 15:51:52 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:42:19 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	winner(t_game *g)
 	w = WIDTH;
 	img = mlx_xpm_file_to_image(g->win->mlx, WIN, &w, &h);
 	mlx_put_image_to_window(g->win->mlx, g->win->win, img, 30 ,20);
+	mlx_destroy_image(g->win->mlx, img);
 }
 
 static int	next_frame(t_game *game)
