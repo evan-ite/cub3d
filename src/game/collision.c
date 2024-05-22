@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:38:34 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:30:23 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ t_coordf	check_collision(t_coordf mov, t_game *g)
 
 	check = get_check_coor(mov, g);
 	tile = g->map->m[(int)g->player->coord.y][(int)check.x];
-	if (tile == '1')
+	if (tile == '1' || tile == 'D')
 		new.x = 0;
 	else
 		new.x = mov.x;
 	tile = g->map->m[(int)check.y][(int)g->player->coord.x];
-	if (tile == '1')
+	if (tile == '1' || tile == 'D')
 		new.y = 0;
 	else
 		new.y = mov.y;
