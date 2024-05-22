@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:37:34 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/13 13:02:02 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:00:23 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 void	open_doors(t_game *g)
 {
-	static size_t	old_tick = 0;
 
-	if (g->tick - old_tick > 30)
-	{
-
-	}
 }

@@ -3,32 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 15:55:31 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:00:13 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	do_action(t_game *g)
+{
+	if (!g->player->interact)
+		return ;
+	if ("X" == g->player->interact)
+		take_photo(g);
+	else
+		open_doors(g);
+}
 
 int	turn(t_game *g, char dir, float speed)
 {
 	float	dir_x = g->player->view.x;
 	float	dir_y = g->player->view.y;
 
-	// printfd("%f, %f, %f\n", dir_x, dir_y, speed);
-
 	if (dir == 'r')
 	{
-		// turn right
 		g->player->view.x = dir_x * cos(speed) - dir_y * sin(speed);
 		g->player->view.y = dir_x * sin(speed) + dir_y * cos(speed);
 
 	}
 	else
 	{
-		// turn left
 		g->player->view.x = dir_x* cos(-speed) - dir_y * sin(-speed);
 		g->player->view.y = dir_x * sin(-speed) + dir_y * cos(-speed);
 	}
@@ -52,8 +58,8 @@ int	key_on(int keysym, t_game *g)
 		g->player->move[5] = 1;
 	if (keysym == 65307) //esc
 		on_end(g);
-	if (keysym == 32) // space
-		take_photo(g);
+	// if (keysym == 32) // space
+	// 	do_action (g);
 	return (0);
 }
 
@@ -72,15 +78,7 @@ int	key_off(int keysym, t_game *g)
 	if (keysym == 65363) // right
 		g->player->move[5] = 0;
 	if (keysym == 32) // space
-		open_doors(g);
-	return (0);
-}
-
-int	on_mouse_click(int button,int x,int y, t_game *g)
-{
-	(void) button;
-	(void) g;
-	printfd("%d, %d \n", x, y);
+		do_action(g);
 	return (0);
 }
 
