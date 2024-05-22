@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 15:47:43 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:55:09 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	draw_camera_overlay(t_game *g)
 	t_coord	get;
 	t_coord	set;
 
-	cam = g->dlsr;
+	cam = g->cam_overlay;
 	set.x = WIDTH / 2 - cam->x / 2;
 	get.x = 0;
 	while (get.x < cam->x)

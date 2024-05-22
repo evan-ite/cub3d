@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:29:33 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:55:09 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	init_textures(t_game *g)
 		g->texts[ctr] = init_img(g->map->text_files[ctr], g);
 	reverse_texture(g->texts[0]);
 	reverse_texture(g->texts[3]);
-	g->dlsr = init_img(DSLR, g);
+	g->cam_overlay = init_img(DSLR, g);
 	g->hint = init_img(HINT, g);
 	if (g->map->n_kim > 0)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:39:42 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:55:12 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ typedef struct s_game
 	t_map		*map;
 	t_win		*win;
 	t_img		*texts[7]; // 0 == North, 1 == East, 2 == South, 3 == West, 4-6 == Door closed, half open, open,
-	t_img		*dlsr;
+	t_img		*cam_overlay;
 	t_img		*hint;
 	t_img		*frame;
 	t_player	*player;
