@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 11:41:53 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:29:15 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_map(t_map *map)
 	int	i;
 
 	i = 0;
-	while(i < 4)
+	while(i < 7)
 	{
 		if (map->text_files[i])
 		{

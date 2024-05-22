@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 10:45:29 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:47:43 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,19 @@ int	fill_bg(t_img *frame, int c, int f)
 	return (1); // meaningfull error handling tbi
 }
 
-int	draw_frame(t_game *g)
+static void	draw_camera_overlay(t_game *g)
 {
 	t_img	*cam;
 	t_coord	get;
 	t_coord	set;
 
 	cam = g->dlsr;
-	set.x = WIDTH - cam->x;
+	set.x = WIDTH / 2 - cam->x / 2;
 	get.x = 0;
-	fill_bg(g->frame, g->map->c, g->map->f);
-	raycast(g);
 	while (get.x < cam->x)
 	{
 		get.y = 0;
-		set.y = HEIGHT - cam->y;
+		set.y = HEIGHT / 2 - cam->y / 2;
 		while (get.y < cam->y)
 		{
 			int col	= get_px(&get, cam, 1);
@@ -57,6 +55,14 @@ int	draw_frame(t_game *g)
 		get.x++;
 		set.x++;
 	}
+}
+
+int	draw_frame(t_game *g)
+{
+	fill_bg(g->frame, g->map->c, g->map->f);
+	raycast(g);
+	if (g->player->interact == 'X')
+		draw_camera_overlay(g);
 	return (1); // meaningfull error handling tbi
 }
 

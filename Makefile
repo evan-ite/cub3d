@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/21 15:50:37 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/05/22 15:10:03 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = cub3d
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=address
-LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -lXfixes -fsanitize=address
+LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -lXfixes
 
 LIBFT = src/libft/libft.a
 
