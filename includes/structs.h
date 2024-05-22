@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:27:53 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:52:22 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ typedef	struct s_sprite_meta
 	t_coord		sp_coor[100];
 	int			order[100];
 	float		dist[100];
-	void		*img;
-	void		*flash[5];
+	t_img		*img;
+	t_img		*flash[5];
 	int			sp_left;
 	int			last_tick;
 }	t_sp_meta;
