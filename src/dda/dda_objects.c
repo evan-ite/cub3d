@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:54:27 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	init_middle_ray(t_ray *r, t_game *g)
 {
-	int center = WIDTH / 2;
+	int	center;
+
+	center = WIDTH / 2;
 	set_coord(g->plyr->crd.x, g->plyr->crd.y, &(r->cell));
 	r->side = 0;
 	r->height = 0;
@@ -32,16 +34,17 @@ void	show_hint(t_game *g)
 {
 	t_coord	get;
 	t_coord	set;
+	int		col;
 
 	set.x = WIDTH / 2 - g->hint->x;
 	get.x = 0;
-	while(get.x < g->hint->x)
+	while (get.x < g->hint->x)
 	{
 		get.y = 0;
 		set.y = HEIGHT - 100 - g->hint->y;
-		while(get.y < g->hint->y)
+		while (get.y < g->hint->y)
 		{
-			int col	= get_px(&get, g->hint, 1);
+			col = get_px(&get, g->hint, 1);
 			set_px(&set, col, g);
 			get.y++;
 			set.y++;
@@ -63,11 +66,12 @@ int	set_object(t_ray r, t_game *g)
 		set_coord(r.cell.x, r.cell.y, &(g->plyr->object));
 		return (1);
 	}
-	else if ((g->map->m[r.cell.y][r.cell.x] == 'd' || g->map->m[r.cell.y][r.cell.x] == 'D') && r.w_dist < 1.0)
+	else if ((g->map->m[r.cell.y][r.cell.x] == 'd' || \
+		g->map->m[r.cell.y][r.cell.x] == 'D') && r.w_dist < 1.0)
 	{
 		g->plyr->interact = g->map->m[r.cell.y][r.cell.x];
 		set_coord(r.cell.x, r.cell.y, &(g->plyr->object));
-		return (1); // Found an interactable object within 1 unit
+		return (1);
 	}
 	return (0);
 }
@@ -94,6 +98,6 @@ int	interaction_ray(t_game *g)
 	}
 	g->plyr->interact = 0;
 	if (ft_strchr("XdD", g->map->m[r.cell.y][r.cell.x]))
-		return(set_object(r, g));
-	return (0); // No interactable object found within 1 unit
+		return (set_object(r, g));
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:44:23 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:56:39 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	draw_frame(t_game *g)
 {
 	fill_bg(g->frame, g->map->c, g->map->f);
 	raycast(g);
+	if (g->plyr->interact)
+		show_hint(g);
 	if (g->plyr->interact == 'X')
 		draw_camera_overlay(g);
 	return (1);

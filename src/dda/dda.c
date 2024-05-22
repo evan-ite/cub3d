@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:56:14 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ static void	find_wall(t_ray *r, t_game *g)
 			r->cell.y += r->step.y;
 			r->side = 1;
 		}
-		if (g->map->m[r->cell.y][r->cell.x] == '1' || g->map->m[r->cell.y][r->cell.x] == 'D')
+		if (g->map->m[r->cell.y][r->cell.x] == '1' \
+			|| g->map->m[r->cell.y][r->cell.x] == 'D')
 			hit = g->map->m[r->cell.y][r->cell.x];
 	}
 	if (hit == 'D')
@@ -127,11 +128,9 @@ void	raycast(t_game *g)
 		if (r.side == 1 && r.step.y > 0)
 			draw_line(r.height, ctr, r.w_ratio, 3, g);
 		if (r.side == 2)
-			draw_line(r.height, ctr, r.w_ratio, 4, g); // DRAW DOOR
+			draw_line(r.height, ctr, r.w_ratio, 4, g);
 		g->zbuf[ctr] = r.w_dist;
 	}
 	interaction_ray(g);
 	draw_kim(g);
-	if (g->plyr->interact)
-		show_hint(g);
 }

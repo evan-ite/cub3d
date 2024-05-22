@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:45:56 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:51:04 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ void	do_action(t_game *g)
 
 int	turn(t_game *g, char dir, float speed)
 {
-	float	dir_x = g->plyr->view.x;
-	float	dir_y = g->plyr->view.y;
+	float	dir_x;
+	float	dir_y;
 
+	dir_x = g->plyr->view.x;
+	dir_y = g->plyr->view.y;
 	if (dir == 'r')
 	{
 		g->plyr->view.x = dir_x * cos(speed) - dir_y * sin(speed);
 		g->plyr->view.y = dir_x * sin(speed) + dir_y * cos(speed);
-
 	}
 	else
 	{
