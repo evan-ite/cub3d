@@ -54,10 +54,9 @@ C 225,30,0
 ---
 
 ## Current to-do
-- invalid fd close() when texture file doesn't exist or is broke
 - free all the stuff and fix a million leaks (Elise)
 - stop player from taking multiple pictures of the same kim
-- stop player from taking pictures when she's not in the screen, but close
+- animation flash kim
 - threads
 - doors
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 10:45:22 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:44:52 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ void	raycast(t_game *g)
 			draw_line(r.height, ctr, r.w_ratio, 4, g); // DRAW DOOR
 		g->zbuf[ctr] = r.w_dist;
 	}
+	interaction_ray(g);
 	draw_kim(g);
-	if (interaction_ray(g))
+	if (g->player->interact)
 		show_hint(g);
 }

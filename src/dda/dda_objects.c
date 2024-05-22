@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_objects.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/15 17:51:11 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:52:27 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,49 @@ void	show_hint(t_game *g)
 	}
 }
 
+int	set_object(t_ray r, t_game *g)
+{
+	if (r.side == 0)
+		r.w_dist = (r.cell.x - g->player->coord.x + (1 - r.step.x) / 2) / r.r_dir.x;
+	else
+		r.w_dist = (r.cell.y - g->player->coord.y + (1 - r.step.y) / 2) / r.r_dir.y;
+	if (g->map->m[r.cell.y][r.cell.x] == 'X' && r.w_dist < 3.0)
+	{
+		g->player->interact = g->map->m[r.cell.y][r.cell.x];
+		set_coord(r.cell.x, r.cell.y, &(g->player->object));
+		return (1);
+	}
+	else if ((g->map->m[r.cell.y][r.cell.x] == 'd' || g->map->m[r.cell.y][r.cell.x] == 'D') && r.w_dist < 1.0)
+	{
+		g->player->interact = g->map->m[r.cell.y][r.cell.x];
+		set_coord(r.cell.x, r.cell.y, &(g->player->object));
+		return (1); // Found an interactable object within 1 unit
+	}
+	return (0);
+}
+
 int	interaction_ray(t_game *g)
 {
 	t_ray	r;
 
 	init_middle_ray(&r, g);
-	if (r.side_dist.x < r.side_dist.y)
+	while (!ft_strchr("XdD1", g->map->m[r.cell.y][r.cell.x]))
 	{
-		r.side_dist.x += r.delta_dist.x;
-		r.cell.x += r.step.x;
-		r.side = 0;
-	}
-	else
-	{
-		r.side_dist.y += r.delta_dist.y;
-		r.cell.y += r.step.y;
-		r.side = 1;
-	}
-	if (g->map->m[r.cell.y][r.cell.x] == 'D' || g->map->m[r.cell.y][r.cell.x] == 'X')
-	{
-		if (r.side == 0)
-			r.w_dist = (r.cell.x - g->player->coord.x + (1 - r.step.x) / 2) / r.r_dir.x;
+		if (r.side_dist.x < r.side_dist.y)
+		{
+			r.side_dist.x += r.delta_dist.x;
+			r.cell.x += r.step.x;
+			r.side = 0;
+		}
 		else
-			r.w_dist = (r.cell.y - g->player->coord.y + (1 - r.step.y) / 2) / r.r_dir.y;
-		if (r.w_dist < 1.0)
-			return 1; // Found an interactable object within 1 unit
+		{
+			r.side_dist.y += r.delta_dist.y;
+			r.cell.y += r.step.y;
+			r.side = 1;
+		}
 	}
-	return 0; // No interactable object found within 1 unit
+	g->player->interact = 0;
+	if (ft_strchr("XdD", g->map->m[r.cell.y][r.cell.x]))
+		return(set_object(r, g));
+	return (0); // No interactable object found within 1 unit
 }

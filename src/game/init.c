@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 10:47:58 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 12:31:35 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	init_moves(t_game *g)
 	g->player->move[3] = 0;
 	g->player->move[4] = 0;
 	g->player->move[5] = 0;
+	g->player->interact = 0;
 }
 
 int	init_player(t_game *g)
