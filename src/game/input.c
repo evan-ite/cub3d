@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:51:04 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:09:05 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	turn(t_game *g, char dir, float speed)
 	}
 	else
 	{
-		g->plyr->view.x = dir_x* cos(-speed) - dir_y * sin(-speed);
+		g->plyr->view.x = dir_x * cos(-speed) - dir_y * sin(-speed);
 		g->plyr->view.y = dir_x * sin(-speed) + dir_y * cos(-speed);
 	}
 	return (0);
@@ -45,7 +45,7 @@ int	turn(t_game *g, char dir, float speed)
 // 0 left, 1 up, 2 down, 3 right, 4 turn l, 5 turn r
 int	key_on(int keysym, t_game *g)
 {
-	if (keysym == 97) // a
+	if (keysym == 97)
 		g->plyr->move[0] = 1;
 	if (keysym == 65362 || keysym == 119)
 		g->plyr->move[1] = 1;
@@ -87,10 +87,10 @@ int	mouse_move(int x, int y, t_game *g)
 
 	(void)y;
 	turnval = MOUSE_SENS * fabs((float)x / 1000000);
-	if ((x - WIDTH/2) < 0)
+	if ((x - WIDTH / 2) < 0)
 		turn(g, 'l', turnval);
-	else if ((x - WIDTH/2) > 0)
+	else if ((x - WIDTH / 2) > 0)
 		turn(g, 'r', turnval);
-	mlx_mouse_move(g->win->mlx, g->win->win, WIDTH/2, HEIGHT/2);
+	mlx_mouse_move(g->win->mlx, g->win->win, WIDTH / 2, HEIGHT / 2);
 	return (0);
 }

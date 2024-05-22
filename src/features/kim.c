@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:01:06 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	draw_kim(t_game *g)
 	while (++i < g->map->n_kim)
 	{
 		g->sm.order[i] = i;
-		g->sm.dist[i] = pow(g->plyr->crd.x - g->sm.sp_coor[i].x, 2) + pow(g->plyr->crd.y - g->sm.sp_coor[i].y, 2);
+		g->sm.dist[i] = pow(g->plyr->crd.x - g->sm.sp_coor[i].x, 2) + \
+			pow(g->plyr->crd.y - g->sm.sp_coor[i].y, 2);
 	}
 	sort_sprites(g->sm.order, g->sm.dist, g->sm.sp_left);
 	calc_sprite(g, &g->sm);

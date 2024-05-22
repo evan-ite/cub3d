@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:42:51 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:04:53 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ is pointing at in the sprite array */
 // 	sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->player->coord.x;
 // 	sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->player->coord.y;
 // 	calc_screen_coor(g, &sm->sp[i]);
-// 	sm->sp->moveScreen = (int) (MOVE / sm->sp->transformY);
+// 	sm->sp->mv_screen = (int) (MOVE / sm->sp->trans_y);
 // 	calc_height(&sm->sp[i]);
 // 	calc_width(&sm->sp[i]);
 // }

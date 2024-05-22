@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:09:34 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ static int	move_forward_backward(t_game *g, float speed, int dir)
 	movement = movement_vec(g->plyr->view, (speed * dir));
 	adjusted = check_collision(movement, g);
 	add_vectors(&g->plyr->crd, &adjusted);
-	return (1); // error handling!?
+	return (1);
 }
 
-static int	move_left_right(t_game *g, float speed, int dir) // 1 = l, -1 = r
+// 1 = l, -1 = r
+static int	move_left_right(t_game *g, float speed, int dir)
 {
 	t_coordf	perpendicular;
 	t_coordf	movement;
@@ -42,7 +43,7 @@ static int	move_left_right(t_game *g, float speed, int dir) // 1 = l, -1 = r
 	movement = movement_vec(perpendicular, (speed * dir));
 	adjusted = check_collision(movement, g);
 	add_vectors(&g->plyr->crd, &adjusted);
-	return (1); // error handling!?
+	return (1);
 }
 
 int	move(t_game *g)
@@ -59,5 +60,5 @@ int	move(t_game *g)
 		turn(g, 'l', TURNSPEED);
 	if (g->plyr->move[5])
 		turn(g, 'r', TURNSPEED);
-	return (1); // error handling!?
+	return (1);
 }

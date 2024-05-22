@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:55:45 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:04:53 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,16 @@ typedef	struct s_sprite
 {
 	t_coordf	plane;
 	t_coordf	vec_spr;
-	float		transformY;
-	float		transformX;
-	int			spriteScreenX;
-	int			spriteHeight;
-	int			drawStartY;
-	int			drawEndY;
-	int			spriteWidth;
-	int			drawStartX;
-	int			drawEndX;
-	int			moveScreen;
+	float		trans_y;
+	float		trans_x;
+	int			sp_scrx;
+	int			sp_h;
+	int			start_y;
+	int			end_y;
+	int			sp_w;
+	int			start_x;
+	int			end_x;
+	int			mv_screen;
 }	t_sprite;
 
 typedef	struct s_sprite_meta
