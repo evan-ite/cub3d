@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 12:44:52 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,38 @@ void	set_side_dist(t_ray *r, t_game *g)
 	if (r->r_dir.x < 0)
 	{
 		r->step.x = -1;
-		r->side_dist.x = (g->player->coord.x - r->cell.x) * r->delta_dist.x;
+		r->side_dist.x = (g->plyr->crd.x - r->cell.x) * r->delta_dist.x;
 	}
 	else
 	{
 		r->step.x = 1;
-		r->side_dist.x = (r->cell.x + 1.0 - g->player->coord.x) \
+		r->side_dist.x = (r->cell.x + 1.0 - g->plyr->crd.x) \
 		* r->delta_dist.x;
 	}
 	if (r->r_dir.y < 0)
 	{
 		r->step.y = -1;
-		r->side_dist.y = (g->player->coord.y - r->cell.y) * r->delta_dist.y;
+		r->side_dist.y = (g->plyr->crd.y - r->cell.y) * r->delta_dist.y;
 	}
 	else
 	{
 		r->step.y = 1;
-		r->side_dist.y = (r->cell.y + 1.0 - g->player->coord.y) * \
+		r->side_dist.y = (r->cell.y + 1.0 - g->plyr->crd.y) * \
 		r->delta_dist.y;
 	}
 }
 
 static void	init_ray(t_ray *r, int ctr, t_game *g)
 {
-	set_coord(g->player->coord.x, g->player->coord.y, &(r->cell));
+	set_coord(g->plyr->crd.x, g->plyr->crd.y, &(r->cell));
 	r->side = 0;
 	r->height = 0;
 	r->w_dist = 0;
 	r->w_ratio = 0;
-	r->plane = perp_vec(g->player->view);
+	r->plane = perp_vec(g->plyr->view);
 	r->cam.x = ((2 * ctr / (float) WIDTH) - 1) * FOV;
-	set_coordf((g->player->view.x + r->plane.x * r->cam.x), \
-	(g->player->view.y + r->plane.y * r->cam.x), &(r->r_dir));
+	set_coordf((g->plyr->view.x + r->plane.x * r->cam.x), \
+	(g->plyr->view.y + r->plane.y * r->cam.x), &(r->r_dir));
 	set_coordf(fabs(1 / r->r_dir.x), fabs(1 / r->r_dir.y), &(r->delta_dist));
 	set_side_dist(r, g);
 }
@@ -83,7 +83,7 @@ static void	get_wall_width(t_ray *r, t_game *g)
 {
 	t_coordf	p;
 
-	set_coordf(g->player->coord.x, g->player->coord.y, &p);
+	set_coordf(g->plyr->crd.x, g->plyr->crd.y, &p);
 	if (!r->side)
 	{
 		if (r->r_dir.x)
@@ -132,6 +132,6 @@ void	raycast(t_game *g)
 	}
 	interaction_ray(g);
 	draw_kim(g);
-	if (g->player->interact)
+	if (g->plyr->interact)
 		show_hint(g);
 }

@@ -18,7 +18,7 @@ int	on_end(t_game *g)
 	free_images(g);
 	mlx_destroy_window(g->win->mlx, g->win->win);
 	mlx_destroy_display(g->win->mlx);
-	free(g->player);
+	free(g->plyr);
 	free(g->win->mlx);
 	exit(0); // error code?
 }

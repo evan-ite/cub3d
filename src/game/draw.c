@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 15:55:09 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:44:23 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	fill_bg(t_img *frame, int c, int f)
 		px += frame->bpp / 8;
 		ctr += frame->bpp / 8;
 	}
-	return (1); // meaningfull error handling tbi
+	return (1);
 }
 
 static void	draw_camera_overlay(t_game *g)
@@ -36,6 +36,7 @@ static void	draw_camera_overlay(t_game *g)
 	t_img	*cam;
 	t_coord	get;
 	t_coord	set;
+	int		col;
 
 	cam = g->cam_overlay;
 	set.x = WIDTH / 2 - cam->x / 2;
@@ -46,7 +47,7 @@ static void	draw_camera_overlay(t_game *g)
 		set.y = HEIGHT / 2 - cam->y / 2;
 		while (get.y < cam->y)
 		{
-			int col	= get_px(&get, cam, 1);
+			col = get_px(&get, cam, 1);
 			if (col > 0)
 				set_px(&set, col, g);
 			get.y++;
@@ -61,9 +62,9 @@ int	draw_frame(t_game *g)
 {
 	fill_bg(g->frame, g->map->c, g->map->f);
 	raycast(g);
-	if (g->player->interact == 'X')
+	if (g->plyr->interact == 'X')
 		draw_camera_overlay(g);
-	return (1); // meaningfull error handling tbi
+	return (1);
 }
 
 static int	get_color(int x, int y, int dir, t_game *g)
@@ -99,5 +100,5 @@ int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 		set_px(&px, color, g);
 		px.y++;
 	}
-	return (1); // meaningfull error handling tbi
+	return (1);
 }

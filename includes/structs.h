@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:27:53 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef	struct s_coord
 
 typedef	struct s_player
 {
-	t_coordf	coord;
+	t_coordf	crd;
 	t_coordf	view;
 	int			move[6]; // 0 left, 1 up, 2 down, 3 right, 4 turn l, 5 turn r
 	t_coord		object;
@@ -103,7 +103,7 @@ typedef struct s_game
 	t_img		*cam_overlay;
 	t_img		*hint;
 	t_img		*frame;
-	t_player	*player;
+	t_player	*plyr;
 	size_t		tick;
 	int			photos; //photos taken by player
 	int			zbuf[1920];

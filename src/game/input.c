@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 15:51:33 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:45:56 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	do_action(t_game *g)
 {
-	if (!g->player->interact)
+	if (!g->plyr->interact)
 		return ;
-	if ('X' == g->player->interact)
+	if ('X' == g->plyr->interact)
 		take_photo(g);
 	else
 		open_doors(g);
@@ -24,19 +24,19 @@ void	do_action(t_game *g)
 
 int	turn(t_game *g, char dir, float speed)
 {
-	float	dir_x = g->player->view.x;
-	float	dir_y = g->player->view.y;
+	float	dir_x = g->plyr->view.x;
+	float	dir_y = g->plyr->view.y;
 
 	if (dir == 'r')
 	{
-		g->player->view.x = dir_x * cos(speed) - dir_y * sin(speed);
-		g->player->view.y = dir_x * sin(speed) + dir_y * cos(speed);
+		g->plyr->view.x = dir_x * cos(speed) - dir_y * sin(speed);
+		g->plyr->view.y = dir_x * sin(speed) + dir_y * cos(speed);
 
 	}
 	else
 	{
-		g->player->view.x = dir_x* cos(-speed) - dir_y * sin(-speed);
-		g->player->view.y = dir_x * sin(-speed) + dir_y * cos(-speed);
+		g->plyr->view.x = dir_x* cos(-speed) - dir_y * sin(-speed);
+		g->plyr->view.y = dir_x * sin(-speed) + dir_y * cos(-speed);
 	}
 	return (0);
 }
@@ -45,37 +45,37 @@ int	turn(t_game *g, char dir, float speed)
 int	key_on(int keysym, t_game *g)
 {
 	if (keysym == 97) // a
-		g->player->move[0] = 1;
-	if (keysym == 65362 || keysym == 119) // up or w
-		g->player->move[1] = 1;
-	if (keysym == 65364 || keysym == 115) // down or s
-		g->player->move[2] = 1;
-	if (keysym == 100) // d
-		g->player->move[3] = 1;
-	if (keysym == 65361) // left
-		g->player->move[4] = 1;
-	if (keysym == 65363) // right
-		g->player->move[5] = 1;
-	if (keysym == 65307) //esc
+		g->plyr->move[0] = 1;
+	if (keysym == 65362 || keysym == 119)
+		g->plyr->move[1] = 1;
+	if (keysym == 65364 || keysym == 115)
+		g->plyr->move[2] = 1;
+	if (keysym == 100)
+		g->plyr->move[3] = 1;
+	if (keysym == 65361)
+		g->plyr->move[4] = 1;
+	if (keysym == 65363)
+		g->plyr->move[5] = 1;
+	if (keysym == 65307)
 		on_end(g);
 	return (0);
 }
 
 int	key_off(int keysym, t_game *g)
 {
-	if (keysym == 97) // a
-		g->player->move[0] = 0;
-	if (keysym == 65362 || keysym == 119) // up or w
-		g->player->move[1] = 0;
-	if (keysym == 65364 || keysym == 115) // down or s
-		g->player->move[2] = 0;
-	if (keysym == 100) // d
-		g->player->move[3] = 0;
-	if (keysym == 65361) // left
-		g->player->move[4] = 0;
-	if (keysym == 65363) // right
-		g->player->move[5] = 0;
-	if (keysym == 32) // space
+	if (keysym == 97)
+		g->plyr->move[0] = 0;
+	if (keysym == 65362 || keysym == 119)
+		g->plyr->move[1] = 0;
+	if (keysym == 65364 || keysym == 115)
+		g->plyr->move[2] = 0;
+	if (keysym == 100)
+		g->plyr->move[3] = 0;
+	if (keysym == 65361)
+		g->plyr->move[4] = 0;
+	if (keysym == 65363)
+		g->plyr->move[5] = 0;
+	if (keysym == 32)
 		do_action(g);
 	return (0);
 }
