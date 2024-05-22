@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:12:13 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/14 14:45:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:06:40 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	draw_minimap(t_game *g)
 			{
 				set_coord(x, y, &px);
 				set_mm_pixels(px, MMWALL, g);
+			}
+			else if (g->map->m[y][x] == 'd' || g->map->m[y][x] == 'D')
+			{
+				set_coord(x, y, &px);
+				set_mm_pixels(px, MMDOOR, g);
 			}
 		}
 	}

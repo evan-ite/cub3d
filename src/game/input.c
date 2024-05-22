@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:00:13 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:05:21 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	do_action(t_game *g)
 {
 	if (!g->player->interact)
 		return ;
-	if ("X" == g->player->interact)
+	if ('X' == g->player->interact)
 		take_photo(g);
 	else
 		open_doors(g);
@@ -58,8 +58,6 @@ int	key_on(int keysym, t_game *g)
 		g->player->move[5] = 1;
 	if (keysym == 65307) //esc
 		on_end(g);
-	// if (keysym == 32) // space
-	// 	do_action (g);
 	return (0);
 }
 
