@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 16:33:47 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:13:54 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	sort_sprites(int *order, float *dist, int len)
 
 void	draw_kim(t_game *g)
 {
-	int				i;
+	int	i;
 
 	if (g->map->n_kim <= 0)
 		return ;

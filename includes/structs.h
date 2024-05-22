@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 12:23:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:08:25 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef	struct s_sprite_meta
 	int			order[100];
 	float		dist[100];
 	void		*img;
+	void		*flash[5];
 	int			sp_left;
 }	t_sp_meta;
 
@@ -96,7 +97,7 @@ typedef struct s_game
 {
 	t_map		*map;
 	t_win		*win;
-	t_img		*texts[7]; // 0 == North, 1 == East, 2 == South, 3 == West, 4-6 == Door closed, half open, open
+	t_img		*texts[7]; // 0 == North, 1 == East, 2 == South, 3 == West, 4-6 == Door closed, half open, open,
 	t_img		*dlsr;
 	t_img		*hint;
 	t_img		*frame;

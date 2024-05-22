@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 16:34:03 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:21:46 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ static void	calc_width(t_sprite *s)
 }
 
 /* loop through every vertical stripe of the sprite on screen, if the stripe is
-on the screen and not covered by a wall, draw every ppixel of the stripe.  */
-static void	loop_stripes(t_sprite s, t_game *g)
+on the screen and not covered by a wall, draw every pixel of the stripe. If int flash = 1,
+the flash textures will be drawn, if flash = 0 a normal texture will be drawn. */
+static void	loop_stripes(t_sprite s, t_game *g, int flash)
 {
 	int		stripe;
 	int		y;
@@ -70,8 +71,13 @@ static void	loop_stripes(t_sprite s, t_game *g)
 			{
 				d = (y - s.moveScreen) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
 				tex.y = ((d * KIMSIZE) / s.spriteHeight) / 256;
-
-				color = get_px(&tex, g->sm.img, 0);
+				if (!flash)
+					color = get_px(&tex, g->sm.img, 0);
+				else
+				{
+					color = get_px(&tex, g->sm.flash[g->photos % 5], 0);
+					g->photos++;
+				}
 				set_coord(stripe, y, &set);
 				if (color > 0)
 					set_px(&set, color, g);
@@ -94,6 +100,9 @@ void	calc_sprite(t_game *g, t_sp_meta *sm)
 		sm->sp->moveScreen = (int) (MOVE / sm->sp->transformY);
 		calc_height(&sm->sp[i]);
 		calc_width(&sm->sp[i]);
-		loop_stripes(sm->sp[i], g);
+		if (!(g->photos % 5) || (sm->sp_coor[i].x != g->player->object.x && sm->sp_coor[i].y != g->player->object.y))
+			loop_stripes(sm->sp[i], g, 0);
+		else
+			loop_stripes(sm->sp[i], g, 1);
 	}
 }
