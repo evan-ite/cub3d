@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:42:51 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 14:31:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:38:52 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ void	take_photo(t_game *g)
 	if (g->player->interact != 'X')
 		return ;
 	// draw_flash(g);
+	g->map->m[g->player->object.y][g->player->object.x] = '0';
 	g->photos++;
-	if (g->photos == g->map->n_kim)
+	// printf("start photo %i\n", g->photos);
+	if ((g->photos) == g->map->n_kim)
 		g->won = 1;
 }
