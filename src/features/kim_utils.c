@@ -6,14 +6,14 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 15:35:31 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:17:01 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
 /* Find sprite coordinates on screen */
-static void	calc_screen_coor(t_game *g, t_sprite *s)
+void	calc_screen_coor(t_game *g, t_sprite *s)
 {
 	float invDet;
 
@@ -25,7 +25,7 @@ static void	calc_screen_coor(t_game *g, t_sprite *s)
 }
 
 /* Scale sprite height according to distance*/
-static void	calc_height(t_sprite *s)
+void	calc_height(t_sprite *s)
 {
 	s->spriteHeight = abs((int)(HEIGHT / s->transformY)) / HSCALE;
 	s->drawStartY = -s->spriteHeight / 2 + HEIGHT / 2 + s->moveScreen;
@@ -37,7 +37,7 @@ static void	calc_height(t_sprite *s)
 }
 
 /* Scale sprite width according to distance*/
-static void	calc_width(t_sprite *s)
+void	calc_width(t_sprite *s)
 {
 	s->spriteWidth = abs((int)(HEIGHT / s->transformY)) / WSCALE;
 	s->drawStartX = -s->spriteWidth / 2 + s->spriteScreenX;
@@ -51,7 +51,7 @@ static void	calc_width(t_sprite *s)
 /* loop through every vertical stripe of the sprite on screen, if the stripe is
 on the screen and not covered by a wall, draw every pixel of the stripe. If int flash = 1,
 the flash textures will be drawn, if flash = 0 a normal texture will be drawn. */
-static void	loop_stripes(t_sprite s, t_game *g)
+void	loop_stripes(t_sprite s, t_game *g, t_img *img)
 {
 	int		stripe;
 	int		y;
@@ -71,7 +71,7 @@ static void	loop_stripes(t_sprite s, t_game *g)
 			{
 				d = (y - s.moveScreen) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
 				tex.y = ((d * KIMSIZE) / s.spriteHeight) / 256;
-				color = get_px(&tex, g->sm.img, 0);
+				color = get_px(&tex, img, 0);
 				set_coord(stripe, y, &set);
 				if (color > 0)
 					set_px(&set, color, g);
@@ -94,6 +94,6 @@ void	calc_sprite(t_game *g, t_sp_meta *sm)
 		sm->sp->moveScreen = (int) (MOVE / sm->sp->transformY);
 		calc_height(&sm->sp[i]);
 		calc_width(&sm->sp[i]);
-		loop_stripes(sm->sp[i], g);
+		loop_stripes(sm->sp[i], g, g->sm.img);
 	}
 }

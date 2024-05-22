@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/21 15:50:14 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:52:01 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,14 @@ void	free_images(t_game *g);
 void	open_doors(t_game *g);
 int		interaction_ray(t_game *g);
 void	show_hint(t_game *g);
+
+// sprites
 int		valid_kim(t_map *map);
 void	draw_kim(t_game *g);
 void	take_photo(t_game *g);
+void	calc_width(t_sprite *s);
+void	calc_height(t_sprite *s);
+void	calc_screen_coor(t_game *g, t_sprite *s);
+void	loop_stripes(t_sprite s, t_game *g, t_img *img);
 
 #endif
