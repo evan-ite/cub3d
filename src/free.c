@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 16:34:02 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:54:31 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ void	free_images(t_game *g)
 		mlx_destroy_image(g->win->mlx, g->texts[ctr]->mlx_img);
 		free(g->texts[ctr]);
 	}
+	ctr = -1;
+	while(++ctr < 5)
+	{
+		mlx_destroy_image(g->win->mlx, g->sm.flash[ctr]->mlx_img);
+		free(g->sm.flash[ctr]);
+	}
+	mlx_destroy_image(g->win->mlx, g->sm.img->mlx_img);
+	free(g->sm.img);
 	mlx_destroy_image(g->win->mlx, g->cam_overlay->mlx_img);
 	free(g->cam_overlay);
 	mlx_destroy_image(g->win->mlx, g->hint->mlx_img);
