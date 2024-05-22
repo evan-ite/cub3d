@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:22:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:29:33 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	init_textures(t_game *g)
 	if (g->map->n_kim > 0)
 	{
 		g->sm.img = init_img(KIM, g);
-		g->sm.flash[0] = init_img("../../textures/flash1.xpm", g);
-		g->sm.flash[1] = init_img("../../textures/flash2.xpm", g);
-		g->sm.flash[2] = init_img("../../textures/flash3.xpm", g);
-		g->sm.flash[3] = init_img("../../textures/flash4.xpm", g);
-		g->sm.flash[4] = init_img("../../textures/flash5.xpm", g);
+		g->sm.flash[0] = init_img("textures/flash1.xpm", g);
+		g->sm.flash[1] = init_img("textures/flash2.xpm", g);
+		g->sm.flash[2] = init_img("textures/flash3.xpm", g);
+		g->sm.flash[3] = init_img("textures/flash4.xpm", g);
+		g->sm.flash[4] = init_img("textures/flash5.xpm", g);
 	}
 	return (1); // meaningfull error handling tbi
 }
