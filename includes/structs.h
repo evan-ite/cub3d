@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:39:42 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:07:12 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef	struct s_player
 	int			move[6]; // 0 left, 1 up, 2 down, 3 right, 4 turn l, 5 turn r
 	t_coord		object;
 	int			interact;
+	int			take_pic;
 }	t_player;
 
 typedef struct s_map
