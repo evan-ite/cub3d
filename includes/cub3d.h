@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/22 11:16:27 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:08:13 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # define DEBUG 1
 # define MMOFFSET 50
 # define MMWALL 0xFA69DA
+# define MMDOOR 0x9f4576
 # define MMPLAYER 0x0
 # define MMDOTSIZE 6
 # define KIMSIZE 450

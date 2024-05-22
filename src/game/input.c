@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:25:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:26:30 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ int	key_on(int keysym, t_game *g)
 		g->player->move[5] = 1;
 	if (keysym == 65307) //esc
 		on_end(g);
-	// if (keysym == 32) // space
-	// 	do_action (g);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:37:34 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 14:00:23 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:15:55 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 void	open_doors(t_game *g)
 {
+	char	*state;
 
+	state = &(g->map->m[g->player->object.y][g->player->object.x]);
+	if (*state == 'd')
+		*state = 'D';
+	else if (*state =='D')
+		*state = 'd';
 }
