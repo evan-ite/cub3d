@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 16:17:01 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	calc_screen_coor(t_game *g, t_sprite *s)
 {
 	float invDet;
 
-	invDet = 1.0 / (s->plane.x * g->player->view.y - g->player->view.x * s->plane.y);
-	s->transformX = invDet * (g->player->view.y * s->vec_spr.x - g->player->view.x * s->vec_spr.y);
+	invDet = 1.0 / (s->plane.x * g->plyr->view.y - g->plyr->view.x * s->plane.y);
+	s->transformX = invDet * (g->plyr->view.y * s->vec_spr.x - g->plyr->view.x * s->vec_spr.y);
 	s->transformY = invDet * (-s->plane.y * s->vec_spr.x + s->plane.x * s->vec_spr.y);
 
 	s->spriteScreenX = (int)((WIDTH / 2) * (1 + s->transformX / s->transformY));
@@ -87,9 +87,9 @@ void	calc_sprite(t_game *g, t_sp_meta *sm)
 	i = -1;
 	while (++i < sm->sp_left)
 	{
-		sm->sp[i].plane = perp_vec(g->player->view);
-		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->player->coord.x;
-		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->player->coord.y;
+		sm->sp[i].plane = perp_vec(g->plyr->view);
+		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->plyr->crd.x;
+		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->plyr->crd.y;
 		calc_screen_coor(g, &sm->sp[i]);
 		sm->sp->moveScreen = (int) (MOVE / sm->sp->transformY);
 		calc_height(&sm->sp[i]);

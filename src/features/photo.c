@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:42:51 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 16:20:26 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void	take_photo(t_game *g)
 	// else
 	// 	(*state)++;
 	// draw_flash(g);
-	g->map->m[g->player->object.y][g->player->object.x] = 0;
+	g->map->m[g->plyr->object.y][g->plyr->object.x] = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 15:55:09 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ static t_img	*init_img(char *path, t_game *g)
 
 	img = malloc(sizeof(t_img));
 	if (!img)
-		handle_error(ERR_MEM, 127, g->map, g); //which error code?
-	img->mlx_img = mlx_xpm_file_to_image(g->win->mlx, path, &(img->x), &(img->y));
-	img->addr = mlx_get_data_addr(img->mlx_img, &(img->bpp), &(img->len), &(img->endian));
+		handle_error(ERR_MEM, 1, g->map, g);
+	img->mlx_img = mlx_xpm_file_to_image(g->win->mlx, \
+					path, &(img->x), &(img->y));
+	img->addr = mlx_get_data_addr(img->mlx_img, \
+				&(img->bpp), &(img->len), &(img->endian));
 	return (img);
 }
 
@@ -47,7 +49,7 @@ int	init_textures(t_game *g)
 		g->sm.flash[3] = init_img("textures/flash4.xpm", g);
 		g->sm.flash[4] = init_img("textures/flash5.xpm", g);
 	}
-	return (1); // meaningfull error handling tbi
+	return (1);
 }
 
 int	init_frame(t_game *g)
@@ -59,47 +61,47 @@ int	init_frame(t_game *g)
 	f = malloc(sizeof(t_img));
 	f->mlx_img = mlx_new_image(mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->mlx_img, &(f->bpp), &(f->len), &(f->endian));
-	ft_memset(f->addr, 0, (f->len * HEIGHT)); // not necessary?
+	ft_memset(f->addr, 0, (f->len * HEIGHT));
 	fill_bg(f, g->map->c, g->map->f);
 	g->frame = f;
-	return (1); // meaningfull error handling tbi
+	return (1);
 }
 
 static void	init_moves(t_game *g)
 {
-	g->player->move[0] = 0;
-	g->player->move[1] = 0;
-	g->player->move[2] = 0;
-	g->player->move[3] = 0;
-	g->player->move[4] = 0;
-	g->player->move[5] = 0;
-	g->player->interact = 0;
+	g->plyr->move[0] = 0;
+	g->plyr->move[1] = 0;
+	g->plyr->move[2] = 0;
+	g->plyr->move[3] = 0;
+	g->plyr->move[4] = 0;
+	g->plyr->move[5] = 0;
+	g->plyr->interact = 0;
 }
 
 int	init_player(t_game *g)
 {
-	g->player = malloc(sizeof(t_player));
-	set_coordf(0, 0, &(g->player->coord));
-	set_coordf(0, 0, &(g->player->view));
+	g->plyr = malloc(sizeof(t_player));
+	set_coordf(0, 0, &(g->plyr->crd));
+	set_coordf(0, 0, &(g->plyr->view));
 	init_moves(g);
-	while (g->map->m[(int) g->player->coord.y])
+	while (g->map->m[(int) g->plyr->crd.y])
 	{
-		g->player->coord.x = 0;
-		while (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x])
+		g->plyr->crd.x = 0;
+		while (g->map->m[(int) g->plyr->crd.y][(int) g->plyr->crd.x])
 		{
-			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'N')
-				set_coordf(0, -1, &g->player->view);
-			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'E')
-				set_coordf(1, 0, &g->player->view);
-			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'S')
-				set_coordf(0, 1, &g->player->view);
-			if (g->map->m[(int) g->player->coord.y][(int) g->player->coord.x] == 'W')
-				set_coordf(-1, 0, &g->player->view);
-			if (g->player->view.x != 0 || g->player->view.y != 0)
+			if (g->map->m[(int) g->plyr->crd.y][(int) g->plyr->crd.x] == 'N')
+				set_coordf(0, -1, &g->plyr->view);
+			if (g->map->m[(int) g->plyr->crd.y][(int) g->plyr->crd.x] == 'E')
+				set_coordf(1, 0, &g->plyr->view);
+			if (g->map->m[(int) g->plyr->crd.y][(int) g->plyr->crd.x] == 'S')
+				set_coordf(0, 1, &g->plyr->view);
+			if (g->map->m[(int) g->plyr->crd.y][(int) g->plyr->crd.x] == 'W')
+				set_coordf(-1, 0, &g->plyr->view);
+			if (g->plyr->view.x != 0 || g->plyr->view.y != 0)
 				return (1);
-			g->player->coord.x++;
+			g->plyr->crd.x++;
 		}
-		g->player->coord.y++;
+		g->plyr->crd.y++;
 	}
 	return (0);
 }
