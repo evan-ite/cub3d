@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 16:34:03 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:35:31 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static void	calc_width(t_sprite *s)
 }
 
 /* loop through every vertical stripe of the sprite on screen, if the stripe is
-on the screen and not covered by a wall, draw every ppixel of the stripe.  */
+on the screen and not covered by a wall, draw every pixel of the stripe. If int flash = 1,
+the flash textures will be drawn, if flash = 0 a normal texture will be drawn. */
 static void	loop_stripes(t_sprite s, t_game *g)
 {
 	int		stripe;
@@ -70,7 +71,6 @@ static void	loop_stripes(t_sprite s, t_game *g)
 			{
 				d = (y - s.moveScreen) * 256 - HEIGHT * 128 + s.spriteHeight * 128;
 				tex.y = ((d * KIMSIZE) / s.spriteHeight) / 256;
-
 				color = get_px(&tex, g->sm.img, 0);
 				set_coord(stripe, y, &set);
 				if (color > 0)
