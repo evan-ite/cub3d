@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:57:31 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:39:45 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	next_frame(t_game *game)
 	move(game);
 	draw_frame(game);
 	draw_minimap(game);
-	if (game->won)
+	if (game->won && game->plyr->take_pic[0] == 0)
 		winner(game);
 	else
 		mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);

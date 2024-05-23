@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:45:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:56:14 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:39:05 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,17 +120,17 @@ void	raycast(t_game *g)
 		get_wall_width(&r, g);
 		r.height = (int)(HEIGHT / r.w_dist);
 		if (!r.side && r.step.x < 0)
-			draw_line(r.height, ctr, r.w_ratio, 0, g);
+			draw_line(r, ctr, 0, g);
 		if (!r.side && r.step.x > 0)
-			draw_line(r.height, ctr, r.w_ratio, 1, g);
+			draw_line(r, ctr, 1, g);
 		if (r.side == 1 && r.step.y < 0)
-			draw_line(r.height, ctr, r.w_ratio, 2, g);
+			draw_line(r, ctr, 2, g);
 		if (r.side == 1 && r.step.y > 0)
-			draw_line(r.height, ctr, r.w_ratio, 3, g);
+			draw_line(r, ctr, 3, g);
 		if (r.side == 2)
-			draw_line(r.height, ctr, r.w_ratio, 4, g);
+			draw_line(r, ctr, 4, g);
 		g->zbuf[ctr] = r.w_dist;
 	}
 	interaction_ray(g);
-	draw_kim(g);
+	draw_kims(g);
 }

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 17:01:06 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:26:15 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,45 @@ static void	sort_sprites(int *order, float *dist, int len)
 	}
 }
 
-void	draw_kim(t_game *g)
+/* Find sprite coordinates on screen */
+void	calc_screen_coor(t_game *g, t_sprite *s)
+{
+	float	inv_d;
+
+	inv_d = 1.0 / (s->plane.x * g->plyr->view.y - g->plyr->view.x * s->plane.y);
+	s->trans_x = inv_d * \
+		(g->plyr->view.y * s->vec_spr.x - g->plyr->view.x * s->vec_spr.y);
+	s->trans_y = inv_d * \
+		(-s->plane.y * s->vec_spr.x + s->plane.x * s->vec_spr.y);
+	s->sp_scrx = (int)((WIDTH / 2) * (1 + s->trans_x / s->trans_y));
+}
+
+/* Calculate the values for every sprite and then draw them
+on the screen */
+void	create_sprites(t_game *g, t_sp_meta *sm)
+{
+	int	i;
+
+	i = -1;
+	while (++i < sm->sp_left)
+	{
+		sm->sp[i].plane = perp_vec(g->plyr->view);
+		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->plyr->crd.x;
+		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->plyr->crd.y;
+		calc_screen_coor(g, &sm->sp[i]);
+		sm->sp->mv_screen = (int)(MOVE / sm->sp->trans_y);
+		calc_height(&sm->sp[i]);
+		calc_width(&sm->sp[i]);
+		if (g->plyr->take_pic[0] > 0 && \
+			sm->sp_coor[sm->order[i]].x == g->plyr->take_pic[1] && \
+			sm->sp_coor[sm->order[i]].y == g->plyr->take_pic[2])
+			draw_flash(i, g);
+		else
+			loop_stripes(sm->sp[i], g, g->sm.img);
+	}
+}
+
+void	draw_kims(t_game *g)
 {
 	int	i;
 
@@ -83,5 +121,5 @@ void	draw_kim(t_game *g)
 			pow(g->plyr->crd.y - g->sm.sp_coor[i].y, 2);
 	}
 	sort_sprites(g->sm.order, g->sm.dist, g->sm.sp_left);
-	calc_sprite(g, &g->sm);
+	create_sprites(g, &g->sm);
 }

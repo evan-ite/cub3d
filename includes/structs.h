@@ -6,52 +6,50 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 17:04:53 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:33:40 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-
-typedef	struct s_win
+typedef struct s_win
 {
 	void	*mlx;
 	void	*win;
 }	t_win;
 
-
-typedef	struct s_coordf
+typedef struct s_coordf
 {
 	float	x;
 	float	y;
 }	t_coordf;
 
-typedef	struct s_coord
+typedef struct s_coord
 {
 	int	x;
 	int	y;
 }	t_coord;
 
-typedef	struct s_player
+typedef struct s_player
 {
 	t_coordf	crd;
 	t_coordf	view;
-	int			move[6]; // 0 left, 1 up, 2 down, 3 right, 4 turn l, 5 turn r
+	int			move[6];
 	t_coord		object;
 	int			interact;
-	int			take_pic;
+	int			take_pic[3];
 }	t_player;
 
 typedef struct s_map
 {
-	char	*text_files[7]; // 0 == North, 1 == East, 2 == South, 3 == West, 4-6 == Door closed, half open, open
+	char	*text_files[7];
 	int		f;
-	int		c; // https://gontjarow.github.io/MiniLibX/mlx_pixel_put.html
+	int		c;
 	char	**m;
 	int		max_width;
-	int		max_height; // I don't think we will use these?
-	int		fd; // Jan you don't need it but i need it in case of error to close file
+	int		max_height;
+	int		fd;
 	int		fd_lines;
 	int		n_kim;
 }	t_map;
@@ -67,7 +65,7 @@ typedef struct s_image
 	int		y;
 }	t_img;
 
-typedef	struct s_sprite
+typedef struct s_sprite
 {
 	t_coordf	plane;
 	t_coordf	vec_spr;
@@ -83,7 +81,7 @@ typedef	struct s_sprite
 	int			mv_screen;
 }	t_sprite;
 
-typedef	struct s_sprite_meta
+typedef struct s_sprite_meta
 {
 	t_sprite	sp[100];
 	t_coord		sp_coor[100];
@@ -99,19 +97,19 @@ typedef struct s_game
 {
 	t_map		*map;
 	t_win		*win;
-	t_img		*texts[7]; // 0 == North, 1 == East, 2 == South, 3 == West, 4-6 == Door closed, half open, open,
+	t_img		*texts[7];
 	t_img		*cam_overlay;
 	t_img		*hint;
 	t_img		*frame;
 	t_player	*plyr;
 	size_t		tick;
-	int			photos; //photos taken by player
+	int			photos;
 	int			zbuf[1920];
 	int			won;
 	t_sp_meta	sm;
 }	t_game;
 
-typedef	struct s_ray
+typedef struct s_ray
 {
 	int			height;
 	int			side;
@@ -126,5 +124,15 @@ typedef	struct s_ray
 	t_coordf	delta_dist;
 	t_coordf	intersect;
 }	t_ray;
+
+typedef struct s_srite_loop
+{
+	int		stripe;
+	int		y;
+	int		d;
+	int		color;
+	t_coord	tex;
+	t_coord	set;
+}	t_sprite_loop;
 
 #endif

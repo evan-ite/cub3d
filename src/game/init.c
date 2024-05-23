@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:41:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:30:50 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ static void	init_moves(t_game *g)
 	g->plyr->move[4] = 0;
 	g->plyr->move[5] = 0;
 	g->plyr->interact = 0;
+	g->plyr->take_pic[0] = 0;
+	g->plyr->take_pic[1] = 0;
+	g->plyr->take_pic[2] = 0;
 }
 
 int	init_player(t_game *g)

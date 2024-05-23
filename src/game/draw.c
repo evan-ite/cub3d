@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 16:56:39 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:39:44 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	get_color(int x, int y, int dir, t_game *g)
 	return (get_px(&px, g->texts[dir], 0));
 }
 
-int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
+int	draw_line(t_ray r, int col, int dir, t_game *g)
 {
 	t_coord	px;
 	t_coord	tx;
@@ -87,11 +87,11 @@ int	draw_line(int height, int col, float width_ratio, int dir, t_game *g)
 	float	height_ratio;
 
 	ctr = -1;
-	height_ratio = (float)g->texts[dir]->y / height;
-	px.y = (HEIGHT - height) / 2;
+	height_ratio = (float)g->texts[dir]->y / r.height;
+	px.y = (HEIGHT - r.height) / 2;
 	px.x = (int) col;
-	tx.x = (int)(width_ratio * g->texts[dir]->y);
-	while (++ctr <= height)
+	tx.x = (int)(r.w_ratio * g->texts[dir]->y);
+	while (++ctr <= r.height)
 	{
 		tx.y = (int)(ctr * height_ratio);
 		tx.y = ft_clamp(tx.y, 0, g->texts[dir]->y - 1);
