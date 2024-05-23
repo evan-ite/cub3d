@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 12:33:40 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 17:07:15 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ typedef struct s_sprite
 typedef struct s_sprite_meta
 {
 	t_sprite	sp[100];
-	t_coord		sp_coor[100];
+	t_coordf	sp_coor[100];
 	int			order[100];
 	float		dist[100];
 	t_img		*img;

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/23 12:26:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/23 17:08:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* Save all the coordinates of the sprites in an array and return
 the array with coordinates */
-static int	get_sprite_coord(t_game *g, t_coord *sprite)
+static int	get_sprite_coord(t_game *g, t_coordf *sprite)
 {
 	int		i;
 	int		j;
@@ -31,8 +31,8 @@ static int	get_sprite_coord(t_game *g, t_coord *sprite)
 		{
 			if (g->map->m[i][j] == 'X')
 			{
-				sprite[ctr].x = j;
-				sprite[ctr++].y = i;
+				sprite[ctr].x = j + 0.5;
+				sprite[ctr++].y = i + 0.5;
 			}
 		}
 	}
@@ -96,8 +96,8 @@ void	create_sprites(t_game *g, t_sp_meta *sm)
 		calc_height(&sm->sp[i]);
 		calc_width(&sm->sp[i]);
 		if (g->plyr->take_pic[0] > 0 && \
-			sm->sp_coor[sm->order[i]].x == g->plyr->take_pic[1] && \
-			sm->sp_coor[sm->order[i]].y == g->plyr->take_pic[2])
+			(int)(sm->sp_coor[sm->order[i]].x - 0.5) == g->plyr->take_pic[1] && \
+			(int)(sm->sp_coor[sm->order[i]].y - 0.5) == g->plyr->take_pic[2])
 			draw_flash(i, g);
 		else
 			loop_stripes(sm->sp[i], g, g->sm.img);
