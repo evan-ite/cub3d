@@ -54,11 +54,7 @@ C 225,30,0
 ---
 
 ## Current to-do
-- free all the stuff and fix a million leaks (Elise)
-- stop player from taking multiple pictures of the same kim
-- animation flash kim
 - threads
-- doors
 
 
 

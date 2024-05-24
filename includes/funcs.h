@@ -81,7 +81,6 @@ void		free_map(t_map *map);
 void		free_images(t_game *g);
 
 // bonus
-// void	mini_map(t_game *game);
 void		open_doors(t_game *g);
 int			interaction_ray(t_game *g);
 void		show_hint(t_game *g);
