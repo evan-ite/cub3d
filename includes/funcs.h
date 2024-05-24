@@ -26,9 +26,9 @@ int			map_line(char *str, int check_vals, t_map *map);
 
 // check validity
 int			check_valid(t_map *map);
-int			is_mapchar(char c);
 int			check_walls(t_map *map);
 int			check_struct(t_map *map);
+char        *is_mapchar(char c);
 
 // parsing
 int			parsing(int argc, char **argv, t_map *map);
@@ -51,7 +51,6 @@ int			set_px(t_coord	*px, int c, t_game *g);
 // movement
 int			key_on(int keysym, t_game *g);
 int			key_off(int keysym, t_game *g);
-int			on_mouse_click(int button, int x, int y, t_game *g); // Remove??
 int			mouse_move(int x, int y, t_game *g);
 int			turn(t_game *g, char dir, float speed);
 int			move(t_game *g);

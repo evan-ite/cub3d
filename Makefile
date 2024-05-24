@@ -11,11 +11,13 @@
 # **************************************************************************** #
 
 NAME = cub3d
+NAME_BONUS = cub3d_bonus
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-CFLAGS_NM = -Wall -Werror -Wextra -D HIDE_MOUSE=1 -g
-LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=address
+CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1 -g
+CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1 -g
+LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=leak
 # LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
@@ -40,21 +42,27 @@ $(NAME): $(OBJ)
 libft:
 	$(MAKE) -C src/libft
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 no_mouse: $(OBJ:.o=_nm.o) libft
 	$(CC) $(CFLAGS_NM) -o $(NAME) $(OBJ:.o=_nm.o) $(LIBFT) $(LFLAGS)
+
+bonus: $(OBJ:.o=_bonus.o) libft
+	$(CC) $(CFLAGS_BONUS) -o $(NAME_BONUS) $(OBJ:.o=_bonus.o) $(LIBFT) $(LFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 %_nm.o: %.c
 	$(CC) $(CFLAGS_NM) -c $< -o $@
 
+%_bonus.o: %.c
+	$(CC) $(CFLAGS_BONUS) -c $< -o $@
+
 clean:
-	rm -f $(OBJ) $(OBJ:.o=_nm.o)
+	rm -f $(OBJ) $(OBJ:.o=_nm.o) $(OBJ:.o=_bonus.o)
 	$(MAKE) -C src/libft clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 	$(MAKE) -C src/libft fclean
 
 re: fclean all

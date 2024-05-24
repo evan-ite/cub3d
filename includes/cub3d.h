@@ -31,6 +31,7 @@
 # include "structs.h"
 
 # define ERR_ARGC "Please provide one map argument\n"
+# define ERR_DEBUG "DEBUG\n"
 # define ERR_FILE "Please provide a valid map file\n"
 # define ERR_MEM "Error allocating memory\n"
 # define ERR_TEXT "Map does not contain valid texture files\n"
@@ -41,6 +42,9 @@
 # define WINDOW_NAME "PAPARAZZO"
 # ifndef HIDE_MOUSE
 #  define HIDE_MOUSE 0
+# endif
+# ifndef BONUS
+#  define BONUS 0
 # endif
 # define WIDTH 1920
 # define HEIGHT 960

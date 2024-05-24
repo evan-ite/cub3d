@@ -13,15 +13,13 @@
 #include "../../includes/cub3d.h"
 
 /* checks if the argument is a valid character in the map.
-Returns 1 if char is valid, 0 if not valid */
-int	is_mapchar(char c)
+Returns NULL if not valid */
+char	*is_mapchar(char c)
 {
-	if (c == '1' || c == '0' || c == ' ' || c == '\n' || c == 'X')
-		return (1);
-	else if (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == 'D')
-		return (1);
+	if (BONUS)
+		return (ft_strchr("\n 10NSWEDX", c));
 	else
-		return (0);
+		return (ft_strchr("\n 10NSWE", c));
 }
 
 /* Checks if the argument is a white line */
