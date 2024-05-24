@@ -14,8 +14,9 @@ NAME = cub3d
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=address
-LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+CFLAGS_NM = -Wall -Werror -Wextra -D HIDE_MOUSE=1 -g
+LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=address
+# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
 
@@ -42,8 +43,14 @@ libft:
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+no_mouse: $(OBJ:.o=_nm.o) libft
+	$(CC) $(CFLAGS_NM) -o $(NAME) $(OBJ:.o=_nm.o) $(LIBFT) $(LFLAGS)
+
+%_nm.o: %.c
+	$(CC) $(CFLAGS_NM) -c $< -o $@
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ:.o=_nm.o)
 	$(MAKE) -C src/libft clean
 
 fclean: clean
@@ -53,3 +60,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

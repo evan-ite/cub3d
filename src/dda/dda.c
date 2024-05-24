@@ -55,10 +55,8 @@ static void	init_ray(t_ray *r, int ctr, t_game *g)
 
 static void	find_wall(t_ray *r, t_game *g)
 {
-	int	hit;
-
-	hit = 0;
-	while (!hit)
+	r->hit = 0;
+	while (!r->hit)
 	{
 		if (r->side_dist.x < r->side_dist.y)
 		{
@@ -74,10 +72,8 @@ static void	find_wall(t_ray *r, t_game *g)
 		}
 		if (g->map->m[r->cell.y][r->cell.x] == '1' \
 			|| g->map->m[r->cell.y][r->cell.x] == 'D')
-			hit = g->map->m[r->cell.y][r->cell.x];
+			r->hit = g->map->m[r->cell.y][r->cell.x];
 	}
-	if (hit == 'D')
-		r->side = 2;
 }
 
 static void	get_wall_width(t_ray *r, t_game *g)
@@ -127,7 +123,7 @@ void	raycast(t_game *g)
 			draw_line(r, ctr, 2, g);
 		if (r.side == 1 && r.step.y > 0)
 			draw_line(r, ctr, 3, g);
-		if (r.side == 2)
+		if (r.hit == 'D')
 			draw_line(r, ctr, 4, g);
 		g->zbuf[ctr] = r.w_dist;
 	}

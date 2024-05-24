@@ -112,6 +112,7 @@ typedef struct s_game
 typedef struct s_ray
 {
 	int			height;
+	char		hit;
 	int			side;
 	float		w_dist;
 	float		w_ratio;

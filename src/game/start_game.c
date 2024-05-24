@@ -58,7 +58,8 @@ int	start_game(t_game *g)
 	init_textures(g);
 	init_frame(g);
 	mlx_mouse_move(mlx, win, WIDTH / 2, HEIGHT / 2);
-	// mlx_mouse_hide(mlx, win);
+	if (HIDE_MOUSE)
+		mlx_mouse_hide(mlx, win);
 	mlx_hook(win, KeyPress, KeyPressMask, &key_on, g);
 	mlx_hook(win, KeyRelease, KeyReleaseMask, &key_off, g);
 	mlx_hook(win, MotionNotify, PointerMotionMask, &mouse_move, g);

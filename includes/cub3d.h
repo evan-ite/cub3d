@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include <unistd.h>
+# include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -38,6 +39,9 @@
 # define ERR_NKIM "This game can not handle more than 100 Kim K's\n"
 # define ERR_KIM_VALID "Not all Kims are reachable\n"
 # define WINDOW_NAME "PAPARAZZO"
+# ifndef HIDE_MOUSE
+#  define HIDE_MOUSE 0
+# endif
 # define WIDTH 1920
 # define HEIGHT 960
 # define TURNSPEED 0.1
