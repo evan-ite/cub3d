@@ -16,6 +16,9 @@ void	open_doors(t_game *g)
 {
 	char	*state;
 
+	if ((int) g->plyr->crd.x == g->plyr->object.x && \
+	(int) g->plyr->crd.y == g->plyr->object.y)
+		return ;
 	state = &(g->map->m[g->plyr->object.y][g->plyr->object.x]);
 	if (*state == 'd')
 		*state = 'D';
