@@ -34,7 +34,8 @@ static int	next_frame(t_game *game)
 	mlx = game->win->mlx;
 	move(game);
 	draw_frame(game);
-	draw_minimap(game);
+	if (BONUS)
+		draw_minimap(game);
 	if (game->won && game->plyr->take_pic[0] == 0)
 		winner(game);
 	else
@@ -62,7 +63,8 @@ int	start_game(t_game *g)
 		mlx_mouse_hide(mlx, win);
 	mlx_hook(win, KeyPress, KeyPressMask, &key_on, g);
 	mlx_hook(win, KeyRelease, KeyReleaseMask, &key_off, g);
-	mlx_hook(win, MotionNotify, PointerMotionMask, &mouse_move, g);
+	if (BONUS)
+		mlx_hook(win, MotionNotify, PointerMotionMask, &mouse_move, g);
 	mlx_hook(win, DestroyNotify, StructureNotifyMask, &on_end, g);
 	mlx_loop_hook(mlx, next_frame, g);
 	mlx_loop(mlx);

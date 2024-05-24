@@ -18,7 +18,6 @@ CFLAGS = -Wall -Werror -Wextra -g
 CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1 -g
 CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1 -g
 LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=leak
-# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
 
@@ -33,6 +32,8 @@ SRC = src/main.c src/error.c src/print.c src/free.c \
 	src/features/photo.c
 
 OBJ := $(SRC:.c=.o)
+OBJ_NM := $(SRC:.c=_nm.o)
+OBJ_BONUS := $(SRC:.c=_bonus.o)
 
 all: libft $(NAME)
 
@@ -42,23 +43,29 @@ $(NAME): $(OBJ)
 libft:
 	$(MAKE) -C src/libft
 
-no_mouse: $(OBJ:.o=_nm.o) libft
-	$(CC) $(CFLAGS_NM) -o $(NAME) $(OBJ:.o=_nm.o) $(LIBFT) $(LFLAGS)
+no_mouse: $(OBJ_NM) libft
+	$(CC) $(CFLAGS_NM) -o $(NAME_BONUS) $(OBJ_NM) $(LIBFT) $(LFLAGS)
 
-bonus: $(OBJ:.o=_bonus.o) libft
-	$(CC) $(CFLAGS_BONUS) -o $(NAME_BONUS) $(OBJ:.o=_bonus.o) $(LIBFT) $(LFLAGS)
+bonus: $(OBJ_BONUS) libft
+	$(CC) $(CFLAGS_BONUS) -o $(NAME_BONUS) $(OBJ_BONUS) $(LIBFT) $(LFLAGS)
 
 %.o: %.c
+	@echo "Rebuilding $@ because of the following dependencies:"
+	@ls -l $?
 	$(CC) $(CFLAGS) -c $< -o $@
 
 %_nm.o: %.c
+	@echo "Rebuilding $@ because of the following dependencies:"
+	@ls -l $?
 	$(CC) $(CFLAGS_NM) -c $< -o $@
 
 %_bonus.o: %.c
+	@echo "Rebuilding $@ because of the following dependencies:"
+	@ls -l $?
 	$(CC) $(CFLAGS_BONUS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(OBJ:.o=_nm.o) $(OBJ:.o=_bonus.o)
+	rm -f $(OBJ) $(OBJ_NM) $(OBJ_BONUS)
 	$(MAKE) -C src/libft clean
 
 fclean: clean
@@ -67,5 +74,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: bonus all clean fclean re
 

@@ -126,7 +126,7 @@ typedef struct s_ray
 	t_coordf	intersect;
 }	t_ray;
 
-typedef struct s_srite_loop
+typedef struct s_sprite_loop
 {
 	int		stripe;
 	int		y;
