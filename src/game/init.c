@@ -79,13 +79,13 @@ static void	init_moves(t_game *g)
 	g->plyr->take_pic[0] = 0;
 	g->plyr->take_pic[1] = 0;
 	g->plyr->take_pic[2] = 0;
+	set_coordf(0, 0, &(g->plyr->crd));
+	set_coordf(0, 0, &(g->plyr->view));
 }
 
 int	init_player(t_game *g)
 {
 	g->plyr = malloc(sizeof(t_player));
-	set_coordf(0, 0, &(g->plyr->crd));
-	set_coordf(0, 0, &(g->plyr->view));
 	init_moves(g);
 	while (g->map->m[(int) g->plyr->crd.y])
 	{
@@ -101,7 +101,8 @@ int	init_player(t_game *g)
 			if (g->map->m[(int) g->plyr->crd.y][(int) g->plyr->crd.x] == 'W')
 				set_coordf(-1, 0, &g->plyr->view);
 			if (g->plyr->view.x != 0 || g->plyr->view.y != 0)
-				return (1);
+				return (set_coordf(0.5 + g->plyr->crd.x, 0.5 + g->plyr->crd.y, \
+				&(g->plyr->crd)), 1);
 			g->plyr->crd.x++;
 		}
 		g->plyr->crd.y++;

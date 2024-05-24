@@ -28,7 +28,7 @@ int			map_line(char *str, int check_vals, t_map *map);
 int			check_valid(t_map *map);
 int			check_walls(t_map *map);
 int			check_struct(t_map *map);
-char        *is_mapchar(char c);
+char		*is_mapchar(char c);
 
 // parsing
 int			parsing(int argc, char **argv, t_map *map);
