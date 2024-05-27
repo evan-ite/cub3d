@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:45:40 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 16:24:25 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:06:50 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static uint32_t	create_color(char ***rgb, t_map *map)
 	int			green;
 	int			blue;
 
+	if (!(*rgb)[0] || !(*rgb)[1] || !(*rgb)[2])
+		return (-1);
 	red = ft_atoi((*rgb)[0]);
 	green = ft_atoi((*rgb)[1]);
 	blue = ft_atoi((*rgb)[2]);
@@ -67,7 +69,7 @@ static void	find_start_end(int *start, int *i, char *str, t_map *m)
 	*start = *i;
 	while (ft_isdigit(str[*i]) || str[*i] == ',')
 		(*i)++;
-	if (str[*i + 1] && !ft_isspace(str[*i + 1]))
+	if (str[*i] && str[*i + 1] && !ft_isspace(str[*i + 1]))
 		handle_error(ERR_COL, 1, m, NULL);
 }
 
@@ -81,7 +83,7 @@ int	extract_color(int start, char *str, t_map *m)
 
 	find_start_end(&start, &i, str, m);
 	temp = ft_substr(str, start, i - start);
-	if (!temp || !check_rgb(temp))
+	if (!temp || !*temp || !check_rgb(temp))
 	{
 		free(temp);
 		handle_error(ERR_COL, 1, m, NULL);

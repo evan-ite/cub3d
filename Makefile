@@ -6,7 +6,7 @@
 #    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/27 16:40:39 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/05/27 16:52:55 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3d
 NAME_BONUS = cub3d_bonus
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1
 CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1
 LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz

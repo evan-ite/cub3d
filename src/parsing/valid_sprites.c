@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_sprites.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:58:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/27 15:20:43 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:31:12 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	**copy_map(char **map, int height)
 static int	flood_fill(int x, int y, char **tls, t_map *map)
 {
 	if (x < 0 || x > map->max_width || y < 0 || y > map->max_height)
-		handle_error(ERR_MAP, 1, map, NULL);
+		return (0);
 	if (tls[y][x] == 'V' || tls[y][x] == '1')
 		return (0);
 	if (ft_strchr("NESW", tls[y][x]))

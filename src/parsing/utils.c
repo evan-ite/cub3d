@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 12:09:07 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:43:30 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,32 @@ void	init_map(t_map *map)
 	map->line = NULL;
 }
 
-char	*extract_path(int start, char *str, t_map *map)
 /* extracts the filepath from str and saves it in dest */
+char	*extract_path(int start, char *str, t_map *map)
 {
 	int		i;
 	int		fd_valid;
 	int		len;
 	char	*path;
 
-	len = ft_strlen(str);
+	if (ft_strlen(str) < 8)
+		return (NULL);
 	i = start + 2;
 	while (ft_isspace(str[i]))
 		i++;
-	path = ft_substr(str, i, len - i);
-	if (!path)
-		handle_error(ERR_MEM, 1, map, NULL);
+	if (str[i])
+		path = ft_substr(str, i, ft_strlen(str) - i);
+	else
+		return (NULL);
 	len = ft_strlen(path);
 	if (path[len - 1] == '\n')
 		path[len - 1] = '\0';
 	fd_valid = open(path, O_RDONLY);
 	if (fd_valid == -1)
+	{
+		free(path);
 		handle_error(ERR_TEXT, 1, map, NULL);
+	}
 	close(fd_valid);
 	return (path);
 }
