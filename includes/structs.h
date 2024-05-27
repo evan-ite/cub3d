@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 17:07:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:37:48 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ typedef struct s_sprite
 	int			sp_w;
 	int			start_x;
 	int			end_x;
-	int			mv_screen;
 }	t_sprite;
 
 typedef struct s_sprite_meta
