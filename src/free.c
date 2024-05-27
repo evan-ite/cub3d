@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 15:14:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:56:20 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	free_map(t_map *map)
 		free_array((void **)map->m, -1);
 	ft_close(&map->fd);
 	if (map->line)
+	{
 		free(map->line);
+		map->line = NULL;
+	}
 }
 
 void	free_game(t_game *g)

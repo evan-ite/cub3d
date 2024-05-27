@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/27 11:26:18 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:35:29 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define KIMSIZE 450
 # define HSCALE 1
 # define WSCALE 1
-# define MOVE 0
+# define MOVE 1
 # define ANIMATIONSPEED 10
 # define DSLR "textures/dlsr.xpm"
 # define HINT "textures/hint.xpm"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:28:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 11:29:45 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:57:52 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ static void	copy_line(char *line, int *i, t_map *map)
 
 int	get_map(t_map *map)
 {
-	char	*line;
 	int		i;
 	int		count;
 
@@ -96,14 +95,16 @@ int	get_map(t_map *map)
 		handle_error(ERR_MEM, 1, map, NULL);
 	i = 0;
 	count = 0;
-	line = get_next_line(map->fd);
-	while (line)
+	map->line = get_next_line(map->fd);
+	while (map->line)
 	{
 		count++;
-		if (map_line(line, count, map))
-			copy_line(line, &i, map);
-		free(line);
-		line = get_next_line(map->fd);
+		if (map_line(map->line, count, map))
+			copy_line(map->line, &i, map);
+		if (i > 0 && white_line(map->line))
+			handle_error(ERR_MAP, 1, map, NULL);
+		free(map->line);
+		map->line = get_next_line(map->fd);
 	}
 	check_valid(map);
 	return (1);
