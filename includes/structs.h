@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 16:00:52 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:25:58 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,17 +95,17 @@ typedef struct s_sprite_data
 
 typedef struct s_game
 {
-	t_map		*map;
-	t_win		*win;
-	t_img		*texts[7];
-	t_img		*cam_overlay;
-	t_img		*hint;
-	t_img		*frame;
-	t_player	*plyr;
-	size_t		tick;
-	int			photos;
-	float		zbuf[1920];
-	int			won;
+	t_map			*map;
+	t_win			*win;
+	t_img			*texts[7];
+	t_img			*cam_overlay;
+	t_img			*hint;
+	t_img			*frame;
+	t_player		*plyr;
+	size_t			tick;
+	int				photos;
+	float			zbuf[1920];
+	int				won;
 	t_sprite_data	sp_data;
 }	t_game;
 
