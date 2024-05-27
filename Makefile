@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/27 16:24:08 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/05/27 16:40:39 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,9 @@ NAME = cub3d
 NAME_BONUS = cub3d_bonus
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
-CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1 -g
-CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1 -g
-# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=leak
+CFLAGS = -Wall -Werror -Wextra
+CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1
+CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1
 LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
@@ -75,5 +74,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: bonus all clean fclean re
+.PHONY: bonus all clean fclean re no_mouse libft
 
