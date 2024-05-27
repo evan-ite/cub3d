@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 10:30:50 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:14:19 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	init_textures(t_game *g)
 	g->hint = init_img(HINT, g);
 	if (g->map->n_kim > 0)
 	{
-		g->sm.img = init_img(KIM, g);
-		g->sm.flash[0] = init_img("textures/flash1.xpm", g);
-		g->sm.flash[1] = init_img("textures/flash2.xpm", g);
-		g->sm.flash[2] = init_img("textures/flash3.xpm", g);
-		g->sm.flash[3] = init_img("textures/flash4.xpm", g);
-		g->sm.flash[4] = init_img("textures/flash5.xpm", g);
+		g->sp_data.img = init_img(KIM, g);
+		g->sp_data.flash[0] = init_img("textures/flash1.xpm", g);
+		g->sp_data.flash[1] = init_img("textures/flash2.xpm", g);
+		g->sp_data.flash[2] = init_img("textures/flash3.xpm", g);
+		g->sp_data.flash[3] = init_img("textures/flash4.xpm", g);
+		g->sp_data.flash[4] = init_img("textures/flash5.xpm", g);
 	}
 	return (1);
 }

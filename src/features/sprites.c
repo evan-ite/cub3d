@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 14:56:43 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:20:16 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ static int	get_sprite_coord(t_game *g, t_coordf *sprite)
 			}
 		}
 	}
-	g->sm.sp_left = ctr;
+	g->sp_data.sp_left = ctr;
 	return (0);
 }
 
-/* Sorts sp_coor based on distance in descending order. So the
+/* Sorts coords based on distance in descending order. So the
 furthest sprite will be first in the list, the closest last.
 The array order will be sorted based on the matching index
 in dist. */
@@ -73,33 +73,37 @@ void	calc_screen_coor(t_game *g, t_sprite *s)
 
 	inv_d = 1.0 / (s->plane.x * g->plyr->view.y - g->plyr->view.x * s->plane.y);
 	s->trans_x = inv_d * \
-		(g->plyr->view.y * s->vec_spr.x - g->plyr->view.x * s->vec_spr.y);
+		(g->plyr->view.y * s->dist.x - g->plyr->view.x * s->dist.y);
 	s->trans_y = inv_d * \
-		(-s->plane.y * s->vec_spr.x + s->plane.x * s->vec_spr.y);
-	s->sp_scrx = (int)((WIDTH / 2) * (1 + s->trans_x / s->trans_y));
+		(-s->plane.y * s->dist.x + s->plane.x * s->dist.y);
+	s->scrx = (int)((WIDTH / 2) * (1 + s->trans_x / s->trans_y));
 }
 
 /* Calculate the values for every sprite and then draw them
 on the screen */
-void	create_sprites(t_game *g, t_sp_meta *sm)
+void	create_sprites(t_game *g, t_sprite_data *sp_data)
 {
 	int		i;
+	t_coord	temp;
 
 	i = -1;
-	while (++i < sm->sp_left)
+	while (++i < sp_data->sp_left)
 	{
-		sm->sp[i].plane = perp_vec(g->plyr->view);
-		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->plyr->crd.x;
-		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->plyr->crd.y;
-		calc_screen_coor(g, &sm->sp[i]);
-		calc_height(&sm->sp[i]);
-		calc_width(&sm->sp[i]);
-		if (g->plyr->take_pic[0] > 0 && \
-			(int)(sm->sp_coor[sm->order[i]].x - 0.5) == g->plyr->take_pic[1] && \
-			(int)(sm->sp_coor[sm->order[i]].y - 0.5) == g->plyr->take_pic[2])
+		sp_data->sp[i].plane = perp_vec(g->plyr->view);
+		sp_data->sp[i].dist.x = sp_data->coords[sp_data->order[i]].x \
+								- g->plyr->crd.x;
+		sp_data->sp[i].dist.y = sp_data->coords[sp_data->order[i]].y \
+								- g->plyr->crd.y;
+		calc_screen_coor(g, &sp_data->sp[i]);
+		calc_height(&sp_data->sp[i]);
+		calc_width(&sp_data->sp[i]);
+		temp.x = (int)(sp_data->coords[sp_data->order[i]].x - 0.5);
+		temp.y = (int)(sp_data->coords[sp_data->order[i]].y - 0.5);
+		if (g->plyr->take_pic[0] > 0 && temp.x == g->plyr->take_pic[1] && \
+			temp.y == g->plyr->take_pic[2])
 			draw_flash(i, g);
 		else
-			loop_stripes(sm->sp[i], g, g->sm.img);
+			loop_stripes(sp_data->sp[i], g, g->sp_data.img);
 	}
 }
 
@@ -109,16 +113,16 @@ void	draw_sprites(t_game *g)
 
 	if (g->map->n_kim <= 0)
 		return ;
-	g->sm.sp_left = 0;
-	if (get_sprite_coord(g, g->sm.sp_coor) == -1)
+	g->sp_data.sp_left = 0;
+	if (get_sprite_coord(g, g->sp_data.coords) == -1)
 		handle_error("Couldn't find sprites", 1, NULL, g);
 	i = -1;
 	while (++i < g->map->n_kim)
 	{
-		g->sm.order[i] = i;
-		g->sm.dist[i] = pow(g->plyr->crd.x - g->sm.sp_coor[i].x, 2) + \
-			pow(g->plyr->crd.y - g->sm.sp_coor[i].y, 2);
+		g->sp_data.order[i] = i;
+		g->sp_data.dist[i] = pow(g->plyr->crd.x - g->sp_data.coords[i].x, 2) + \
+			pow(g->plyr->crd.y - g->sp_data.coords[i].y, 2);
 	}
-	sort_sprites(g->sm.order, g->sm.dist, g->sm.sp_left);
-	create_sprites(g, &g->sm);
+	sort_sprites(g->sp_data.order, g->sp_data.dist, g->sp_data.sp_left);
+	create_sprites(g, &g->sp_data);
 }

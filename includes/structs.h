@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 14:14:43 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:14:45 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,29 +69,29 @@ typedef struct s_image
 typedef struct s_sprite
 {
 	t_coordf	plane;
-	t_coordf	vec_spr;
+	t_coordf	dist;
 	float		trans_y;
 	float		trans_x;
-	int			sp_scrx;
-	int			sp_h;
+	int			scrx;
+	int			h;
+	int			w;
 	int			start_y;
 	int			end_y;
-	int			sp_w;
 	int			start_x;
 	int			end_x;
 }	t_sprite;
 
-typedef struct s_sprite_meta
+typedef struct s_sprite_data
 {
 	t_sprite	sp[100];
-	t_coordf	sp_coor[100];
+	t_coordf	coords[100];
 	int			order[100];
 	float		dist[100];
 	t_img		*img;
 	t_img		*flash[5];
 	int			sp_left;
 	int			last_tick;
-}	t_sp_meta;
+}	t_sprite_data;
 
 typedef struct s_game
 {
@@ -106,7 +106,7 @@ typedef struct s_game
 	int			photos;
 	float		zbuf[1920];
 	int			won;
-	t_sp_meta	sm;
+	t_sprite_data	sp_data;
 }	t_game;
 
 typedef struct s_ray

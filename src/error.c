@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:51:00 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 12:07:57 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:21:45 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ void	handle_error(char *err_msg, int err_code, t_map *map, void *game)
 		on_end(game);
 	exit(err_code);
 }
-

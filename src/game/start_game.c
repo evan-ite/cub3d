@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 10:39:45 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:14:19 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	start_game(t_game *g)
 	g->tick = 0;
 	g->photos = 0;
 	g->won = 0;
-	g->sm.last_tick = 0;
+	g->sp_data.last_tick = 0;
 	win = g->win->win;
 	mlx = g->win->mlx;
 	init_player(g);

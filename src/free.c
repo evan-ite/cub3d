@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 12:12:35 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:14:19 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void	free_images(t_game *g)
 		ctr = -1;
 		while (++ctr < 5)
 		{
-			mlx_destroy_image(g->win->mlx, g->sm.flash[ctr]->mlx_img);
-			free(g->sm.flash[ctr]);
+			mlx_destroy_image(g->win->mlx, g->sp_data.flash[ctr]->mlx_img);
+			free(g->sp_data.flash[ctr]);
 		}
-		mlx_destroy_image(g->win->mlx, g->sm.img->mlx_img);
-		free(g->sm.img);
+		mlx_destroy_image(g->win->mlx, g->sp_data.img->mlx_img);
+		free(g->sp_data.img);
 	}
 	mlx_destroy_image(g->win->mlx, g->cam_overlay->mlx_img);
 	free(g->cam_overlay);
