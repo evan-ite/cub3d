@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/23 16:14:39 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:37:41 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 void	calc_height(t_sprite *s)
 {
 	s->sp_h = abs((int)(HEIGHT / s->trans_y)) / HSCALE;
-	s->start_y = -s->sp_h / 2 + HEIGHT / 2 + s->mv_screen;
+	s->start_y = -s->sp_h / 2 + HEIGHT / 2;
 	if (s->start_y < 0)
 		s->start_y = 0;
-	s->end_y = s->sp_h / 2 + HEIGHT / 2 + s->mv_screen;
+	s->end_y = s->sp_h / 2 + HEIGHT / 2;
 	if (s->end_y >= HEIGHT)
 		s->end_y = HEIGHT - 1;
 }
@@ -41,8 +41,8 @@ static void	loop_y(t_sprite_loop loop, t_sprite s, t_game *g, t_img *img)
 	loop.y = s.start_y - 1;
 	while (++loop.y < s.end_y)
 	{
-		loop.d = (loop.y - s.mv_screen) * 256 - HEIGHT * 128 + s.sp_h * 128;
-		loop.tex.y = ((loop.d * KIMSIZE) / s.sp_h) / 256;
+		loop.d = loop.y * 256 - HEIGHT * 128 + s.sp_h * 128;
+		loop.tex.y = ft_clamp((((loop.d * KIMSIZE) / s.sp_h) / 256), 0, KIMSIZE - 1);
 		loop.color = get_px(&(loop.tex), img, 0);
 		set_coord(loop.stripe, loop.y, &(loop.set));
 		if (loop.color > 0)
@@ -54,10 +54,14 @@ static void	loop_y(t_sprite_loop loop, t_sprite s, t_game *g, t_img *img)
 on the screen and not covered by a wall, draw every pixel of the stripe. If int
 flash = 1, the flash textures will be drawn, if flash = 0 a normal texture will
 be drawn. */
+
 void	loop_stripes(t_sprite s, t_game *g, t_img *img)
 {
 	t_sprite_loop	loop;
 
+	set_coord(0, 0, &(loop.tex));
+	loop.d = 0;
+	loop.y = 0;
 	loop.stripe = s.start_x - 1;
 	while (++loop.stripe < s.end_x)
 	{

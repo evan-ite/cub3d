@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/23 17:08:51 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:37:58 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	create_sprites(t_game *g, t_sp_meta *sm)
 		sm->sp[i].vec_spr.x = sm->sp_coor[sm->order[i]].x - g->plyr->crd.x;
 		sm->sp[i].vec_spr.y = sm->sp_coor[sm->order[i]].y - g->plyr->crd.y;
 		calc_screen_coor(g, &sm->sp[i]);
-		sm->sp->mv_screen = (int)(MOVE / sm->sp->trans_y);
 		calc_height(&sm->sp[i]);
 		calc_width(&sm->sp[i]);
 		if (g->plyr->take_pic[0] > 0 && \
