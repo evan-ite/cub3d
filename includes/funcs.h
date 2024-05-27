@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 12:39:16 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:17:47 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char		*extract_path(int start, char *str, t_map *map);
 int			extract_color(int start, char *str, t_map *map);
 int			get_map(t_map *map);
 int			map_line(char *str, int check_vals, t_map *map);
+int			white_line(char *line);
+int			check_map(char *line, int *width, t_map *map);
 
 // check validity
 int			check_valid(t_map *map);
@@ -62,7 +64,6 @@ t_coordf	perp_vec(t_coordf v);
 void		set_side_dist(t_ray *r, t_game *g);
 
 // utils
-void		handle_error(char *err_msg, int err_code, t_map *map, void *game);
 void		set_coordf(float x, float y, t_coordf *coord);
 void		set_coord(int x, int y, t_coord *coord);
 int			ft_clamp(int value, int min, int max);
@@ -79,6 +80,7 @@ int			on_end(t_game *g);
 void		free_game(t_game *game);
 void		free_map(t_map *map);
 void		free_images(t_game *g);
+void		handle_error(char *err_msg, int err_code, t_map *map, void *game);
 
 // bonus
 void		open_doors(t_game *g);

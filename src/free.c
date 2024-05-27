@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 17:10:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:12:35 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	free_map(t_map *map)
 	if (map->m)
 		free_array((void **)map->m, -1);
 	ft_close(&map->fd);
+	if (map->line)
+		free(map->line);
 }
 
 void	free_game(t_game *g)

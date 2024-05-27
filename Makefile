@@ -6,7 +6,7 @@
 #    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/22 16:44:15 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/05/27 10:07:34 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1 -g
 CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1 -g
-LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=leak
+# LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -fsanitize=leak
+LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
 

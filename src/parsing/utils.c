@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:18:41 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/15 12:39:16 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:09:07 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_map(t_map *map)
 	map->fd = -1;
 	map->fd_lines = 0;
 	map->n_kim = 0;
+	map->line = NULL;
 }
 
 char	*extract_path(int start, char *str, t_map *map)
@@ -69,4 +70,19 @@ int	check_struct(t_map *map)
 	if (map->max_height == 0 || map->max_width == 0)
 		handle_error(ERR_MAP, 1, map, NULL);
 	return (1);
+}
+
+/* Returns 1 if line is part of the map and updates
+map hieght and width. Returns 0 if line is not part of the map. */
+int	check_map(char *line, int *width, t_map *map)
+{
+	if (map_line(line, 0, map))
+	{
+		map->max_height++;
+		*width = ft_strlen(line);
+		if (*width > map->max_width)
+			map->max_width = *width;
+		return (1);
+	}
+	return (0);
 }

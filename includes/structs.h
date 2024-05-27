@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 17:07:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:07:07 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_map
 	int		fd;
 	int		fd_lines;
 	int		n_kim;
+	char	*line;
 }	t_map;
 
 typedef struct s_image

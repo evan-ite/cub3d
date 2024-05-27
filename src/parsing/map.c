@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:28:14 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/22 11:37:09 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:29:45 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ char	*is_mapchar(char c)
 		return (ft_strchr("\n 10NSWE", c));
 }
 
-/* Checks if the argument is a white line */
-static int	white_line(char *line)
+/* Checks if the argument is a white line, returns 1 if
+line is a white line and 0 if not */
+int	white_line(char *line)
 {
 	int	i;
 

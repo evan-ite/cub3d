@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/23 12:32:07 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:26:18 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define ERR_MAP "Please provide a valid map\n"
 # define ERR_NKIM "This game can not handle more than 100 Kim K's\n"
 # define ERR_KIM_VALID "Not all Kims are reachable\n"
+# define ERR_DOUBLE "Element is defined twice\n"
+# define ERR_ELEMENT "Unrecognized element in file\n"
 # define WINDOW_NAME "PAPARAZZO"
 # ifndef HIDE_MOUSE
 #  define HIDE_MOUSE 0
