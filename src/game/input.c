@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 17:09:05 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:38:15 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 void	do_action(t_game *g)
 {
 	if (!g->plyr->interact)
+		return ;
+	if ((int) g->plyr->crd.x == g->plyr->object.x && \
+	(int) g->plyr->crd.y == g->plyr->object.y)
 		return ;
 	if ('X' == g->plyr->interact)
 		take_photo(g);

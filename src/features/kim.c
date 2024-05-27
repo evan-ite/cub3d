@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   kim.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 11:37:58 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:13:12 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	calc_screen_coor(t_game *g, t_sprite *s)
 on the screen */
 void	create_sprites(t_game *g, t_sp_meta *sm)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	while (++i < sm->sp_left)

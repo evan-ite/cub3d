@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doors.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:37:34 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/23 12:11:49 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:37:49 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void	open_doors(t_game *g)
 {
 	char	*state;
 
-	if ((int) g->plyr->crd.x == g->plyr->object.x && \
-	(int) g->plyr->crd.y == g->plyr->object.y)
-		return ;
 	state = &(g->map->m[g->plyr->object.y][g->plyr->object.x]);
 	if (*state == 'd')
 		*state = 'D';

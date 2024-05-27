@@ -6,7 +6,7 @@
 /*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 12:25:57 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:14:43 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ typedef struct s_game
 	t_player	*plyr;
 	size_t		tick;
 	int			photos;
-	int			zbuf[1920];
+	float		zbuf[1920];
 	int			won;
 	t_sp_meta	sm;
 }	t_game;
