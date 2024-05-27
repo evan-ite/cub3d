@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kim.c                                              :+:      :+:    :+:   */
+/*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 14:13:12 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:56:43 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	create_sprites(t_game *g, t_sp_meta *sm)
 	}
 }
 
-void	draw_kims(t_game *g)
+void	draw_sprites(t_game *g)
 {
 	int	i;
 

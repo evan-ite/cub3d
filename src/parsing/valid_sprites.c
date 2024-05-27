@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_kim.c                                        :+:      :+:    :+:   */
+/*   valid_sprites.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -44,7 +44,7 @@ static int	flood_fill(int x, int y, char **tls, t_map *map)
 		return (0);
 }
 
-int	valid_kim(t_map *map)
+int	valid_sprites(t_map *map)
 {
 	int		i;
 	int		j;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 12:17:47 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:56:43 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int			interaction_ray(t_game *g);
 void		show_hint(t_game *g);
 
 // sprites
-int			valid_kim(t_map *map);
-void		draw_kims(t_game *g);
+int			valid_sprites(t_map *map);
+void		draw_sprites(t_game *g);
 void		take_photo(t_game *g);
 void		calc_width(t_sprite *s);
 void		calc_height(t_sprite *s);

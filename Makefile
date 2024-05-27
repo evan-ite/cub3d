@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
+#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/27 10:07:34 by jstrozyk         ###   ########.fr        #
+#    Updated: 2024/05/27 14:56:09 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ LIBFT = src/libft/libft.a
 
 SRC = src/main.c src/error.c src/print.c src/free.c \
 	src/parsing/parsing.c src/parsing/utils.c src/parsing/color.c src/parsing/map.c \
-	src/parsing/valid_map.c src/parsing/walls.c src/parsing/valid_kim.c \
+	src/parsing/valid_map.c src/parsing/walls.c src/parsing/valid_sprites.c \
 	src/game/start_game.c src/game/init.c src/game/draw.c \
 	src/game/pixels.c src/dda/dda.c src/game/input.c \
 	src/dda/dda_utils.c src/game/move.c src/game/collision.c \
-	src/features/minimap.c src/parsing/textures.c src/features/kim.c \
-	src/features/doors.c src/dda/dda_objects.c src/features/kim_utils.c \
+	src/features/minimap.c src/parsing/textures.c src/features/sprites.c \
+	src/features/doors.c src/dda/dda_objects.c src/features/sprite_utils.c \
 	src/features/photo.c
 
 OBJ := $(SRC:.c=.o)

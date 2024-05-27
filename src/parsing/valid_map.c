@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:04:47 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/21 14:08:13 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:56:37 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	check_valid(t_map *map)
 	if (player != 1)
 		handle_error(ERR_MAP, 1, map, NULL);
 	if (map->n_kim > 0)
-		valid_kim(map);
+		valid_sprites(map);
 	check_walls(map);
 	return (1);
 }
