@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:58:19 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/27 17:40:36 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:45:05 by elisevanite      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ static char	**copy_map(char **map, int height)
 	return (copy);
 }
 
+//!tiles[y] || !tiles[y][x] ||
 static void	flood_fill(int x, int y, char **tiles, t_map *map)
 {
-	if (x < 0 || x >= map->max_width || y < 0 || y >= map->max_height)
+	if (x < 0 || y < 0 || y >= map->max_height || x >= (int)ft_strlen(tiles[y]))
 	{
 		free_array((void **)tiles, -1);
 		handle_error(ERR_MAP, 1, map, NULL);
