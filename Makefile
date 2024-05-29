@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+         #
+#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/28 10:41:54 by elisevanite      ###   ########.fr        #
+#    Updated: 2024/05/29 12:46:55 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 NAME_BONUS = cub3D_bonus
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1
 CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1
 LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/29 11:32:07 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 12:47:11 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define WIDTH 1420
 # define HEIGHT 760
 # define TURNSPEED 0.1
-# define WALKSPEED 0.1
+# define WALKSPEED 0.04
 # define MOUSE_SENS 20
 # define FOV 0.8
 # define DEBUG 1
