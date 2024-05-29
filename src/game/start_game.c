@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/29 16:41:53 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:44:59 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	winner(t_game *g)
 	h = HEIGHT;
 	w = WIDTH;
 	img = mlx_xpm_file_to_image(g->win->mlx, WIN, &w, &h);
-	mlx_put_image_to_window(g->win->mlx, g->win->win, img, (WIDTH - 1800) / 2, (HEIGHT - 900)/ 2);
+	mlx_put_image_to_window(g->win->mlx, g->win->win, img, \
+		(WIDTH - 1800) / 2, (HEIGHT - 900) / 2);
 	mlx_destroy_image(g->win->mlx, img);
 }
 
