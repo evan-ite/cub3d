@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:18:06 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 15:14:45 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:25:47 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void		set_side_dist(t_ray *r, t_game *g);
 // utils
 void		set_coordf(float x, float y, t_coordf *coord);
 void		set_coord(int x, int y, t_coord *coord);
-int			ft_clamp(int value, int min, int max);
 void		create_sprites(t_game *g, t_sprite_data *d);
 
 // debugging

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 12:38:15 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:26:21 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	turn(t_game *g, char dir, float speed)
 		g->plyr->view.x = dir_x * cos(-speed) - dir_y * sin(-speed);
 		g->plyr->view.y = dir_x * sin(-speed) + dir_y * cos(-speed);
 	}
+	g->draw = 1;
 	return (0);
 }
 

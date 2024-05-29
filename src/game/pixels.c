@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:40:05 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/29 12:35:41 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:29:48 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ int	get_px(t_coord *px, t_img *i, int verify)
 	int	*c;
 
 	(void) verify;
-	// if (verify)
-	// {
-	// 	if (px->x > i->x || px->y > i->y)
-	// 		return (-1);
-	// }
 	c = (int *)(i->addr + (((int) px->y * i->len) + \
 	(i->bpp / 8) * (int) px->x));
 	return (*c);

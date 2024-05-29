@@ -6,7 +6,7 @@
 #    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/29 12:46:55 by evan-ite         ###   ########.fr        #
+#    Updated: 2024/05/29 14:52:17 by evan-ite         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
 LIBFT = src/libft/libft.a
 
-SRC = src/main.c src/error.c src/print.c src/free.c \
+SRC = src/main.c src/error.c src/free.c \
 	src/parsing/parsing.c src/parsing/utils.c src/parsing/color.c src/parsing/map.c \
 	src/parsing/valid_map.c src/parsing/walls.c src/parsing/valid_sprites.c \
 	src/game/start_game.c src/game/init.c src/game/draw.c \

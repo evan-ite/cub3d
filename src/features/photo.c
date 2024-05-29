@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:42:51 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 15:22:35 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:51:44 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	draw_flash(int i, t_game *g)
 	if (g->plyr->take_pic[0] == 5)
 	{
 		g->map->m[g->plyr->take_pic[2]][g->plyr->take_pic[1]] = '0';
-		g->plyr->take_pic[0] = 0;
+		g->plyr->take_pic[0]++;
 		g->plyr->take_pic[1] = 0;
 		g->plyr->take_pic[2] = 0;
 		g->sp_data.last_tick = 0;

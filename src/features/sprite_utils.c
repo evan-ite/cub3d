@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/29 12:25:45 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:29:15 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	loop_y(t_sprite_loop loop, t_sprite sprite, t_game *g, t_img *img)
 	{
 		loop.d = loop.y * 256 - HEIGHT * 128 + sprite.h * 128;
 		loop.tex.y = (((loop.d * KIMSIZE) / sprite.h) / 256);
-		// ft_clamp((((loop.d * KIMSIZE) / sprite.h) / 256), 0, KIMSIZE - 1);
 		loop.color = get_px(&(loop.tex), img, 0);
 		set_coord(loop.stripe, loop.y, &(loop.set));
 		if (loop.color > 0)

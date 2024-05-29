@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 15:14:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:36:51 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,18 @@ static int	next_frame(t_game *game)
 
 	win = game->win->win;
 	mlx = game->win->mlx;
-	move(game);
-	draw_frame(game);
-	if (BONUS)
-		draw_minimap(game);
-	if (game->won && game->plyr->take_pic[0] == 0)
-		winner(game);
-	else
-		mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
+	if (move(game) || game->draw || game->plyr->take_pic[0])
+	{
+		draw_frame(game);
+		if (BONUS)
+			draw_minimap(game);
+		if (game->won && game->plyr->take_pic[0] == 0)
+			winner(game);
+		else
+			mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
+	}
 	game->tick++;
+	game->draw = 0;
 	return (0);
 }
 
@@ -52,6 +55,7 @@ int	start_game(t_game *g)
 	g->tick = 0;
 	g->photos = 0;
 	g->won = 0;
+	g->draw = 1;
 	g->sp_data.last_tick = 0;
 	win = g->win->win;
 	mlx = g->win->mlx;

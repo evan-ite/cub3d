@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doors.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:37:34 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 12:37:49 by jstrozyk         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:36:00 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	open_doors(t_game *g)
 		*state = 'D';
 	else if (*state == 'D')
 		*state = 'd';
+	g->draw = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:58:33 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/27 16:01:09 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:43:11 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	draw_sprites(t_game *g)
 	if (g->map->n_kim <= 0)
 		return ;
 	g->sp_data.sp_left = 0;
+	if (g->plyr->take_pic[0] == 6)
+		g->plyr->take_pic[0] = 0;
 	if (get_sprite_coord(g, g->sp_data.coords) == -1)
 		handle_error("Couldn't find sprites", 1, NULL, g);
 	i = -1;

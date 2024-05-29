@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:19:23 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/22 17:09:34 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:23:54 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ int	move(t_game *g)
 		turn(g, 'l', TURNSPEED);
 	if (g->plyr->move[5])
 		turn(g, 'r', TURNSPEED);
+	if (!g->plyr->move[0] && !g->plyr->move[1] && !g->plyr->move[2] \
+	&& !g->plyr->move[3] && !g->plyr->move[4] && !g->plyr->move[5])
+		return (0);
 	return (1);
 }

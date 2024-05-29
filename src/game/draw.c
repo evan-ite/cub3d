@@ -6,17 +6,17 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:20 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/29 12:26:29 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:24:55 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-
-int fill_bg(t_img *frame, int c, int f) {
-	int total_pixels;
-	int half_pixels;
-	int *px;
+int	fill_bg(t_img *frame, int c, int f)
+{
+	int	total_pixels;
+	int	half_pixels;
+	int	*px;
 	int	i;
 
 	total_pixels = frame->len * HEIGHT / (frame->bpp / 8);
@@ -28,27 +28,8 @@ int fill_bg(t_img *frame, int c, int f) {
 	i = half_pixels;
 	while (++i < total_pixels)
 		px[i] = f;
-	return 1;
+	return (1);
 }
-
-// int	fill_bg(t_img *frame, int c, int f)
-// {
-// 	int		ctr;
-// 	char	*px;
-
-// 	ctr = 0;
-// 	px = frame->addr;
-// 	while (ctr < (frame->len * HEIGHT))
-// 	{
-// 		if (ctr < (frame->len * HEIGHT / 2))
-// 			*(int *)(px) = c;
-// 		else
-// 			*(int *)(px) = f;
-// 		px += frame->bpp / 8;
-// 		ctr += frame->bpp / 8;
-// 	}
-// 	return (1);
-// }
 
 static void	draw_camera_overlay(t_game *g)
 {
@@ -81,6 +62,7 @@ int	draw_frame(t_game *g)
 {
 	fill_bg(g->frame, g->map->c, g->map->f);
 	raycast(g);
+	draw_sprites(g);
 	if (g->plyr->interact)
 		show_hint(g);
 	if (g->plyr->interact == 'X')
@@ -113,11 +95,7 @@ int	draw_line(t_ray r, int col, int dir, t_game *g)
 	while (++ctr <= r.height)
 	{
 		tx.y = (int)(ctr * height_ratio);
-		// tx.y = ft_clamp(tx.y, 0, g->texts[dir]->y - 1);
-		// tx.x = ft_clamp(tx.x, 0, g->texts[dir]->y - 1);
 		color = get_color(tx.x, tx.y, dir, g);
-		// tx.x = ft_clamp(tx.x, 0, WIDTH -1);
-		// tx.y = ft_clamp(tx.y, 0, HEIGHT - 1);
 		set_px(&px, color, g);
 		px.y++;
 	}
