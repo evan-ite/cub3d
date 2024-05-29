@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elisevaniterson <elisevaniterson@studen    +#+  +:+       +#+        */
+/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:38:15 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/28 10:53:55 by elisevanite      ###   ########.fr       */
+/*   Updated: 2024/05/29 11:28:53 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static int	check_elements2(int i, char *line, t_map *map)
 {
 	if (line[i] == 'E' && line[i + 1] == 'A')
 	{
-		if (map->text_files[1])
+		if (map->text_files[0])
 			handle_error(ERR_DOUBLE, 1, map, NULL);
-		map->text_files[1] = extract_path(i, line, map);
+		map->text_files[0] = extract_path(i, line, map);
 		return (1);
 	}
 	else if (line[i] == 'F')
@@ -80,9 +80,9 @@ static int	check_element(int i, char *line, t_map *map)
 	}
 	else if (line[i] == 'W' && line[i + 1] == 'E')
 	{
-		if (map->text_files[0])
+		if (map->text_files[1])
 			handle_error(ERR_DOUBLE, 1, map, NULL);
-		map->text_files[0] = extract_path(i, line, map);
+		map->text_files[1] = extract_path(i, line, map);
 		return (1);
 	}
 	return (check_elements2(i, line, map));
