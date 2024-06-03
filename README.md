@@ -1,6 +1,11 @@
 
 # cub3D
 
+
+<a href="(https://youtu.be/35gA5YFIUJM)" target="_blank">
+    <img src="(http://img.youtu.be/35gA5YFIUJM/0.jpg)" alt="Watch the video" width="240" height="180" border="10" />
+</a>
+
 ![Video Placeholder](screenshot.png)
 [![Watch the video](screenchot.png)](https://youtu.be/35gA5YFIUJM)
 
