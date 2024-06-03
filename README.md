@@ -1,7 +1,7 @@
 
 # cub3D
 
-![Screenshot of the project](screenshot.png)
+![Screenshot of the project](Screenshot.png)
 
 [![Watch the video](http://img.youtube.com/vi/35gA5YFIUJM/0.jpg)](http://www.youtube.com/watch?v=35gA5YFIUJM)
 
