@@ -1,8 +1,8 @@
 
 # cub3D
 
-![Video Placeholder](https://youtu.be/35gA5YFIUJM/0.jpg)
-[![Watch the video](https://youtu.be/35gA5YFIUJM/0.jpg)](https://youtu.be/35gA5YFIUJM)
+![Video Placeholder](screenshot.png)
+[![Watch the video](screenchot.png)](https://youtu.be/35gA5YFIUJM)
 
 
 ## Summary
