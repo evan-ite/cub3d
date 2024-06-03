@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:17:35 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/29 14:23:03 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:45:32 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ typedef struct s_game
 	size_t			tick;
 	int				photos;
 	float			zbuf[1920];
-	int				won;
+	int				start_win;
 	t_sprite_data	sp_data;
 	int				draw;
 }	t_game;

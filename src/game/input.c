@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:17:39 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/29 14:26:21 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:12:40 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int	key_off(int keysym, t_game *g)
 		g->plyr->move[5] = 0;
 	if (keysym == 32)
 		do_action(g);
+	if (keysym == 107)
+		g->start_win = 0;
 	return (0);
 }
 

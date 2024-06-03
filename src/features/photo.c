@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:42:51 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/29 14:51:44 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:16:08 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw_flash(int i, t_game *g)
 		g->plyr->take_pic[0]++;
 		g->plyr->take_pic[1] = 0;
 		g->plyr->take_pic[2] = 0;
-		g->sp_data.last_tick = 0;
+		// g->sp_data.last_tick = 0;
 	}
 	else if (g->tick - g->sp_data.last_tick > ANIMATIONSPEED)
 	{
@@ -43,6 +43,6 @@ void	take_photo(t_game *g)
 	g->plyr->take_pic[1] = g->plyr->object.x;
 	g->plyr->take_pic[2] = g->plyr->object.y;
 	g->photos++;
-	if ((g->photos) == g->map->n_kim)
-		g->won = 1;
+	if (g->photos == g->map->n_kim)
+		g->start_win = 1;
 }

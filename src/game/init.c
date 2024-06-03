@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:00:58 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/27 15:14:19 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:57:54 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ int	init_textures(t_game *g)
 
 	ctr = -1;
 	g->map->text_files[4] = DOOR1;
-	g->map->text_files[5] = DOOR2;
-	g->map->text_files[6] = DOOR3;
-	while (++ctr < 7)
+	while (++ctr < 5)
 		g->texts[ctr] = init_img(g->map->text_files[ctr], g);
 	reverse_texture(g->texts[0]);
 	reverse_texture(g->texts[3]);
 	g->cam_overlay = init_img(DSLR, g);
 	g->hint = init_img(HINT, g);
+
 	if (g->map->n_kim > 0)
 	{
 		g->sp_data.img = init_img(KIM, g);

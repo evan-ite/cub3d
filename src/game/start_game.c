@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:58:49 by jstrozyk          #+#    #+#             */
-/*   Updated: 2024/05/29 16:44:59 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:53:45 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,56 @@ static void	winner(t_game *g)
 	mlx_put_image_to_window(g->win->mlx, g->win->win, img, \
 		(WIDTH - 1800) / 2, (HEIGHT - 900) / 2);
 	mlx_destroy_image(g->win->mlx, img);
+	g->draw = 0;
 }
 
-static int	next_frame(t_game *game)
+static void	start_screen(t_game *g)
+{
+	int		h;
+	int		w;
+	void	*img;
+
+	h = HEIGHT;
+	w = WIDTH;
+	img = mlx_xpm_file_to_image(g->win->mlx, START, &w, &h);
+	mlx_put_image_to_window(g->win->mlx, g->win->win, img, \
+		(WIDTH - 1800) / 2, (HEIGHT - 900) / 2);
+	mlx_destroy_image(g->win->mlx, img);
+	g->draw = 0;
+}
+
+static int	next_frame(t_game *g)
 {
 	void	*win;
 	void	*mlx;
 
-	win = game->win->win;
-	mlx = game->win->mlx;
-	if (move(game) || game->draw || game->plyr->take_pic[0])
+	win = g->win->win;
+	mlx = g->win->mlx;
+	if (move(g) || g->draw || g->plyr->take_pic[0] || g->start_win >=0)
 	{
-		draw_frame(game);
-		if (BONUS)
-			draw_minimap(game);
-		if (game->won && game->plyr->take_pic[0] == 0)
-			winner(game);
-		else
-			mlx_put_image_to_window(mlx, win, game->frame->mlx_img, 0, 0);
+		if (BONUS && g->start_win == -1)
+			start_screen(g);
+		else if (BONUS && g->start_win == 1 && g->plyr->take_pic[0] == 0)
+			winner(g);
+		else {
+			draw_frame(g);
+			if (BONUS)
+				draw_minimap(g);
+			mlx_put_image_to_window(mlx, win, g->frame->mlx_img, 0, 0);
+		}
 	}
-	game->tick++;
-	game->draw = 0;
+	g->tick++;
+	g->draw = 0;
 	return (0);
+}
+
+static void	init_game(t_game *g)
+{
+	g->tick = 0;
+	g->photos = 0;
+	g->start_win = -1;
+	g->draw = 1;
+	g->sp_data.last_tick = 0;
 }
 
 int	start_game(t_game *g)
@@ -53,13 +81,9 @@ int	start_game(t_game *g)
 	void	*win;
 	void	*mlx;
 
-	g->tick = 0;
-	g->photos = 0;
-	g->won = 0;
-	g->draw = 1;
-	g->sp_data.last_tick = 0;
 	win = g->win->win;
 	mlx = g->win->mlx;
+	init_game(g);
 	init_player(g);
 	init_textures(g);
 	init_frame(g);

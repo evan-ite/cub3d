@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:47:26 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/29 15:04:42 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:58:20 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	free_images(t_game *g)
 	int	ctr;
 
 	ctr = -1;
-	while (++ctr < 7)
+	while (++ctr < 5)
 	{
 		mlx_destroy_image(g->win->mlx, g->texts[ctr]->mlx_img);
 		free(g->texts[ctr]);
