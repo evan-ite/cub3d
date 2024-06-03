@@ -1,14 +1,7 @@
 
 # cub3D
 
-
-<a href="(https://youtu.be/35gA5YFIUJM)" target="_blank">
-    <img src="(http://img.youtu.be/35gA5YFIUJM/0.jpg)" alt="Watch the video" width="240" height="180" border="10" />
-</a>
-
-![Video Placeholder](screenshot.png)
-[![Watch the video](screenchot.png)](https://youtu.be/35gA5YFIUJM)
-
+[![Watch the video](http://img.youtube.com/vi/35gA5YFIUJM/0.jpg)](http://www.youtube.com/watch?v=35gA5YFIUJM)
 
 ## Summary
 cub3D is a project inspired by the legendary Wolfenstein 3D game, renowned as the first FPS ever. It serves as an introduction to ray-casting, where your objective is to create a dynamic view inside a maze and navigate through it.
