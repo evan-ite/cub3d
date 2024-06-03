@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+         #
+#    By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/18 09:59:26 by elisevanite       #+#    #+#              #
-#    Updated: 2024/05/29 14:52:17 by evan-ite         ###   ########.fr        #
+#    Created: 2024/06/03 11:18:30 by jstrozyk          #+#    #+#              #
+#    Updated: 2024/06/03 11:20:41 by jstrozyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME_BONUS = cub3D_bonus
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-CFLAGS_NM = -Wall -Werror -Wextra -D BONUS=1 -D HIDE_MOUSE=1
 CFLAGS_BONUS = -Wall -Werror -Wextra -D BONUS=1
 LFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 
@@ -31,37 +30,27 @@ SRC = src/main.c src/error.c src/free.c \
 	src/features/doors.c src/dda/dda_objects.c src/features/sprite_utils.c \
 	src/features/photo.c
 
-OBJ := $(SRC:.c=.o)
-OBJ_NM := $(SRC:.c=_nm.o)
-OBJ_BONUS := $(SRC:.c=_bonus.o)
+OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC:.c=_bonus.o)
 
 all: libft $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(LFLAGS)
 
+$(NAME_BONUS): $(OBJ_BONUS)
+	$(CC) $(CFLAGS_BONUS) -o $(NAME_BONUS) $(OBJ_BONUS) $(LIBFT) $(LFLAGS)
+
 libft:
 	$(MAKE) -C src/libft
 
-no_mouse: $(OBJ_NM) libft
-	$(CC) $(CFLAGS_NM) -o $(NAME_BONUS) $(OBJ_NM) $(LIBFT) $(LFLAGS)
 
-bonus: $(OBJ_BONUS) libft
-	$(CC) $(CFLAGS_BONUS) -o $(NAME_BONUS) $(OBJ_BONUS) $(LIBFT) $(LFLAGS)
+bonus: libft $(NAME_BONUS)
 
 %.o: %.c
-	@echo "Rebuilding $@ because of the following dependencies:"
-	@ls -l $?
 	$(CC) $(CFLAGS) -c $< -o $@
 
-%_nm.o: %.c
-	@echo "Rebuilding $@ because of the following dependencies:"
-	@ls -l $?
-	$(CC) $(CFLAGS_NM) -c $< -o $@
-
 %_bonus.o: %.c
-	@echo "Rebuilding $@ because of the following dependencies:"
-	@ls -l $?
 	$(CC) $(CFLAGS_BONUS) -c $< -o $@
 
 clean:
@@ -74,5 +63,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: bonus all clean fclean re no_mouse libft
-
+.PHONY: bonus all clean fclean re libft
