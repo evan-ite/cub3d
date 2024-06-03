@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/29 16:43:26 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:00:06 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@
 # define MMDOOR 0x9f4576
 # define MMPLAYER 0x0
 # define MMDOTSIZE 6
-# define KIMSIZE 450
 # define HSCALE 1
 # define WSCALE 1
 # define MOVE 1

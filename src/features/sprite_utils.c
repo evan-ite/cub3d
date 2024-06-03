@@ -6,7 +6,7 @@
 /*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:52:02 by evan-ite          #+#    #+#             */
-/*   Updated: 2024/05/29 14:29:15 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:01:07 by evan-ite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	loop_y(t_sprite_loop loop, t_sprite sprite, t_game *g, t_img *img)
 	while (++loop.y < sprite.end_y)
 	{
 		loop.d = loop.y * 256 - HEIGHT * 128 + sprite.h * 128;
-		loop.tex.y = (((loop.d * KIMSIZE) / sprite.h) / 256);
+		loop.tex.y = (((loop.d * img->y) / sprite.h) / 256);
 		loop.color = get_px(&(loop.tex), img, 0);
 		set_coord(loop.stripe, loop.y, &(loop.set));
 		if (loop.color > 0)
@@ -66,7 +66,7 @@ void	loop_stripes(t_sprite sprite, t_game *g, t_img *img)
 	while (++loop.stripe < sprite.end_x)
 	{
 		loop.tex.x = (int)(256 * (loop.stripe - (-sprite.w / 2 + sprite.scrx)) \
-			* KIMSIZE / sprite.w) / 256;
+			* img->x / sprite.w) / 256;
 		if (sprite.trans_y > 0 && loop.stripe > 0 && \
 			loop.stripe < WIDTH && sprite.trans_y < g->zbuf[loop.stripe])
 			loop_y(loop, sprite, g, img);
