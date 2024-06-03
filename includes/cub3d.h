@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evan-ite <evan-ite@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jstrozyk <jstrozyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:03:45 by elisevanite       #+#    #+#             */
-/*   Updated: 2024/05/29 14:51:35 by evan-ite         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:39:28 by jstrozyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@
 # ifndef BONUS
 #  define BONUS 0
 # endif
-# define WIDTH 1324
-# define HEIGHT 768
+# define WIDTH 1920
+# define HEIGHT 1020
 # define TURNSPEED 0.03
 # define WALKSPEED 0.04
-# define MOUSE_SENS 50
+# define MOUSE_SENS 30
 # define FOV 0.8
 # define MMOFFSET 50
 # define MMWALL 0xFA69DA

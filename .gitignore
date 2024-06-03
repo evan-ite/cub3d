@@ -1,5 +1,6 @@
 cub3d
 *.o
+*.su
 .vscode
 val.out
 libft/libft.a
